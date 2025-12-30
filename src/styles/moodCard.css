@@ -1,0 +1,42 @@
+.mood-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mood-card-wrapper h3 {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.mood-card-wrapper span {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.delete-btn {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.mood-card {
+  /* background: #a5a5a5ff; */
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  animation: cardMation 1.5s ease-in-out;
+}
+
+@keyframes cardMation {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

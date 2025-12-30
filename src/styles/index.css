@@ -1,0 +1,90 @@
+:root {
+  /* Background */
+  --bg-gradient: linear-gradient(135deg, #14071eff, #701e59ff);
+
+  /* Surfaces */
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-glass: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-invert: #ffffff;
+
+  /* Effects */
+  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.35);
+
+  /* Radius & motion */
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --transition-fast: 0.25s ease;
+  --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- CSS RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  color: var(--text-primary);
+  padding: 2rem;
+}
+
+/* ---------- APP ---------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+.app-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  color: var(--text-invert);
+}
+
+.app-header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.app-header p {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+.current-mood {
+  text-align: center;
+}
+
+.main-card {
+  width: 100%;
+  max-width: 780px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 2.5rem;
+  animation: fadeUp 0.8s var(--transition-slow);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

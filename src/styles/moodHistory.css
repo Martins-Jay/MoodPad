@@ -1,0 +1,25 @@
+.mood-history {
+  margin-top: 2rem;
+}
+
+.mood-history h2 {
+  color: white;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.mood-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.empty-history {
+  text-align: center;
+  opacity: 0.6;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.mood-card-header h3 {
+  color: '#fff';
+}

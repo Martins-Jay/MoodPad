@@ -1,0 +1,27 @@
+.mood-selector {
+  display: flex;
+  gap: .7rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mood-button {
+  border: none;
+  font-size: 9px;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mood-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.mood-button.active {
+  outline: 3px solid rgba(120, 120, 120, 1);
+}
