@@ -1,47 +1,73 @@
-import { useEffect, useState } from 'react';
-import './styles/index.css';
-import MoodHistory from './components/MoodHistory';
-import MoodSelector from './components/MoodSelector';
-import ActionBar from './components/ActionBar.js';
+import { useEffect, useState } from "react";
+import "./styles/index.css";
+import MoodHistory from "./components/MoodHistory";
+import MoodSelector from "./components/MoodSelector";
+import ActionBar from "./components/ActionBar.js";
 
-const STORAGE_KEY = 'mood-tracker-history';
+const STORAGE_KEY = "mood-tracker-history";
 
 function App() {
   const [currentMood, setCurrentMood] = useState(null);
   const [moodHistory, setMoodHistory] = useState([]);
 
-  // Load from localStorage
+  // Load from localStorage safely on mount
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) setMoodHistory(JSON.parse(stored));
+    const strStoredMoods = localStorage.getItem(STORAGE_KEY);
+
+    if (strStoredMoods) {
+      const parsedMoods = JSON.parse(strStoredMoods);
+      setMoodHistory(parsedMoods);
+    }
   }, []);
 
-  // Save to localStorage
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(moodHistory));
-  }, [moodHistory]);
-
+  // Add new mood
   function handleMoodSelect(moodObj) {
     const newMood = {
       id: Date.now(),
       name: moodObj.name,
       color: moodObj.color,
       timestamp: new Date().toLocaleString(),
-      note: '',
+      note: "",
     };
 
     setCurrentMood(moodObj.name);
-    setMoodHistory((prev) => [newMood, ...prev]);
+
+    setMoodHistory((moodHistory) => {
+      const updated = [newMood, ...moodHistory];
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); // save immediately
+      return updated;
+    });
   }
 
-  function deleteMood(id) {
-    setMoodHistory((prev) => prev.filter((m) => m.id !== id));
+  function deleteMood(moodToDelete) {
+    setMoodHistory((moodHistory) => {
+      const updated = moodHistory.filter(
+        (moodObj) => moodObj.id !== moodToDelete.id
+      );
+
+      setCurrentMood((currentMood) =>
+        currentMood === moodToDelete.name ? null : currentMood
+      );
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); // save immediately
+      return updated;
+    });
   }
 
   function updateMoodNote(id, newNote) {
-    setMoodHistory((prev) =>
-      prev.map((mood) => (mood.id === id ? { ...mood, note: newNote } : mood))
-    );
+    setMoodHistory((prev) => {
+      const updated = prev.map((m) =>
+        m.id === id ? { ...m, note: newNote } : m
+      );
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); // save immediately
+      return updated;
+    });
+  }
+
+  function handleReset() {
+    setMoodHistory([]);
+    setCurrentMood(null);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([])); // clear localStorage
   }
 
   return (
@@ -54,12 +80,22 @@ function App() {
       <main className="app-content">
         <MoodSelector onSelect={handleMoodSelect} />
 
+        {console.log(currentMood)}
+
         <ActionBar>
-          {currentMood && (
-            <p className="current-mood">
-              Current mood: <strong>{currentMood}</strong>
-            </p>
-          )}
+          <div className="display-wrapper">
+            {currentMood && (
+              <p className="current-mood">
+                Current mood: <strong>{currentMood}</strong>
+              </p>
+            )}
+
+            {moodHistory && (
+              <button className="reset-btn" onClick={handleReset}>
+                Reset
+              </button>
+            )}
+          </div>
         </ActionBar>
 
         <MoodHistory

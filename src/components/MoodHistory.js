@@ -12,20 +12,14 @@ function MoodHistory({ moodHistory, onDelete, onUpdateNote }) {
       <h2>Mood History</h2>
 
       <div className="mood-list">
-        {moodHistory.map((mood) => (
-          <MoodCard key={mood.id} mood={mood}>
-            <button
-              className="delete-btn"
-              onClick={() => onDelete(mood.id)}
-            >
+        {moodHistory.map((moodObj) => (
+          <MoodCard key={moodObj.id} moodObj={moodObj}>
+            <button className="delete-btn" onClick={() => onDelete(moodObj)}>
               ✕
             </button>
-
             <MoodNote
-              note={mood.note}
-              onSave={(newNote) =>
-                onUpdateNote(mood.id, newNote)
-              }
+              note={moodObj.note}
+              onSave={(newNote) => onUpdateNote(moodObj.id, newNote)}
             />
           </MoodCard>
         ))}

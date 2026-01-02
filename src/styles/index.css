@@ -31,7 +31,7 @@
 
 /* ---------- BODY ---------- */
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   background: var(--bg-gradient);
   min-height: 100vh;
   color: var(--text-primary);
@@ -55,6 +55,7 @@ body {
 .app-header h1 {
   font-size: 1.9rem;
   font-weight: 700;
+  color: #dadadaff;
   letter-spacing: -0.02em;
 }
 
@@ -64,8 +65,24 @@ body {
   opacity: 0.5;
 }
 
+.display-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
 .current-mood {
-  text-align: center;
+  color: #fff;
+}
+
+.reset-btn {
+  background: #bd1313ff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 30px;
+  border: none;
+  color: #e2e0e0ff;
+  font-size:.6rem;
 }
 
 .main-card {

@@ -1,34 +1,34 @@
-import { useState } from 'react';
-import '../styles/moodSelector.css';
+import { useState } from "react";
+import "../styles/moodSelector.css";
 
 function MoodSelector({ onSelect }) {
-  const moods = [
-    { name: 'Happy', emoji: '😊', color: '#08a713ff' },
-    { name: 'Energetic', emoji: '⚡️', color: '#ef39a3' },
-    { name: 'Relaxed', emoji: '😌', color: '#57459eff' },
-    { name: 'Sad', emoji: '😞', color: '#8e3c3c' },
-    { name: 'Angry', emoji: '😡', color: '#ff0f02' },
+  const moodsArr = [
+    { name: "Happy", emoji: "😊", color: "#08a713ff" },
+    { name: "Energetic", emoji: "⚡️", color: "#ef39a3" },
+    { name: "Relaxed", emoji: "😌", color: "#57459eff" },
+    { name: "Sad", emoji: "😞", color: "#8e3c3c" },
+    { name: "Angry", emoji: "😡", color: "#ff0f02" },
   ];
 
   const [selectedMood, setSelectedMood] = useState(null);
 
-  function handleClick(mood) {
-    setSelectedMood(mood.name);
-    onSelect(mood);
+  function handleClick(moodsArr) {
+    setSelectedMood(moodsArr.name);
+    onSelect(moodsArr);
   }
 
   return (
     <div className="mood-selector">
-      {moods.map((mood) => (
+      {moodsArr.map((moodObj) => (
         <button
-          key={mood.name}
+          key={moodObj.name}
           className={`mood-button ${
-            selectedMood === mood.name ? 'active' : ''
+            selectedMood === moodObj.name ? "active" : ""
           }`}
-          style={{ backgroundColor: mood.color }}
-          onClick={() => handleClick(mood)}
+          style={{ backgroundColor: moodObj.color }}
+          onClick={() => handleClick(moodObj)}
         >
-          {mood.name}
+          {moodObj.name}
         </button>
       ))}
     </div>

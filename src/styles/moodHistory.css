@@ -4,7 +4,7 @@
 
 .mood-history h2 {
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0.8;
 }
 
@@ -15,11 +15,19 @@
 
 .empty-history {
   text-align: center;
+  margin-top: 1.5rem;
   opacity: 0.6;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
 }
 
 .mood-card-header h3 {
-  color: '#fff';
+  color: "#fff";
+}
+
+.delete-btn {
+  background: #adadadff;
+  color: #000000ff;
+  border-radius: 100%;
+  padding: 0.1rem 0.4rem;
 }

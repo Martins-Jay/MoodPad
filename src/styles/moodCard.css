@@ -40,3 +40,7 @@
     transform: translateY(0px);
   }
 }
+
+.mood-card-wrapper span {
+  font-size: 0.8rem;
+}

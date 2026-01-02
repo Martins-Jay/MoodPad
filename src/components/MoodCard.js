@@ -1,14 +1,14 @@
 import '../styles/moodCard.css';
 
-function MoodCard({ mood, children }) {
+function MoodCard({ moodObj, children }) {
   return (
     <div
       className="mood-card"
-      style={{ borderLeft: `6px solid ${mood.color}`, borderRadius: '6px' }}
+      style={{ borderLeft: `6px solid ${moodObj.color}`, borderRadius: '6px' }}
     >
       <div className="mood-card-wrapper">
-        <h3>{mood.name}</h3>
-        <span>{mood.timestamp}</span>
+        <h3>{moodObj.name}</h3>
+        <span>{moodObj.timestamp}</span>
         {children}
       </div>
     </div>
