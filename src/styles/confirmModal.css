@@ -1,0 +1,72 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem 2.4rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  animation: scaleUp 0.35s var(--transition-slow);
+}
+
+.modal-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.warning-box {
+  margin: 1rem 0;
+  padding: 0.7rem;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.6rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.6rem 1.3rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn.danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+

@@ -3,12 +3,14 @@ import "./styles/index.css";
 import MoodHistory from "./components/MoodHistory";
 import MoodSelector from "./components/MoodSelector";
 import ActionBar from "./components/ActionBar.js";
+import ConfirmModal from "./components/ConfirmModal.js";
 
 const STORAGE_KEY = "mood-tracker-history";
 
 function App() {
   const [currentMood, setCurrentMood] = useState(null);
   const [moodHistory, setMoodHistory] = useState([]);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   // Load from localStorage safely on mount
   useEffect(() => {
@@ -44,21 +46,23 @@ function App() {
     setMoodHistory((moodHistory) => {
       const updated = moodHistory.filter(
         (moodObj) => moodObj.id !== moodToDelete.id
-      );
+      ); // into the filter, we pass what we want to keep
 
       setCurrentMood((currentMood) =>
         currentMood === moodToDelete.name ? null : currentMood
       );
+
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); // save immediately
       return updated;
     });
   }
 
   function updateMoodNote(id, newNote) {
-    setMoodHistory((prev) => {
-      const updated = prev.map((m) =>
-        m.id === id ? { ...m, note: newNote } : m
+    setMoodHistory((moodHistory) => {
+      const updated = moodHistory.map((moodObj) =>
+        moodObj.id === id ? { ...moodObj, note: newNote } : moodObj
       );
+
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); // save immediately
       return updated;
     });
@@ -68,6 +72,7 @@ function App() {
     setMoodHistory([]);
     setCurrentMood(null);
     localStorage.setItem(STORAGE_KEY, JSON.stringify([])); // clear localStorage
+    setShowResetConfirm(false); // modal close after confirming
   }
 
   return (
@@ -90,8 +95,11 @@ function App() {
               </p>
             )}
 
-            {moodHistory && (
-              <button className="reset-btn" onClick={handleReset}>
+            {moodHistory.length > 0 && (
+              <button
+                className="reset-btn"
+                onClick={() => setShowResetConfirm(true)}
+              >
                 Reset
               </button>
             )}
@@ -104,6 +112,17 @@ function App() {
           onUpdateNote={updateMoodNote}
         />
       </main>
+
+      {showResetConfirm && (
+        <ConfirmModal
+          title={"Reset mood history?"}
+          message={"This will permanently delete all your mood entries. This action cannot be undone."}
+          onConfirm={handleReset}
+          onCancel={() => setShowResetConfirm(false)}
+        >
+          <div className="warning-box">⚠️ This action is irreversible</div>
+        </ConfirmModal>
+      )}
     </div>
   );
 }
