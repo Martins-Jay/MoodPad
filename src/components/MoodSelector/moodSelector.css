@@ -1,4 +1,4 @@
-.mood-selector {
+/* .mood-selector {
   display: flex;
   gap: .7rem;
   margin-bottom: 1rem;
@@ -24,4 +24,4 @@
 
 .mood-button.active {
   outline: 3px solid rgba(120, 120, 120, 1);
-}
+} */

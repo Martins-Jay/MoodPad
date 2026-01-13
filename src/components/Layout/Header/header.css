@@ -1,0 +1,88 @@
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding: 1.4rem 1.5rem;
+  background: #efdb27ff;
+  width: 100%;
+  min-height: 42vh;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.top-nav-container {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-mood-icon {
+  width: 40px;
+  height: 40px;
+  background: #797979ff;
+  border-radius: 100%;
+}
+
+.welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.welcome-wrapper h1 {
+  color: #5c5c5cff;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.greetings-wrapper {
+  margin-bottom: 1.6rem;
+}
+
+.welcome-wrapper h2 {
+  color: #262626ff;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.welcome-wrapper h2 span {
+  font-weight: bold;
+  color: #393939ff;
+}
+
+.welcome-wrapper input {
+  width: 100%;
+  color: #4f4f4fff;
+  background: #dabe4bff;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  padding: 1.1rem;
+  outline: none;
+}
+
+.welcome-wrapper input::placeholder {
+  color: #707070ff;
+  font-size: 15px;
+}
+
+.reflection-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.reflection-input-wrapper input {
+  width: 100%;
+  max-width: 400px;
+}
+
+.submit-btn {
+  position: absolute;
+  top: 25%;
+  right: .8rem;
+  cursor: pointer;
+  color: #525252ff;
+}
