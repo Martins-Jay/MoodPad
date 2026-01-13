@@ -1,0 +1,6 @@
+.item-container {
+  display: flex;
+  background: rgba(231, 162, 2, 0.3);
+  padding: .3rem .9rem;
+  border-radius: .7rem;
+}

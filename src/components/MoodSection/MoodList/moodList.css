@@ -1,0 +1,16 @@
+.mood-list-container {
+  background: rgba(169, 168, 156, 0.33);
+  padding: 1.2rem 1.5rem;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-top-right-radius: 60px;
+  border-top-left-radius: 60px;
+  padding-top: 30px;
+}
+
+.mood-list {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}

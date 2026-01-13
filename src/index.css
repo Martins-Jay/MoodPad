@@ -10,7 +10,6 @@
 html,
 body {
   width: 100%;
-  /* font-family: 'Open Sans', 'Raleway', 'Barlow Condensed', sans-serif; */
-  /* font-family: "Raleway", sans-serif; */
+  overflow-x: hidden;
   font-family: 'Barlow Condensed', sans-serif;
 }

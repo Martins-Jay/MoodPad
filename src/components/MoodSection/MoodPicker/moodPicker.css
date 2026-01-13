@@ -1,0 +1,22 @@
+.mood-List-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.5rem;
+}
+
+.mood-List-container h1{
+  color: #202020ff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.mood-icons-container {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.current-mood-container {
+  display: flex;
+  justify-content: center
+}

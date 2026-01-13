@@ -1,0 +1,27 @@
+.reflection-content-wrapper {
+  margin-bottom: 1.6rem;
+}
+
+.reflection-card-wrapper h1 {
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.reflection-card-wrapper h2 {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.reflection-card-wrapper h2 span {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.reflection-card-wrapper h3 {
+  font-size: 24px;
+  font-weight: 200;
+  color: rgb(0, 0, 0);
+}

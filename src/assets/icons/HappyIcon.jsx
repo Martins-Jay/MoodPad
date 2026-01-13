@@ -1,4 +1,4 @@
-function SmilingIcon({size = 45}) {
+function HappyIcon({size = 45}) {
   return (
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" width={size} height={size}>
       <g id="color">
@@ -70,4 +70,4 @@ function SmilingIcon({size = 45}) {
   );
 }
 
-export default SmilingIcon
+export default HappyIcon
