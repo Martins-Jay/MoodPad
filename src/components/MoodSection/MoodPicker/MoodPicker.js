@@ -3,12 +3,12 @@ import MoodIcon from '../MoodIcon/MoodIcon';
 import './moodPicker.css';
 
 const iconArr = [
-  { iconName: 'scared', color: '#910303' },
-  { iconName: 'tired', color: '#0c0c09' },
-  { iconName: 'happy', color: '#0cdfea' },
-  { iconName: 'sad', color: '#f11ae7' },
-  { iconName: 'sick', color: '#059716' },
-  { iconName: 'angry', color: '#fc0000' },
+  { iconName: 'scared', name: 'Scared', color: '#867676' },
+  { iconName: 'tired', name: 'Tired', color: '#0c0c09' },
+  { iconName: 'happy', name: 'Happy', color: '#0cea10' },
+  { iconName: 'sad', name: 'Sad', color: '#df0070' },
+  { iconName: 'sick', name: 'Sick', color: '#e78e08' },
+  { iconName: 'angry', name: 'Angry', color: '#fc0000' },
 ];
 
 function MoodPicker({ onPickMood }) {

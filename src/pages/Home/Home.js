@@ -8,9 +8,25 @@ import { useState } from 'react';
 function Home() {
   const [moodsArr, setMoodsArr] = useState([]);
 
-  function handlePickMood(iconObj) {
+
+  function handleSaveNote(selectedMoodId, formattedText) {
+    console.log(selectedMoodId, formattedText);
+    setMoodsArr((prevMood) =>
+      moodsArr.map((moodObj) =>
+        moodObj.id === selectedMoodId
+          ? { ...moodObj, note: formattedText }
+          : moodObj
+      )
+    );
+  }
+
+  function handleAddMood(iconObj, selectedMoodId, formattedText) {
     setMoodsArr((prevMood) => [
-      { ...iconObj, id: Date.now(), isoDate: new Date().toISOString() },
+      {
+        ...iconObj,
+        id: Date.now(),
+        isoDate: new Date().toISOString(),
+      },
       ...prevMood,
     ]);
   }
@@ -18,8 +34,8 @@ function Home() {
   return (
     <PageWrapper>
       <Header />
-      <MoodPicker onPickMood={handlePickMood} />
-      <MoodList selectedMoods={moodsArr} />
+      <MoodPicker onPickMood={handleAddMood} />
+      <MoodList selectedMoods={moodsArr} onSaveNote={handleSaveNote} />
     </PageWrapper>
   );
 }

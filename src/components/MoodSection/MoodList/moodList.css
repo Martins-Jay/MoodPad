@@ -12,5 +12,5 @@
 .mood-list {
   display: flex;
   flex-direction: column;
-  gap: .8rem;
+  gap: 0.8rem;
 }
