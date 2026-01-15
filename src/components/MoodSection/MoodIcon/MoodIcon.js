@@ -1,6 +1,3 @@
-import HappyIcon from '../../../assets/icons/HappyIcon';
-import SickIcon from '../../../assets/icons/Sick';
-
 import SadIcon from '../../../assets/icons/SadIcon';
 import AngryIcon from '../../../assets/icons/Angry';
 import SmileIcon from '../../../assets/icons/SmileIcon';
@@ -33,7 +30,6 @@ function MoodIcon({ iconObj, onPickMood }) {
         onClick={handleClick}
       >
         {icons[iconObj.iconName]}
-        
       </div>
 
       <div className="mood-name">{iconObj.name}</div>
