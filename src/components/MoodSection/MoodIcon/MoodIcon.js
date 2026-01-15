@@ -1,17 +1,22 @@
 import HappyIcon from '../../../assets/icons/HappyIcon';
+import SickIcon from '../../../assets/icons/Sick';
+
 import SadIcon from '../../../assets/icons/SadIcon';
 import AngryIcon from '../../../assets/icons/Angry';
-import TiredIcon from '../../../assets/icons/Tired';
-import SickIcon from '../../../assets/icons/Sick';
-import ScaredIcon from '../../../assets/icons/Scared';
+import SmileIcon from '../../../assets/icons/SmileIcon';
+import LeafIcon from '../../../assets/icons/LeafIcon';
+import NeutralIcon from '../../../assets/icons/NeutralIcon';
+import AnxiousIcon from '../../../assets/icons/AnxiousIcon';
+
+import './moodIcon.css';
 
 const icons = {
-  scared: <ScaredIcon size={60} />,
-  happy: <HappyIcon size={60} />,
-  sad: <SadIcon size={60} />,
-  tired: <TiredIcon size={60} />,
-  sick: <SickIcon size={60} />,
-  angry: <AngryIcon size={60} />,
+  smile: <SmileIcon size={25} />,
+  leaf: <LeafIcon size={25} />,
+  sad: <SadIcon size={25} />,
+  anxious: <AnxiousIcon size={25} />,
+  neutral: <NeutralIcon size={25} />,
+  angry: <AngryIcon size={25} />,
 };
 
 function MoodIcon({ iconObj, onPickMood }) {
@@ -21,11 +26,18 @@ function MoodIcon({ iconObj, onPickMood }) {
   }
 
   return (
-    <div className="mood-item-wrapper">
-      <div className="mood-svg-icon" onClick={handleClick}>
+    <li className="mood-icon-wrapper">
+      <div
+        className="mood-svg-icon"
+        style={{ background: iconObj.color }}
+        onClick={handleClick}
+      >
         {icons[iconObj.iconName]}
+        
       </div>
-    </div>
+
+      <div className="mood-name">{iconObj.name}</div>
+    </li>
   );
 }
 

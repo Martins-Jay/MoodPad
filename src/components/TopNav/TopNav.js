@@ -6,11 +6,11 @@ function TopNav() {
   return (
     <div className="top-nav-container">
       <div className="nav-mood-icon">
-        <SmilingIcon size={40} />
+        <SmilingIcon size={30} />
       </div>
 
       <div>
-        <SunIcon size={28} />
+        <SunIcon size={25} />
       </div>
     </div>
   );

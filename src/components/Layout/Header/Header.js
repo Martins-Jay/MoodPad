@@ -1,5 +1,5 @@
 import TopNav from '../../TopNav/TopNav';
-import ReflectionCard from '../../Reflection/ReflectionCard/ReflectionCard';
+import DashboardHeader from '../../Reflection/DashboardHeader/DashboardHeader';
 
 import './header.css';
 
@@ -8,7 +8,7 @@ function Header() {
     <div className="header-wrapper">
       <TopNav />
 
-      <ReflectionCard />
+      <DashboardHeader />
     </div>
   );
 }

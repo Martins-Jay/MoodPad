@@ -3,12 +3,12 @@ import MoodIcon from '../MoodIcon/MoodIcon';
 import './moodPicker.css';
 
 const iconArr = [
-  { iconName: 'scared', name: 'Scared', color: '#867676' },
-  { iconName: 'tired', name: 'Tired', color: '#0c0c09' },
-  { iconName: 'happy', name: 'Happy', color: '#0cea10' },
-  { iconName: 'sad', name: 'Sad', color: '#df0070' },
-  { iconName: 'sick', name: 'Sick', color: '#e78e08' },
-  { iconName: 'angry', name: 'Angry', color: '#fc0000' },
+  { iconName: 'smile', name: 'Happy', color: 'var(--grad-happy)' },
+  { iconName: 'leaf', name: 'Calm', color: 'var(--grad-calm)' },
+  { iconName: 'neutral', name: 'Neutral', color: 'var(--grad-neutral)' },
+  { iconName: 'sad', name: 'Sad', color: 'var(--grad-sad)' },
+  { iconName: 'anxious', name: 'Anxious', color: 'var(--grad-anxious)' },
+  { iconName: 'angry', name: 'Angry', color: 'var(--grad-angry)' },
 ];
 
 function MoodPicker({ onPickMood }) {
@@ -16,7 +16,7 @@ function MoodPicker({ onPickMood }) {
     <div className="mood-List-container">
       {/* <h1 className="content-title">How are you feeling?</h1> */}
 
-      <div className="mood-icons-container">
+      <ul className="mood-icons-container">
         {iconArr.map((iconObj) => (
           <MoodIcon
             key={iconObj.iconName}
@@ -24,7 +24,7 @@ function MoodPicker({ onPickMood }) {
             onPickMood={onPickMood}
           />
         ))}
-      </div>
+      </ul>
 
       <div className="current-mood-container">
         <div className="current-mood">No mood selected</div>

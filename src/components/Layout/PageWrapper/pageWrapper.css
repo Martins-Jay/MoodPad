@@ -1,5 +1,7 @@
 .page-wrapper {
-  background-color: rgba(211, 207, 186, 0.51);
+  background: var(--bg-radial-left), var(--bg-radial-right), var(--bg-base);
+
   width: 100%;
   height: 100vh;
+  padding: 1.5rem 1.57rem;
 }

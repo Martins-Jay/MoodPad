@@ -1,0 +1,36 @@
+.dashboard-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .18rem;
+}
+
+.dashboard-content-wrapper h1 {
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.dashboard-content-wrapper p {
+  color: var(--text-secondary);
+}
+
+.dashboard-content-wrapper .date-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.2rem;
+}
+
+.dashboard-content-wrapper .clock-icon {
+  color: var(--text-secondary);
+}
+
+.clock-icon svg {
+  display: inline-block;
+  vertical-align: -5%;
+}
+
+.dashboard-content-wrapper .date-container {
+  font-size: 0.9rem;
+}

@@ -1,10 +1,22 @@
 .mood-List-container {
   display: flex;
   flex-direction: column;
-  padding: 1.8rem 1.5rem;
 }
 
-.mood-List-container h1{
+.mood-icons-container {
+  display: flex;
+  justify-content: space-evenly;
+  background: var(--bg-radial-left), var(--bg-radial-right), var(--bg-base);
+  padding: 0;
+  margin: 1.3rem 0;
+  border-radius: 20px;
+}
+
+.mood-icons-container svg {
+  color: #fff;
+}
+
+.mood-List-container h1 {
   color: #202020ff;
   font-size: 1.1rem;
   font-weight: 500;
@@ -13,10 +25,10 @@
 
 .mood-icons-container {
   display: flex;
-  gap: 0.1rem;
+  /* gap: .1rem; */
 }
 
 .current-mood-container {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }

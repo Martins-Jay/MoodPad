@@ -68,7 +68,7 @@ function MoodItem({ moodObj, onSaveNote }) {
         {isEditing ? (
           <textarea
             autofocus
-            className="auto-grow"
+            className="text-area"
             placeholder="Add a note..."
             value={text}
             rows={1}

@@ -1,11 +1,6 @@
 .header-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
-  padding: 1.2rem 1.5rem;
-  background: rgba(231, 162, 2, 0.3);
-  width: 100%;
-  min-height: 42vh;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  gap: 0.5rem;
+ 
 }

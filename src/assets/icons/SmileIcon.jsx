@@ -1,7 +1,5 @@
-function AngryIcon({ size = 45 }) {
+function SmileIcon({ size = 45 }) {
   return (
- 
-
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
@@ -12,12 +10,15 @@ function AngryIcon({ size = 45 }) {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-bolt"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-mood-smile"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+      <path d="M9 10l.01 0" />
+      <path d="M15 10l.01 0" />
+      <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
     </svg>
   );
 }
 
-export default AngryIcon;
+export default SmileIcon;

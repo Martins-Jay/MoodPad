@@ -1,7 +1,5 @@
-function AngryIcon({ size = 45 }) {
+function LeafIcon({ size = 45 }) {
   return (
- 
-
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
@@ -12,12 +10,15 @@ function AngryIcon({ size = 45 }) {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-bolt"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-leaf"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+      <path d="M5 21c.5 -4.5 2.5 -8 7 -10" />
+      <path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3l.014 0" />
     </svg>
   );
 }
 
-export default AngryIcon;
+export default LeafIcon;
+
+
