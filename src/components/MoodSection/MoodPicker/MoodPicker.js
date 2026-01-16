@@ -1,34 +1,71 @@
-import MoodIcon from '../MoodIcon/MoodIcon';
+import MoodOption from '../MoodOption/MoodOption';
 
 import './moodPicker.css';
 
 const iconArr = [
-  { iconName: 'smile', name: 'Happy', color: 'var(--grad-happy)' },
-  { iconName: 'leaf', name: 'Calm', color: 'var(--grad-calm)' },
-  { iconName: 'neutral', name: 'Neutral', color: 'var(--grad-neutral)' },
-  { iconName: 'sad', name: 'Sad', color: 'var(--grad-sad)' },
-  { iconName: 'anxious', name: 'Anxious', color: 'var(--grad-anxious)' },
-  { iconName: 'angry', name: 'Angry', color: 'var(--grad-angry)' },
+  {
+    idNum: 1,
+    iconName: 'smile',
+    name: 'Happy',
+    color: '#dca900',
+    colorGradient: 'var(--grad-happy)',
+    cardColorGradient: 'var(--grad-happy-fade)',
+  },
+  {
+    idNum: 2,
+    iconName: 'leaf',
+    name: 'Calm',
+    color: '#16c054',
+    colorGradient: 'var(--grad-calm)',
+    cardColorGradient: 'var(--grad-calm-fade)',
+  },
+  {
+    idNum: 3,
+    iconName: 'neutral',
+    name: 'Neutral',
+    color: '#7c828b',
+    colorGradient: 'var(--grad-neutral)',
+    cardColorGradient: 'var(--grad-neutral-fade)',
+  },
+  {
+    idNum: 4,
+    iconName: 'sad',
+    name: 'Sad',
+    color: '#186fd2',
+    colorGradient: 'var(--grad-sad)',
+    cardColorGradient: 'var(--grad-sad-fade)',
+  },
+  {
+    idNum: 5,
+    iconName: 'anxious',
+    name: 'Anxious',
+    color: '#7b67cb',
+    colorGradient: 'var(--grad-anxious)',
+    cardColorGradient: 'var(--grad-anxious-fade)',
+  },
+  {
+    idNum: 6,
+    iconName: 'angry',
+    name: 'Angry',
+    color: '#e71919',
+    colorGradient: 'var(--grad-angry)',
+    cardColorGradient: 'var(--grad-angry-fade)',
+  },
 ];
 
-function MoodPicker({ onPickMood }) {
+function MoodPicker({ onPickMood, onMoodSelect }) {
   return (
     <div className="mood-List-container">
-      {/* <h1 className="content-title">How are you feeling?</h1> */}
-
       <ul className="mood-icons-container">
         {iconArr.map((iconObj) => (
-          <MoodIcon
-            key={iconObj.iconName}
+          <MoodOption
+            key={iconObj.idNum}
             iconObj={iconObj}
             onPickMood={onPickMood}
+            onMoodSelect={onMoodSelect}
           />
         ))}
       </ul>
-
-      <div className="current-mood-container">
-        <div className="current-mood">No mood selected</div>
-      </div>
     </div>
   );
 }

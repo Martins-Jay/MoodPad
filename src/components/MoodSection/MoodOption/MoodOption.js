@@ -5,7 +5,7 @@ import LeafIcon from '../../../assets/icons/LeafIcon';
 import NeutralIcon from '../../../assets/icons/NeutralIcon';
 import AnxiousIcon from '../../../assets/icons/AnxiousIcon';
 
-import './moodIcon.css';
+import './moodOption.css';
 
 const icons = {
   smile: <SmileIcon size={25} />,
@@ -16,25 +16,22 @@ const icons = {
   angry: <AngryIcon size={25} />,
 };
 
-function MoodIcon({ iconObj, onPickMood }) {
-  function handleClick() {
-    if (!onPickMood) return;
-    onPickMood(iconObj);
-  }
-
+function MoodOption({ iconObj, onPickMood, onMoodSelect }) {
   return (
-    <li className="mood-icon-wrapper">
+    <li className="mood-option-wrapper">
       <div
         className="mood-svg-icon"
-        style={{ background: iconObj.color }}
-        onClick={handleClick}
+        style={{ background: iconObj.colorGradient }}
+        onClick={() => onMoodSelect(iconObj)}
       >
         {icons[iconObj.iconName]}
       </div>
 
-      <div className="mood-name">{iconObj.name}</div>
+      <div className="mood-name">{iconObj?.name}</div>
     </li>
   );
 }
 
-export default MoodIcon;
+export default MoodOption;
+
+// onClick={() => onPickMood(iconObj)}
