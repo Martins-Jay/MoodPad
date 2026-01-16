@@ -12,7 +12,7 @@
   /* --------------------------------
      TEXT COLORS
      -------------------------------- */
-  --text-primary: #111827; /* Headings */
+  --text-primary: #353434; /* Headings */
   --text-secondary: #6b7280; /* Descriptions */
   --text-muted: #9ca3af; /* Placeholders */
   --text-inverse: #ffffff; /* On colored backgrounds */
@@ -41,12 +41,59 @@
   /* --------------------------------
      MOOD GRADIENTS (USED SPARINGLY)
      -------------------------------- */
-  --grad-happy: linear-gradient(135deg, #fde68a, #f9cc2b);
+  --grad-happy: linear-gradient(135deg, #fde68a, #c9a214);
   --grad-calm: linear-gradient(135deg, #a7f3d0, #56f690);
   --grad-neutral: linear-gradient(135deg, #e5e7eb, #bfc3ca);
   --grad-sad: linear-gradient(135deg, #bfdbfe, #93c5fd);
   --grad-anxious: linear-gradient(135deg, #ddd6fe, #a692f6);
   --grad-angry: linear-gradient(135deg, #fecaca, #f57d7d);
+
+  /* --------------------------------
+     MOOD GRADIENTS FOR CARDS
+     -------------------------------- */
+  /* --grad-happy-fade: linear-gradient(90deg, #f6ebc0fa 0%, #ffffff 100%);
+  --grad-calm-fade: linear-gradient(90deg, #bdecd6 0%, #ffffff 100%);
+  --grad-neutral-fade: linear-gradient(90deg, #e5e7eb 0%, #ffffff 100%);
+  --grad-sad-fade: linear-gradient(90deg, #bbd4f2 0%, #ffffff 100%);
+  --grad-anxious-fade: linear-gradient(90deg, #ddd6fe 0%, #ffffff 100%);
+  --grad-angry-fade: linear-gradient(90deg, #fecaca 0%, #ffffff 100%); */
+
+  --grad-happy-fade: linear-gradient(
+    90deg,
+    #f9d237fa 0%,
+    #f4ebc6c7 20%,
+    #ffffff 40%
+  );
+
+  --grad-calm-fade: linear-gradient(
+    90deg,
+    #51f9ab 0%,
+    #d0f5e4 20%,
+    #ffffff 40%
+  );
+
+  --grad-neutral-fade: linear-gradient(
+    90deg,
+    #e5e7eb 0%,
+    #e5e7eb 20%,
+    #ffffff 40%
+  );
+
+  --grad-sad-fade: linear-gradient(90deg, #bbd4f2 0%, #bbd4f2 15%, #ffffff 35%);
+
+  --grad-anxious-fade: linear-gradient(
+    90deg,
+    #ddd6fe 0%,
+    #ddd6fe 20%,
+    #ffffff 40%
+  );
+
+  --grad-angry-fade: linear-gradient(
+    90deg,
+    #f08787 0%,
+    #fbe0e0 20%,
+    #ffffff 40%
+  );
 
   --grad-mood-icons-container: linear-gradient(180deg, #ffffffbf, #ffffff8c);
 

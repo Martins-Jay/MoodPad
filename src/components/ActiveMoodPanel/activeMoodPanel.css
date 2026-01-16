@@ -1,0 +1,51 @@
+.active-mood-panel-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  background: #fff;
+  border-radius: 20px;
+  padding: 0.4rem 0.6rem 0 0.6rem;
+}
+
+.active-mood-container {
+  width: 100%;
+  padding-bottom: 1.3rem;
+  margin: 0 10px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.4rem 8rem .6rem;
+}
+
+.header-content .svg-wrapper {
+  color: #fff;
+}
+
+.header-content .item-name {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.header-content .date {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.reflection-content-wrapper {
+  width: 97.5%;
+  height: 145px;
+  background: #ffffff;
+  position: absolute;
+  top: 27%;
+  border-radius: 15px;
+}
+
+/* .text-area-wrapper .text-area {
+  position: absolute;
+  background: #6c3c3c;
+} */

@@ -2,8 +2,15 @@ import { useState } from 'react';
 import './moodItem.css';
 // import SubmitIcon from '../../../assets/icons/SubmitIcon';
 
-function MoodItem({ moodObj, onSaveNote }) {
-  const { id: selectedMoodId, name, color, isoDate } = moodObj;
+function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
+  const {
+    id: selectedMoodId,
+    name,
+    color,
+    colorGradient,
+    cardColorGradient,
+    isoDate,
+  } = moodObj;
   const [text, setText] = useState('');
   const [isEditing, setIsEditing] = useState(false);
 
@@ -55,11 +62,16 @@ function MoodItem({ moodObj, onSaveNote }) {
   return (
     <li
       className="item-container"
-      style={{ borderLeft: `6px solid ${color}`, borderRadius: '25px' }}
+      style={{
+        borderLeft: `6px solid ${color}`,
+        borderRadius: '25px',
+        background: `${cardColorGradient}`,
+      }}
     >
       <div className="top-content">
         <div>
           <p className="item-name">{name}</p>
+          {color.colorGradient}
           <p className="date">{formatRelativeDate(isoDate)}</p>
         </div>
       </div>
