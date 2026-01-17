@@ -5,7 +5,6 @@ import LeafIcon from '../../assets/icons/LeafIcon';
 import NeutralIcon from '../../assets/icons/NeutralIcon';
 import SadIcon from '../../assets/icons/SadIcon';
 import SmileIcon from '../../assets/icons/SmileIcon';
-import MoodItem from '../MoodSection/MoodItem/MoodItem';
 
 import './activeMoodPanel.css';
 

@@ -43,6 +43,7 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
   }
 
   function formatRelativeDate(isoDate) {
+    console.log(colorGradient);
     const entryDate = new Date(isoDate); // the day this mood was recorded
     const currentDate = new Date(); // the current day
 

@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
-import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 
@@ -18,15 +17,15 @@ function Home() {
     }));
   }
 
-  function handleSaveNote(selectedMoodId, formattedText) {
-    setMoodsArr((prevMood) =>
-      moodsArr.map((moodObj) =>
-        moodObj.id === selectedMoodId
-          ? { ...moodObj, note: formattedText }
-          : moodObj
-      )
-    );
-  }
+  // function handleSaveNote(selectedMoodId, formattedText) {
+  //   setMoodsArr((prevMood) =>
+  //     moodsArr.map((moodObj) =>
+  //       moodObj.id === selectedMoodId
+  //         ? { ...moodObj, note: formattedText }
+  //         : moodObj
+  //     )
+  //   );
+  // }
 
   function handleAddMood(iconObj, selectedMoodId, formattedText) {
     setMoodsArr((prevMood) => [
