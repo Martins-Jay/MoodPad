@@ -20,7 +20,6 @@ const icons = {
 
 function ActiveMoodPanel({ activeMood }) {
   const { name, color, colorGradient, cardColorGradient, isoDate } = activeMood;
-  const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState('');
 
   function formatRelativeDate(isoDate) {
@@ -43,7 +42,7 @@ function ActiveMoodPanel({ activeMood }) {
   function handleSubmit() {}
 
   return (
-    <div className="optional-containe">
+    <div className="optional-container">
       {Object.keys(activeMood).length > 0 ? (
         <div className="active-mood-panel-wrapper">
           <div
@@ -85,7 +84,7 @@ function ActiveMoodPanel({ activeMood }) {
           </div>
         </div>
       ) : (
-        <div>No selected mood yet</div>
+        <div className='no-active-mood'>No selected mood yet</div>
       )}
     </div>
   );
