@@ -6,6 +6,10 @@ import AnxiousIcon from '../../../assets/icons/AnxiousIcon';
 import NeutralIcon from '../../../assets/icons/NeutralIcon';
 import AngryIcon from '../../../assets/icons/Angry';
 
+import getFormattedTime from '../../../utils/time';
+import formatRelativeDate from '../../../utils/date';
+
+
 function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
   // id: selectedMoodId,
   const { name, color, colorGradient, cardColorGradient, isoDate, text } =
@@ -51,23 +55,9 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
   //   setIsEditing(!isEditing);
   // }
 
-  function formatRelativeDate(isoDate) {
-    console.log(colorGradient);
-    const entryDate = new Date(isoDate); // the day this mood was recorded
-    const currentDate = new Date(); // the current day
 
-    // toDateString
-    const entryDateStr = entryDate.toDateString();
-    const currentDateStr = currentDate.toDateString();
+  console.log(colorGradient);
 
-    if (entryDateStr === currentDateStr) return 'Today';
-
-    const diffInMs = currentDate - entryDate;
-    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-    if (diffInDays === 1) return 'Yesterday';
-    if (diffInDays < 7) return `${diffInDays} days ago`;
-  }
 
   return (
     <li className="mood-item-container">
@@ -87,10 +77,12 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
           <div className="mood-content">
             <h1 className="item-name">{name}</h1>
             {color?.colorGradient}
-            <p className="date">{formatRelativeDate(isoDate)}</p>
+            <p className="date">
+              {formatRelativeDate(isoDate)}: {getFormattedTime(isoDate)}
+            </p>
           </div>
         </div>
-        
+
         <div className="reflection-container">
           {text?.trim() && <p className="reflection-text">{text}</p>}
         </div>

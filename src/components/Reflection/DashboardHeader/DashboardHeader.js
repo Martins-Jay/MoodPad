@@ -1,24 +1,39 @@
 import './dashboardHeader.css';
 import ClockIcon from '../../../assets/icons/Clock';
+import formatRelativeDate from '../../../utils/date';
+
+import { useState } from 'react';
 
 function DashboardHeader() {
+  const [timestamp] = useState(Date.now());
+
+  function getGreeting(timestamp) {
+    const hour = new Date(timestamp).getHours();
+
+    if (hour >= 0 && hour < 12) return 'Good morning';
+    if (hour >= 12 && hour < 17) return 'Good afternoon';
+    return 'Good evening';
+  }
+
   return (
-    <>
-      <div className="dashboard-content-wrapper">
-        <h1 className="greetings">Good evening, Martins</h1>
+    <div className="dashboard-content-wrapper">
+      <h1 className="greetings">{getGreeting(timestamp)}, Martins</h1>
 
-        <div className='description-wrapper'>
-          <p>You've logged 3 moods today.</p>
-          <div className="date-wrapper">
-            <div className="clock-icon">
-              <ClockIcon size={14} />
-            </div>
+      <div className="description-wrapper">
+        <p>You've logged 3 moods today.</p>
 
-            <p className="date-container">Today: Jan 16th, 2026.</p>
+        <div className="date-wrapper">
+          <div className="clock-icon">
+            <ClockIcon size={14} />
           </div>
+
+          <p className="date-container">
+            {formatRelativeDate(timestamp)},
+            {formatRelativeDate(timestamp, true)}
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

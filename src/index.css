@@ -44,11 +44,11 @@
      MOOD GRADIENTS (USED SPARINGLY)
      -------------------------------- */
   --grad-happy: linear-gradient(135deg, #e1c250, #fde68a);
-  --grad-calm: linear-gradient(135deg, #56f690, #a7f3d0);
-  --grad-neutral: linear-gradient(135deg, #bfc3ca, #e5e7eb);
-  --grad-sad: linear-gradient(135deg, #93c5fd, #bfdbfe);
+  --grad-calm: linear-gradient(135deg, #47e280, #a7f3d0);
+  --grad-neutral: linear-gradient(135deg, #959caa, #e5e7eb);
+  --grad-sad: linear-gradient(135deg, #6da9ec, #bfdbfe);
   --grad-anxious: linear-gradient(135deg,#a692f6, #ddd6fe);
-  --grad-angry: linear-gradient(135deg, #f57d7d, #fecaca);
+  --grad-angry: linear-gradient(135deg, #e95656, #fecaca);
 
   /* --------------------------------
      MOOD GRADIENTS FOR CARDS

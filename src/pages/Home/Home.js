@@ -18,7 +18,7 @@ function Home() {
       isoDate: new Date().toISOString(),
     }));
 
-    setIsActiveMoodPanelOpen(true)
+    setIsActiveMoodPanelOpen(true);
   }
 
   function handleSaveNote(selectedMoodId, formattedText) {
