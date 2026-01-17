@@ -6,7 +6,7 @@ import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 
 function Home() {
-  // const [ moodsArr, setMoodsArr] = useState([]);
+  const [ setMoodsArr] = useState([]);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
 
   function handleMoodSelect(iconObj) {
