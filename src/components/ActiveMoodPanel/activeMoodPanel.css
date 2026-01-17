@@ -4,9 +4,10 @@
   position: relative;
   width: 100%;
 
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 20px;
-  padding: 0.4rem 0.6rem 0 0.6rem;
+  padding: 0.4rem 0.6rem 0 0.1rem;
+  box-shadow: var(--shadow-md);
 }
 
 .active-mood-container {
@@ -19,7 +20,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.2rem 0.4rem 8rem .6rem;
+  padding: 0.5rem 0.4rem 8.7rem 0.6rem;
 }
 
 .header-content .svg-wrapper {
@@ -36,16 +37,51 @@
   color: var(--text-secondary);
 }
 
+/* height depends on .header-content padding */
 .reflection-content-wrapper {
   width: 97.5%;
-  height: 145px;
-  background: #ffffff;
+  height: 156px;
+  background: var(--bg-card);
   position: absolute;
-  top: 27%;
-  border-radius: 15px;
+  top: 28%;
+  right: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 0.6rem 0.4rem 8rem 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
-/* .text-area-wrapper .text-area {
-  position: absolute;
-  background: #6c3c3c;
-} */
+.reflection-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-right: 10px;
+}
+
+.reflection-content-wrapper label {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.reflection-content-wrapper textarea {
+  width: 100%;
+  height: 60px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: .3rem;
+  overflow-x: auto;
+  resize: none;
+  box-shadow: var(--shadow-xs);
+  background: var(--bg-input);
+}
+
+.reflection-content-wrapper textarea::placeholder {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.reflection-submit-btn {
+  padding: .6rem 0;
+  border-radius: 30px;
+  font-size: .8rem;
+}

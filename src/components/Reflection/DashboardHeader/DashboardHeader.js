@@ -7,14 +7,15 @@ function DashboardHeader() {
       <div className="dashboard-content-wrapper">
         <h1 className="greetings">Good evening, Martins</h1>
 
-        <p>You've logged 3 moods today.</p>
+        <div className='description-wrapper'>
+          <p>You've logged 3 moods today.</p>
+          <div className="date-wrapper">
+            <div className="clock-icon">
+              <ClockIcon size={14} />
+            </div>
 
-        <div className="date-wrapper">
-          <div className="clock-icon">
-            <ClockIcon />
+            <p className="date-container">Today: Jan 16th, 2026.</p>
           </div>
-
-          <p className="date-container">Today: Jan 16th, 2026.</p>
         </div>
       </div>
     </>

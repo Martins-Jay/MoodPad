@@ -10,12 +10,12 @@ import MoodItem from '../MoodSection/MoodItem/MoodItem';
 import './activeMoodPanel.css';
 
 const icons = {
-  smile: <SmileIcon size={30} />,
-  leaf: <LeafIcon size={30} />,
-  sad: <SadIcon size={30} />,
-  anxious: <AnxiousIcon size={30} />,
-  neutral: <NeutralIcon size={30} />,
-  angry: <AngryIcon size={30} />,
+  smile: <SmileIcon size={35} />,
+  leaf: <LeafIcon size={35} />,
+  sad: <SadIcon size={35} />,
+  anxious: <AnxiousIcon size={35} />,
+  neutral: <NeutralIcon size={35} />,
+  angry: <AngryIcon size={35} />,
 };
 
 function ActiveMoodPanel({ activeMood }) {
@@ -68,7 +68,20 @@ function ActiveMoodPanel({ activeMood }) {
           </div>
 
           <div className="reflection-content-wrapper">
-            <form onSubmit={handleSubmit}></form>
+            <form className='reflection-container' onSubmit={handleSubmit}>
+              <label htmlFor="">What triggered this feeling?</label>
+
+              <textarea
+                autofocus
+                className="text-area"
+                placeholder="Write about the thoughts or event that led to this feeling..."
+                value={text}
+                
+                onChange={(e) => setText(e.target.value)}
+              />
+
+              <button className='reflection-submit-btn' style={{background: `${colorGradient}`}} type="submit">Save Reflection</button>
+            </form>
           </div>
         </div>
       ) : (

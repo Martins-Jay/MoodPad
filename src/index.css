@@ -6,15 +6,15 @@
      SURFACES & BACKGROUNDS
      -------------------------------- */
   --bg-app: #f7f8fa; /* Main app background */
-  --bg-card: #ffffff; /* Cards, sheets */
-  --bg-muted: #f1f5f9; /* Inputs, inactive areas */
+  --bg-card: #fcfcfc; /* Cards, sheets */
+  --bg-muted: #fcfcfc; /* Inputs, inactive areas */
 
   /* --------------------------------
      TEXT COLORS
      -------------------------------- */
-  --text-primary: #353434; /* Headings */
+  --text-primary: #4f4f4f; /* Headings */
   --text-secondary: #6b7280; /* Descriptions */
-  --text-muted: #9ca3af; /* Placeholders */
+  --text-muted: #afb3bb; /* Placeholders */
   --text-inverse: #ffffff; /* On colored backgrounds */
 
   /* --------------------------------
@@ -31,22 +31,22 @@
   /* --------------------------------
      MOOD BASE COLORS (flat)
      -------------------------------- */
-  --mood-happy: #fcd34d;
-  --mood-calm: #86efac;
-  --mood-neutral: #d1d5db;
-  --mood-sad: #93c5fd;
-  --mood-anxious: #c4b5fd;
-  --mood-angry: #fca5a5;
+  --mood-happy: #e6c145;
+  --mood-calm: #5fc685;
+  --mood-neutral: #adb2ba;
+  --mood-sad: #7b9fc8;
+  --mood-anxious: #a191df;
+  --mood-angry: #d85454;
 
   /* --------------------------------
      MOOD GRADIENTS (USED SPARINGLY)
      -------------------------------- */
-  --grad-happy: linear-gradient(135deg, #fde68a, #c9a214);
-  --grad-calm: linear-gradient(135deg, #a7f3d0, #56f690);
-  --grad-neutral: linear-gradient(135deg, #e5e7eb, #bfc3ca);
-  --grad-sad: linear-gradient(135deg, #bfdbfe, #93c5fd);
-  --grad-anxious: linear-gradient(135deg, #ddd6fe, #a692f6);
-  --grad-angry: linear-gradient(135deg, #fecaca, #f57d7d);
+  --grad-happy: linear-gradient(135deg, #d4b440, #fde68a);
+  --grad-calm: linear-gradient(135deg, #56f690, #a7f3d0);
+  --grad-neutral: linear-gradient(135deg, #bfc3ca, #e5e7eb);
+  --grad-sad: linear-gradient(135deg, #93c5fd, #bfdbfe);
+  --grad-anxious: linear-gradient(135deg,#a692f6, #ddd6fe);
+  --grad-angry: linear-gradient(135deg, #f57d7d, #fecaca);
 
   /* --------------------------------
      MOOD GRADIENTS FOR CARDS
@@ -62,37 +62,37 @@
     90deg,
     #f9d237fa 0%,
     #f4ebc6c7 20%,
-    #ffffff 40%
+    #ffffff 80%
   );
 
   --grad-calm-fade: linear-gradient(
     90deg,
     #51f9ab 0%,
     #d0f5e4 20%,
-    #ffffff 40%
+    #ffffff 80%
   );
 
   --grad-neutral-fade: linear-gradient(
     90deg,
     #e5e7eb 0%,
     #e5e7eb 20%,
-    #ffffff 40%
+    #ffffff 80%
   );
 
-  --grad-sad-fade: linear-gradient(90deg, #bbd4f2 0%, #bbd4f2 15%, #ffffff 35%);
+  --grad-sad-fade: linear-gradient(90deg, #bbd4f2 0%, #bbd4f2 20%, #ffffff 80%);
 
   --grad-anxious-fade: linear-gradient(
     90deg,
     #ddd6fe 0%,
     #ddd6fe 20%,
-    #ffffff 40%
+    #ffffff 80%
   );
 
   --grad-angry-fade: linear-gradient(
     90deg,
     #f08787 0%,
     #fbe0e0 20%,
-    #ffffff 40%
+    #ffffff 80%
   );
 
   --grad-mood-icons-container: linear-gradient(180deg, #ffffffbf, #ffffff8c);
@@ -110,15 +110,15 @@
      -------------------------------- */
   --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.04);
   --shadow-sm: 0 6px 16px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.07);
 
   /* --------------------------------
    APP BACKGROUND LAYERS
    Soft radial gradients + base color
    -------------------------------- */
   --bg-radial-left: radial-gradient(
-    400px circle at top left,
-    #ffdcaeb0,
+    600px circle at top left,
+    #ffdcaea1,
     #ffdcae26 55%,
     transparent
   );
