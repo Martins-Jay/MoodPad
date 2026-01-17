@@ -17,7 +17,7 @@ const icons = {
   angry: <AngryIcon size={35} />,
 };
 
-function ActiveMoodPanel({ activeMood }) {
+function ActiveMoodPanel({ activeMood, onSaveReflection }) {
   const { name, color, colorGradient, cardColorGradient, isoDate } = activeMood;
   const [text, setText] = useState('');
 
@@ -38,7 +38,14 @@ function ActiveMoodPanel({ activeMood }) {
     if (diffInDays < 7) return `${diffInDays} days ago`;
   }
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const formattedText =
+      text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
+
+    onSaveReflection(activeMood, formattedText);
+  }
 
   return (
     <div className="optional-container">
@@ -47,8 +54,8 @@ function ActiveMoodPanel({ activeMood }) {
           <div
             className="active-mood-container"
             style={{
-              borderLeft: `6px solid ${color}`,
-              borderRadius: '15px',
+              borderLeft: `8px solid ${color}`,
+              borderRadius: '16px',
               background: `${cardColorGradient}`,
             }}
           >
@@ -66,7 +73,7 @@ function ActiveMoodPanel({ activeMood }) {
           </div>
 
           <div className="reflection-content-wrapper">
-            <form className='reflection-container' onSubmit={handleSubmit}>
+            <form className="reflection-container" onSubmit={handleSubmit}>
               <label htmlFor="">What triggered this feeling?</label>
 
               <textarea
@@ -74,16 +81,21 @@ function ActiveMoodPanel({ activeMood }) {
                 className="text-area"
                 placeholder="Write about the thoughts or event that led to this feeling..."
                 value={text}
-                
                 onChange={(e) => setText(e.target.value)}
               />
 
-              <button className='reflection-submit-btn' style={{background: `${colorGradient}`}} type="submit">Save Reflection</button>
+              <button
+                className="reflection-submit-btn"
+                style={{ background: `${colorGradient}` }}
+                type="submit"
+              >
+                Save Reflection
+              </button>
             </form>
           </div>
         </div>
       ) : (
-        <div className='no-active-mood'>No selected mood yet</div>
+        <div className="no-active-mood">No selected mood yet</div>
       )}
     </div>
   );

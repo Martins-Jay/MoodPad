@@ -6,7 +6,7 @@ import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 
 function Home() {
-  const [ setMoodsArr] = useState([]);
+  // const [ moodsArr, setMoodsArr] = useState([]);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
 
   function handleMoodSelect(iconObj) {
@@ -27,10 +27,11 @@ function Home() {
   //   );
   // }
 
-  function handleAddMood(iconObj, selectedMoodId, formattedText) {
+  function handleAddMood(iconObj, formattedText, selectedMoodId, ) {
     setMoodsArr((prevMood) => [
       {
         ...iconObj,
+        text: formattedText,
         id: Date.now(),
         isoDate: new Date().toISOString(),
       },
@@ -42,7 +43,7 @@ function Home() {
     <PageWrapper>
       <Header />
       <MoodPicker onPickMood={handleAddMood} onMoodSelect={handleMoodSelect} />
-      <ActiveMoodPanel activeMood={activeMood} />
+      <ActiveMoodPanel activeMood={activeMood} onSaveReflection={handleAddMood} />
       {/* <MoodList
         moodsArr={moodsArr}
         onSaveNote={handleSaveNote}

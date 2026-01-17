@@ -9,6 +9,8 @@
   --bg-card: #fcfcfc; /* Cards, sheets */
   --bg-muted: #fcfcfc; /* Inputs, inactive areas */
 
+  --container-margin: 0.5rem 0;
+
   /* --------------------------------
      TEXT COLORS
      -------------------------------- */
@@ -32,16 +34,16 @@
      MOOD BASE COLORS (flat)
      -------------------------------- */
   --mood-happy: #e6c145;
-  --mood-calm: #5fc685;
+  --mood-calm: #65da90;
   --mood-neutral: #adb2ba;
-  --mood-sad: #7b9fc8;
+  --mood-sad: #92b5dd;
   --mood-anxious: #a191df;
   --mood-angry: #d85454;
 
   /* --------------------------------
      MOOD GRADIENTS (USED SPARINGLY)
      -------------------------------- */
-  --grad-happy: linear-gradient(135deg, #d4b440, #fde68a);
+  --grad-happy: linear-gradient(135deg, #e1c250, #fde68a);
   --grad-calm: linear-gradient(135deg, #56f690, #a7f3d0);
   --grad-neutral: linear-gradient(135deg, #bfc3ca, #e5e7eb);
   --grad-sad: linear-gradient(135deg, #93c5fd, #bfdbfe);

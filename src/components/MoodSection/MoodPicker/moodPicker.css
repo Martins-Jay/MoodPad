@@ -8,7 +8,7 @@
   justify-content: space-evenly;
   background: var(--bg-radial-left), var(--bg-radial-right), var(--bg-base);
   padding: 0;
-  margin: 1.3rem 0;
+  margin: var(--container-margin);
   border-radius: 20px;
 }
 
