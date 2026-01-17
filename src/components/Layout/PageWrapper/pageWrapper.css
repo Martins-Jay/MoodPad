@@ -1,7 +1,7 @@
 .page-wrapper {
   background: var(--bg-radial-left), var(--bg-radial-right), var(--bg-base);
-
+  background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 1.5rem 1.57rem;
 }

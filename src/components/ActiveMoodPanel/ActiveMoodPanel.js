@@ -17,7 +17,7 @@ const icons = {
   angry: <AngryIcon size={35} />,
 };
 
-function ActiveMoodPanel({ activeMood, onSaveReflection }) {
+function ActiveMoodPanel({ activeMood, onSaveReflection, isOpen, moodsArr }) {
   const { name, color, colorGradient, cardColorGradient, isoDate } = activeMood;
   const [text, setText] = useState('');
 
@@ -49,12 +49,12 @@ function ActiveMoodPanel({ activeMood, onSaveReflection }) {
 
   return (
     <div className="optional-container">
-      {Object.keys(activeMood).length > 0 ? (
+      {isOpen ? (
         <div className="active-mood-panel-wrapper">
           <div
             className="active-mood-container"
             style={{
-              borderLeft: `8px solid ${color}`,
+              borderLeft: `6px solid ${color}`,
               borderRadius: '16px',
               background: `${cardColorGradient}`,
             }}
@@ -64,7 +64,7 @@ function ActiveMoodPanel({ activeMood, onSaveReflection }) {
                 <div className="svg-icon">{icons[activeMood.iconName]}</div>
               </div>
 
-              <div class="mood-content">
+              <div className="mood-content">
                 <h1 className="item-name">{name}</h1>
                 {color?.colorGradient}
                 <p className="date">{formatRelativeDate(isoDate)}</p>
@@ -77,7 +77,7 @@ function ActiveMoodPanel({ activeMood, onSaveReflection }) {
               <label htmlFor="">What triggered this feeling?</label>
 
               <textarea
-                autofocus
+                autoFocus
                 className="text-area"
                 placeholder="Write about the thoughts or event that led to this feeling..."
                 value={text}
@@ -93,6 +93,12 @@ function ActiveMoodPanel({ activeMood, onSaveReflection }) {
               </button>
             </form>
           </div>
+        </div>
+      ) : !isOpen && Object.keys(activeMood).length > 0 ? (
+        <div className="length-value">
+          Awesome! You’ve logged {moodsArr.length}{' '}
+          {moodsArr.length === 1 ? 'mood ' : 'moods '}
+          today!
         </div>
       ) : (
         <div className="no-active-mood">No selected mood yet</div>

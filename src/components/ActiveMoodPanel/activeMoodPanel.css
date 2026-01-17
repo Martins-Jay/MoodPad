@@ -30,7 +30,7 @@
 
 .header-content .item-name {
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -96,4 +96,10 @@
 
 .no-active-mood {
   text-align: center
+}
+
+.length-value{
+  text-align: center;
+  font-size: .9rem;
+
 }
