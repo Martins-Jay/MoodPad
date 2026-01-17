@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './moodItem.css';
 import SmileIcon from '../../../assets/icons/SmileIcon';
 import LeafIcon from '../../../assets/icons/LeafIcon';
@@ -8,14 +7,8 @@ import NeutralIcon from '../../../assets/icons/NeutralIcon';
 import AngryIcon from '../../../assets/icons/Angry';
 
 function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
-  const {
-    id: selectedMoodId,
-    name,
-    color,
-    colorGradient,
-    cardColorGradient,
-    isoDate,
-  } = moodObj;
+  // id: selectedMoodId,
+  const { name, color, colorGradient, cardColorGradient, isoDate } = moodObj;
 
   const icons = {
     smile: <SmileIcon size={35} />,
@@ -26,36 +19,36 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
     angry: <AngryIcon size={35} />,
   };
 
-  const [text, setText] = useState('');
-  const [isEditing, setIsEditing] = useState(false);
+  // const [text, setText] = useState('');
+  // const [isEditing, setIsEditing] = useState(false);
 
-  function formatAndSaveNote() {
-    if (!text.trim()) return;
+  // function formatAndSaveNote() {
+  //   if (!text.trim()) return;
 
-    const formattedText =
-      text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
+  //   const formattedText =
+  //     text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
 
-    onSaveNote(selectedMoodId, formattedText);
-  }
+  //   onSaveNote(selectedMoodId, formattedText);
+  // }
 
-  function saveNoteOnBlur() {
-    formatAndSaveNote();
+  // function saveNoteOnBlur() {
+  //   formatAndSaveNote();
 
-    setIsEditing(false); // stop editing → cursor disappears
-  }
+  //   setIsEditing(false); // stop editing → cursor disappears
+  // }
 
-  function handleKeyDown(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
+  // function handleKeyDown(e) {
+  //   if (e.key === 'Enter' && !e.shiftKey) {
+  //     e.preventDefault();
 
-      formatAndSaveNote();
-      setIsEditing(!isEditing);
-    }
-  }
+  //     formatAndSaveNote();
+  //     setIsEditing(!isEditing);
+  //   }
+  // }
 
-  function handleEdit() {
-    setIsEditing(!isEditing);
-  }
+  // function handleEdit() {
+  //   setIsEditing(!isEditing);
+  // }
 
   function formatRelativeDate(isoDate) {
     console.log(colorGradient);
