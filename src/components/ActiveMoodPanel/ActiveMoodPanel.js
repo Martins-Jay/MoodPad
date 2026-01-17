@@ -41,10 +41,13 @@ function ActiveMoodPanel({ activeMood, onSaveReflection, isOpen, moodsArr }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if(!text) return
+
     const formattedText =
       text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
 
     onSaveReflection(activeMood, formattedText);
+    setText('');
   }
 
   return (

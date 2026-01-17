@@ -9,7 +9,7 @@
   --bg-card: #fcfcfc; /* Cards, sheets */
   --bg-muted: #fcfcfc; /* Inputs, inactive areas */
 
-  --container-margin: 0.5rem 0;
+  --container-margin: .85rem 0;
 
   /* --------------------------------
      TEXT COLORS

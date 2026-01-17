@@ -8,7 +8,8 @@ import AngryIcon from '../../../assets/icons/Angry';
 
 function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
   // id: selectedMoodId,
-  const { name, color, colorGradient, cardColorGradient, isoDate } = moodObj;
+  const { name, color, colorGradient, cardColorGradient, isoDate, text } =
+    moodObj;
 
   const icons = {
     smile: <SmileIcon size={35} />,
@@ -71,7 +72,7 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
   return (
     <li className="mood-item-container">
       <div
-        className="item-content"
+        className="item-content-wrapper"
         style={{
           borderLeft: `6px solid ${color}`,
           borderRadius: '16px',
@@ -83,11 +84,15 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
             <div className="svg-icon">{icons[moodObj.iconName]}</div>
           </div>
 
-          <div class="mood-content">
+          <div className="mood-content">
             <h1 className="item-name">{name}</h1>
             {color?.colorGradient}
             <p className="date">{formatRelativeDate(isoDate)}</p>
           </div>
+        </div>
+        
+        <div className="reflection-container">
+          {text?.trim() && <p className="reflection-text">{text}</p>}
         </div>
       </div>
     </li>
