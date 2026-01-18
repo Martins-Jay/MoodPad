@@ -9,7 +9,7 @@
   --bg-card: #fcfcfc; /* Cards, sheets */
   --bg-muted: #fcfcfc; /* Inputs, inactive areas */
 
-  --container-margin: .85rem 0;
+  --container-margin: 0.85rem 0;
 
   /* --------------------------------
      TEXT COLORS
@@ -47,7 +47,7 @@
   --grad-calm: linear-gradient(135deg, #47e280, #a7f3d0);
   --grad-neutral: linear-gradient(135deg, #959caa, #e5e7eb);
   --grad-sad: linear-gradient(135deg, #6da9ec, #bfdbfe);
-  --grad-anxious: linear-gradient(135deg,#a692f6, #ddd6fe);
+  --grad-anxious: linear-gradient(135deg, #a692f6, #ddd6fe);
   --grad-angry: linear-gradient(135deg, #e95656, #fecaca);
 
   /* --------------------------------
@@ -115,12 +115,11 @@
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.07);
 
   /* --------------------------------
-   APP BACKGROUND LAYERS
-   Soft radial gradients + base color
+   PAGEWRAPPER BACKGROUND LAYERS
    -------------------------------- */
   --bg-radial-left: radial-gradient(
-    600px circle at top left,
-    #ffdcaea1,
+    700px circle at top left,
+    #ffdcaeab,
     #ffdcae26 55%,
     transparent
   );
@@ -132,6 +131,24 @@
   );
 
   --bg-base: #faf9f7;
+
+  /* --------------------------------
+   APP ICON CONTAINER LAYERS
+   -------------------------------- */
+  --container-radial-left: radial-gradient(
+    600px circle at top left,
+    #ffdcaee2,
+    #ffdcae99 55%,
+    transparent
+  );
+
+  --container-radial-right: radial-gradient(
+    300px circle at top right,
+    #fff0c8f4,
+    transparent 60%
+  );
+
+  --container-base: #faf9f7;
 }
 
 /* ================================

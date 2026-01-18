@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
@@ -10,6 +10,8 @@ function Home() {
   const [moodsArr, setMoodsArr] = useState([]);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
+  const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
+
 
   function handleMoodSelect(iconObj) {
     setActiveMood(() => ({
@@ -43,6 +45,15 @@ function Home() {
     ]);
 
     setIsActiveMoodPanelOpen(false);
+    setLastAction('added')
+  }
+
+  function handleRemoveNote(selectedMoodId) {
+    setMoodsArr((prevMood) =>
+      moodsArr.filter((moodObj) => moodObj.id !== selectedMoodId)
+    );
+
+    setLastAction('removed')
   }
 
   return (
@@ -54,8 +65,13 @@ function Home() {
         onSaveReflection={handleAddMood}
         isOpen={isActiveMoodPanelOpen}
         moodsArr={moodsArr}
+        lastAction={lastAction}
       />
-      <MoodList moodsArr={moodsArr} onSaveNote={handleSaveNote} />
+      <MoodList
+        moodsArr={moodsArr}
+        onSaveNote={handleSaveNote}
+        onRemoveNote={handleRemoveNote}
+      />
     </PageWrapper>
   );
 }

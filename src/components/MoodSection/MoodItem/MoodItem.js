@@ -9,10 +9,9 @@ import AngryIcon from '../../../assets/icons/Angry';
 import getFormattedTime from '../../../utils/time';
 import formatRelativeDate from '../../../utils/date';
 
-
-function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
+function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote, onRemoveNote }) {
   // id: selectedMoodId,
-  const { name, color, colorGradient, cardColorGradient, isoDate, text } =
+  const { name, color, colorGradient, cardColorGradient, isoDate, text, id } =
     moodObj;
 
   const icons = {
@@ -55,9 +54,11 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
   //   setIsEditing(!isEditing);
   // }
 
+  function handleRemove() {
+    onRemoveNote(id)
+  }
 
   console.log(colorGradient);
-
 
   return (
     <li className="mood-item-container">
@@ -70,16 +71,23 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote }) {
         }}
       >
         <div className="item-content">
-          <div className="svg-wrapper">
-            <div className="svg-icon">{icons[moodObj.iconName]}</div>
+          <div className="left-content">
+            <div className="svg-wrapper">
+              <div className="svg-icon">{icons[moodObj.iconName]}</div>
+            </div>
+
+            <div className="mood-content">
+              <h1 className="item-name">{name}</h1>
+              {color?.colorGradient}
+              <p className="date">
+                {formatRelativeDate(isoDate)}: {getFormattedTime(isoDate)}
+              </p>
+            </div>
           </div>
 
-          <div className="mood-content">
-            <h1 className="item-name">{name}</h1>
-            {color?.colorGradient}
-            <p className="date">
-              {formatRelativeDate(isoDate)}: {getFormattedTime(isoDate)}
-            </p>
+          <div className="right-content">
+            <button className='edit-btn'>E</button>
+            <button className='remove-btn' onClick={handleRemove}>X</button>
           </div>
         </div>
 

@@ -17,7 +17,13 @@ const icons = {
   angry: <AngryIcon size={35} />,
 };
 
-function ActiveMoodPanel({ activeMood, onSaveReflection, isOpen, moodsArr }) {
+function ActiveMoodPanel({
+  activeMood,
+  onSaveReflection,
+  isOpen,
+  moodsArr,
+  lastAction,
+}) {
   const { name, color, colorGradient, cardColorGradient, isoDate } = activeMood;
   const [text, setText] = useState('');
 
@@ -41,7 +47,7 @@ function ActiveMoodPanel({ activeMood, onSaveReflection, isOpen, moodsArr }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if(!text) return
+    if (!text) return;
 
     const formattedText =
       text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
@@ -97,11 +103,18 @@ function ActiveMoodPanel({ activeMood, onSaveReflection, isOpen, moodsArr }) {
             </form>
           </div>
         </div>
-      ) : !isOpen && Object.keys(activeMood).length > 0 ? (
+      ) : !isOpen &&
+        Object.keys(activeMood).length > 0 &&
+        lastAction === 'added' ? (
         <div className="length-value">
           Awesome! You’ve logged {moodsArr.length}{' '}
           {moodsArr.length === 1 ? 'mood ' : 'moods '}
           today!
+        </div>
+      ) : !isOpen && lastAction === 'removed' ? (
+        <div className="mood-items-remaining">
+          Removed. You now have {moodsArr.length}{' '}
+          {moodsArr.length === 1 ? 'entry' : 'entries'} logged
         </div>
       ) : (
         <div className="no-active-mood">No selected mood yet</div>
