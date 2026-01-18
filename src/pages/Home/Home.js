@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
