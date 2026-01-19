@@ -75,6 +75,10 @@ function Home() {
     setMoodBeingEditted(null);
   }
 
+  function handleCancelEdit() {
+    setMoodBeingEditted(null);
+  }
+
   return (
     <PageWrapper>
       <Header />
@@ -93,6 +97,7 @@ function Home() {
         <EditMoodModal
           moodObj={moodBeingEditted}
           onUpdateText={handleUpdateText}
+          onCancelEdit={handleCancelEdit}
         />
       )}
 

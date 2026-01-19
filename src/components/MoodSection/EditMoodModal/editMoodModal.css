@@ -65,7 +65,6 @@
   color: var(--text-secondary);
   overflow-x: auto;
   padding: 0.5rem 0.9rem;
-  text-transform: capitalize;
 }
 
 .edit-textarea::placeholder {
