@@ -19,7 +19,7 @@ const icons = {
 
 function ActiveMoodPanel({
   activeMood,
-  onSaveReflection,
+  onAddMood,
   isOpen,
   moodsArr,
   lastAction,
@@ -52,7 +52,7 @@ function ActiveMoodPanel({
     const formattedText =
       text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
 
-    onSaveReflection(activeMood, formattedText);
+    onAddMood(activeMood, formattedText);
     setText('');
   }
 

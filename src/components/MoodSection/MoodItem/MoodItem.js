@@ -9,19 +9,32 @@ import AngryIcon from '../../../assets/icons/Angry';
 import getFormattedTime from '../../../utils/time';
 import formatRelativeDate from '../../../utils/date';
 
-function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote, onRemoveNote }) {
-  // id: selectedMoodId,
-  const { name, color, colorGradient, cardColorGradient, isoDate, text, id } =
-    moodObj;
+const icons = {
+  smile: <SmileIcon size={35} />,
+  leaf: <LeafIcon size={35} />,
+  sad: <SadIcon size={35} />,
+  anxious: <AnxiousIcon size={35} />,
+  neutral: <NeutralIcon size={35} />,
+  angry: <AngryIcon size={35} />,
+};
 
-  const icons = {
-    smile: <SmileIcon size={35} />,
-    leaf: <LeafIcon size={35} />,
-    sad: <SadIcon size={35} />,
-    anxious: <AnxiousIcon size={35} />,
-    neutral: <NeutralIcon size={35} />,
-    angry: <AngryIcon size={35} />,
-  };
+function MoodItem({
+  moodObj,
+  handleMoodIconSelect,
+  onSaveNote,
+  onRemoveNote,
+  onEditMood,
+}) {
+  // id: selectedMoodId,
+  const {
+    id: selectedMoodId,
+    name,
+    color,
+    colorGradient,
+    cardColorGradient,
+    isoDate,
+    text,
+  } = moodObj;
 
   // const [text, setText] = useState('');
   // const [isEditing, setIsEditing] = useState(false);
@@ -55,9 +68,12 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote, onRemoveNote }) {
   // }
 
   function handleRemove() {
-    onRemoveNote(id)
+    onRemoveNote(selectedMoodId);
   }
 
+  function handleEdit() {
+    onEditMood(moodObj);
+  }
   console.log(colorGradient);
 
   return (
@@ -86,8 +102,12 @@ function MoodItem({ moodObj, handleMoodIconSelect, onSaveNote, onRemoveNote }) {
           </div>
 
           <div className="right-content">
-            <button className='edit-btn'>E</button>
-            <button className='remove-btn' onClick={handleRemove}>X</button>
+            <button className="edit-btn" onClick={handleEdit}>
+              E
+            </button>
+            <button className="remove-btn" onClick={handleRemove}>
+              X
+            </button>
           </div>
         </div>
 

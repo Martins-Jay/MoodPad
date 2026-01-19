@@ -5,13 +5,14 @@ import Header from '../../components/Layout/Header/Header.js';
 import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
+import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
 
 function Home() {
   const [moodsArr, setMoodsArr] = useState([]);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
-
+  const [moodBeingEditted, setMoodBeingEditted] = useState(null);
 
   function handleMoodSelect(iconObj) {
     setActiveMood(() => ({
@@ -45,7 +46,7 @@ function Home() {
     ]);
 
     setIsActiveMoodPanelOpen(false);
-    setLastAction('added')
+    setLastAction('added');
   }
 
   function handleRemoveNote(selectedMoodId) {
@@ -53,24 +54,34 @@ function Home() {
       moodsArr.filter((moodObj) => moodObj.id !== selectedMoodId)
     );
 
-    setLastAction('removed')
+    setLastAction('removed');
+  }
+
+  function handleEditMood(moodObj) {
+    setMoodBeingEditted(moodObj);
   }
 
   return (
     <PageWrapper>
       <Header />
+
       <MoodPicker onPickMood={handleAddMood} onMoodSelect={handleMoodSelect} />
+
       <ActiveMoodPanel
         activeMood={activeMood}
-        onSaveReflection={handleAddMood}
+        onAddMood={handleAddMood}
         isOpen={isActiveMoodPanelOpen}
         moodsArr={moodsArr}
         lastAction={lastAction}
       />
+
+      {moodBeingEditted && <EditMoodModal moodObj={moodBeingEditted} />}
+
       <MoodList
         moodsArr={moodsArr}
         onSaveNote={handleSaveNote}
         onRemoveNote={handleRemoveNote}
+        onEditMood={handleEditMood}
       />
     </PageWrapper>
   );
