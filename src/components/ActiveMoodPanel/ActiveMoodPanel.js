@@ -89,6 +89,7 @@ function ActiveMoodPanel({
                 autoFocus
                 className="text-area"
                 placeholder="Write about the thoughts or event that led to this feeling..."
+                autoCapitalize='on'
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SmileIcon from '../../../assets/icons/SmileIcon';
 import LeafIcon from '../../../assets/icons/LeafIcon';
 import SadIcon from '../../../assets/icons/SadIcon';
@@ -17,8 +17,22 @@ const icons = {
   angry: <AngryIcon size={35} />,
 };
 
-function EditMoodModal({ moodObj }) {
+function EditMoodModal({ moodObj, onUpdateText }) {
   const [newText, setNewText] = useState('');
+
+  useEffect(
+    function () {
+      const prevSavedText = moodObj.text;
+      setNewText(prevSavedText); // update textarea when mood changes
+    },
+    [moodObj],
+  );
+
+  function handleSaveEdit() {
+    const formattedText =
+      newText.trim().charAt(0).toUpperCase() + newText.trim().slice(1);
+    onUpdateText(moodObj.id, formattedText);
+  }
 
   return (
     <div className="modal-overlay">
@@ -48,6 +62,7 @@ function EditMoodModal({ moodObj }) {
               <textarea
                 className="edit-textarea"
                 placeholder="Update your reflection..."
+                autoCapitalize="none"
                 autoFocus
                 value={newText}
                 onChange={(e) => setNewText(e.target.value)}
@@ -61,6 +76,7 @@ function EditMoodModal({ moodObj }) {
             <button
               className="btn save"
               style={{ background: `${moodObj.color}` }}
+              onClick={handleSaveEdit}
             >
               Save changes
             </button>

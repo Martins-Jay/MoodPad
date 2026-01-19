@@ -29,8 +29,8 @@ function Home() {
       moodsArr.map((moodObj) =>
         moodObj.id === selectedMoodId
           ? { ...moodObj, note: formattedText }
-          : moodObj
-      )
+          : moodObj,
+      ),
     );
   }
 
@@ -51,7 +51,7 @@ function Home() {
 
   function handleRemoveNote(selectedMoodId) {
     setMoodsArr((prevMood) =>
-      moodsArr.filter((moodObj) => moodObj.id !== selectedMoodId)
+      moodsArr.filter((moodObj) => moodObj.id !== selectedMoodId),
     );
 
     setLastAction('removed');
@@ -59,6 +59,20 @@ function Home() {
 
   function handleEditMood(moodObj) {
     setMoodBeingEditted(moodObj);
+  }
+
+  function handleUpdateText(selectedMoodId, formattedText) {
+    if (!formattedText.trim()) return;
+
+    setMoodsArr((prevVal) =>
+      moodsArr.map((moodObj) =>
+        moodObj.id === selectedMoodId
+          ? { ...moodObj, text: formattedText }
+          : moodObj,
+      ),
+    );
+
+    setMoodBeingEditted(null);
   }
 
   return (
@@ -75,7 +89,12 @@ function Home() {
         lastAction={lastAction}
       />
 
-      {moodBeingEditted && <EditMoodModal moodObj={moodBeingEditted} />}
+      {moodBeingEditted && (
+        <EditMoodModal
+          moodObj={moodBeingEditted}
+          onUpdateText={handleUpdateText}
+        />
+      )}
 
       <MoodList
         moodsArr={moodsArr}

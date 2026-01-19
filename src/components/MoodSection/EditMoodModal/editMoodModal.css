@@ -11,8 +11,9 @@
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.53);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .edit-modal {
@@ -57,12 +58,18 @@
 .textarea-container .edit-textarea {
   border: none;
   width: 100%;
-  height: 60px;
+  max-width: 100%;
+  height: 65px;
   font-size: 16px;
   outline: none;
   color: var(--text-secondary);
   overflow-x: auto;
-  padding: 0.4rem 0.4rem;
+  padding: 0.5rem 0.9rem;
+  text-transform: capitalize;
+}
+
+.edit-textarea::placeholder {
+  font-size: 14px;
 }
 
 .modal-footer {
@@ -74,7 +81,7 @@
 .btn {
   flex: 1;
   border-radius: 999px;
-  padding: .7rem;
+  padding: 0.7rem;
   cursor: pointer;
 }
 
@@ -89,7 +96,7 @@
   border: none;
   color: #fff;
   width: 120px;
-  box-shadow: var(--shadow-sm)
+  box-shadow: var(--shadow-sm);
 }
 
 /* .edit-textarea {
