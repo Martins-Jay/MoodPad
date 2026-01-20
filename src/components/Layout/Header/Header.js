@@ -3,12 +3,12 @@ import DashboardHeader from '../../DashboardHeader/DashboardHeader';
 
 import './header.css';
 
-function Header() {
+function Header({ moodsArr }) {
   return (
     <div className="header-wrapper">
       <TopNav />
 
-      <DashboardHeader />
+      <DashboardHeader moodsArr={moodsArr} />
     </div>
   );
 }

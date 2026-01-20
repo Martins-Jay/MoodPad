@@ -4,7 +4,8 @@ import formatRelativeDate from '../../utils/date';
 
 import { useState } from 'react';
 
-function DashboardHeader() {
+function DashboardHeader({ moodsArr }) {
+  console.log(moodsArr);
   const [timestamp] = useState(Date.now());
 
   function getGreeting(timestamp) {
@@ -20,7 +21,7 @@ function DashboardHeader() {
       <h1 className="greetings">{getGreeting(timestamp)}, Martins</h1>
 
       <div className="description-wrapper">
-        <p>You've logged 3 moods today.</p>
+        <p>You've logged {moodsArr?.length} moods today.</p>
 
         <div className="date-wrapper">
           <div className="clock-icon">

@@ -81,7 +81,7 @@ function Home() {
 
   return (
     <PageWrapper>
-      <Header />
+      <Header moodsArr={moodsArr} />
 
       <MoodPicker onPickMood={handleAddMood} onMoodSelect={handleMoodSelect} />
 
