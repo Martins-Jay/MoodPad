@@ -6,6 +6,7 @@ import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
+import Tabs from '../../components/Tabs/Tabs.js';
 
 function Home() {
   const [moodsArr, setMoodsArr] = useState([]);
@@ -13,6 +14,8 @@ function Home() {
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
+
+  // const [activeTab, setActiveTab] = useState('dashboard');
 
   function handleMoodSelect(iconObj) {
     setActiveMood(() => ({
@@ -25,24 +28,24 @@ function Home() {
   }
 
   function handleSaveNote(selectedMoodId, formattedText) {
-    setMoodsArr((prevMood) =>
-      moodsArr.map((moodObj) =>
+    setMoodsArr((prevMoods) =>
+      prevMoods.map((moodObj) =>
         moodObj.id === selectedMoodId
-          ? { ...moodObj, note: formattedText }
+          ? { ...moodObj, text: formattedText }
           : moodObj,
       ),
     );
   }
 
   function handleAddMood(iconObj, formattedText) {
-    setMoodsArr((prevMood) => [
+    setMoodsArr((prevMoods) => [
       {
         ...iconObj,
         text: formattedText,
         id: Date.now(),
         isoDate: new Date().toISOString(),
       },
-      ...prevMood,
+      ...prevMoods,
     ]);
 
     setIsActiveMoodPanelOpen(false);
@@ -50,8 +53,8 @@ function Home() {
   }
 
   function handleRemoveNote(selectedMoodId) {
-    setMoodsArr((prevMood) =>
-      moodsArr.filter((moodObj) => moodObj.id !== selectedMoodId),
+    setMoodsArr((prevMoods) =>
+      prevMoods.filter((moodObj) => moodObj.id !== selectedMoodId),
     );
 
     setLastAction('removed');
@@ -64,8 +67,8 @@ function Home() {
   function handleUpdateText(selectedMoodId, formattedText) {
     if (!formattedText.trim()) return;
 
-    setMoodsArr((prevVal) =>
-      moodsArr.map((moodObj) =>
+    setMoodsArr((prevMoods) =>
+      prevMoods.map((moodObj) =>
         moodObj.id === selectedMoodId
           ? { ...moodObj, text: formattedText }
           : moodObj,
@@ -92,6 +95,8 @@ function Home() {
         moodsArr={moodsArr}
         lastAction={lastAction}
       />
+
+      <Tabs />
 
       {moodBeingEditted && (
         <EditMoodModal

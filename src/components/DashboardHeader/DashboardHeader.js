@@ -5,7 +5,6 @@ import formatRelativeDate from '../../utils/date';
 import { useState } from 'react';
 
 function DashboardHeader({ moodsArr }) {
-  console.log(moodsArr);
   const [timestamp] = useState(Date.now());
 
   function getGreeting(timestamp) {

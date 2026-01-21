@@ -50,6 +50,8 @@
   --grad-anxious: linear-gradient(135deg, #a692f6, #ddd6fe);
   --grad-angry: linear-gradient(135deg, #e95656, #fecaca);
 
+  --grad-tab: linear-gradient(135deg, #ffdcae9e 0%, #fffaf0 100%);
+
   /* --------------------------------
      MOOD GRADIENTS FOR CARDS
      -------------------------------- */
@@ -59,7 +61,6 @@
   --grad-sad-fade: linear-gradient(90deg, #bbd4f2 0%, #ffffff 100%);
   --grad-anxious-fade: linear-gradient(90deg, #ddd6fe 0%, #ffffff 100%);
   --grad-angry-fade: linear-gradient(90deg, #fecaca 0%, #ffffff 100%); */
-
   --grad-happy-fade: linear-gradient(
     90deg,
     #f9d237fa 0%,
@@ -163,7 +164,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Barlow Condensed',
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Inter', 'Barlow Condensed',
     'SF Pro Text', sans-serif;
   background: #000000;
   color: var(--text-primary);

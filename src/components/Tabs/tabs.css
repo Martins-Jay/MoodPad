@@ -1,0 +1,31 @@
+.container {
+  margin: var(--container-margin);
+  padding: 0.4rem 0;
+  shadow: var(--shadow-md);
+  background: var(--grad-tab);
+  border-radius: 20px;
+}
+
+.tab-btns-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  padding: 0.1rem 0.8rem;
+}
+
+.tab-btn {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 1.6rem;
+  border: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(90deg, #d9d5d5, #e0dfdf);
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #ddb580a4;
+  font-weight: 700;
+  color: var(--text-primary);
+}
