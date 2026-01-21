@@ -4,9 +4,11 @@
   position: relative;
   width: 100%;
 
-  background: var(--bg-card);
+  background: var(--bg-container);
   border-radius: 20px;
   margin: var(--container-margin);
+  margin-bottom: 1.4rem;
+  margin-top: .3rem;
   padding: 0.4rem 0.6rem 0 0.1rem;
   box-shadow: var(--shadow-md);
 }
@@ -44,7 +46,7 @@
 .reflection-content-wrapper {
   width: 97.5%;
   height: 156px;
-  background: var(--bg-card);
+  background: var(--bg-container);
   position: absolute;
   top: 28%;
   right: 0;
@@ -100,7 +102,7 @@
 
 .mood-items-remaining {
   text-align: center;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .length-value {

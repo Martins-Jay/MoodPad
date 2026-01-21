@@ -4,11 +4,11 @@
 }
 
 .mood-icons-container {
+  margin: var(--container-margin);
   display: flex;
   justify-content: space-evenly;
   background: var(--container-radial-left), var(--container-radial-right), var(--container-base);
   padding: 0;
-  margin: var(--container-margin);
   border-radius: 20px;
 }
 

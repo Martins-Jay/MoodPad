@@ -6,8 +6,9 @@
      SURFACES & BACKGROUNDS
      -------------------------------- */
   --bg-app: #f7f8fa; /* Main app background */
-  --bg-card: #fcfcfc; /* Cards, sheets */
+  --bg-container: #fcfcfc; /* Container */
   --bg-muted: #fcfcfc; /* Inputs, inactive areas */
+  --bg-card: rgba(255, 255, 255, 0.55);
 
   --container-margin: 0.85rem 0;
 

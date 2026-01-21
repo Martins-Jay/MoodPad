@@ -6,7 +6,7 @@ import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
-import Tabs from '../../components/Tabs/Tabs.js';
+import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 
 function Home() {
   const [moodsArr, setMoodsArr] = useState([]);
@@ -15,7 +15,8 @@ function Home() {
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
 
-  // const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('dashboard');
+  console.log(moodsArr);
 
   function handleMoodSelect(iconObj) {
     setActiveMood(() => ({
@@ -96,7 +97,7 @@ function Home() {
         lastAction={lastAction}
       />
 
-      <Tabs />
+      <DashboardOverview moodsArr={moodsArr} activeTab={activeTab} />
 
       {moodBeingEditted && (
         <EditMoodModal

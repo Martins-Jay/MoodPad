@@ -1,0 +1,7 @@
+.dashboard-overview-container {
+  margin: var(--container-margin);
+  padding: 0.5rem 0.9rem;
+  shadow: var(--shadow-md);
+  background: var(--grad-tab);
+  border-radius: 20px;
+}
