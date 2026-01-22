@@ -32,8 +32,6 @@
   display: flex;
   justify-content: center;
 }
-<<<<<<< HEAD
-=======
 
 
 /* ---------- Empty state ---------- */
@@ -125,4 +123,3 @@
   font-weight: 900;
   color: rgba(18, 18, 18, 0.85);
 }
->>>>>>> 200adc6 (feat: compute daily mood percentages from filtered moods)
