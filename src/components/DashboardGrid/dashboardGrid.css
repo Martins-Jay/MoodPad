@@ -14,7 +14,7 @@
 
 .mood-empty-title {
   margin: 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -31,4 +31,89 @@
   padding: 14px;
   background: rgba(255, 255, 255, 0.35);
   color: rgba(25, 25, 25, 0.6);
+}
+
+/* ---------- Mood Balance card ---------- */
+.mood-balance-container {
+  width: 100%;
+  padding: 8px 0px 0;
+}
+
+.mood-balance-card {
+  border-radius: 20px;
+  padding: 14px;
+
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  backdrop-filter: blur(12px);
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(18, 18, 18, 0.9);
+}
+
+/* pills layout */
+.mood-pill-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* pill */
+.mood-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.mood-pill-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(25, 25, 25, 0.65);
+}
+
+.mood-pill-pct {
+  font-size: 12px;
+  font-weight: 900;
+  color: rgba(18, 18, 18, 0.85);
+}
+
+/* Horizontal mood balance bar */
+.mood-balance-bar {
+  display: flex;
+  width: 100%;
+  height: 0.6rem;
+  border-radius: 999px;
+  flex-wrap: nowrap; /* prevents segments from going to next line */
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  margin-bottom: 12px;
+
+  /* Option A (iOS Safari paint stability) */
+  contain: layout paint; /* forces isolated layout */
+  transform: translateZ(0); /* force repaint on iOS */
+  will-change: transform; /* hint to Safari */
+}
+
+/* Individual segments */
+.mood-balance-slice {
+  height: 100%;
+  transform: translateZ(0);
 }

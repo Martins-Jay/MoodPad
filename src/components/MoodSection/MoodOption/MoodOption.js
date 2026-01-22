@@ -16,24 +16,22 @@ const icons = {
   angry: <AngryIcon size={25} />,
 };
 
-function MoodOption({ iconObj, onPickMood, onMoodSelect }) {
+function MoodOption({ moodObj, onPickMood, onMoodSelect }) {
   return (
     <li className="mood-option-wrapper">
       <div
         className="mood-svg-icon"
-        style={{ background: iconObj.colorGradient }}
-        onClick={() => onMoodSelect(iconObj)}
+        style={{ background: moodObj.colorGradient }}
+        onClick={() => onMoodSelect(moodObj)}
       >
-        {icons[iconObj.iconName]}
+        {icons[moodObj.iconName]}
       </div>
 
-      <div className="mood-name">{iconObj?.name}</div>
+      <div className="mood-name">{moodObj?.name}</div>
     </li>
   );
 }
 
 export default MoodOption;
 
-// onClick={() => onPickMood(iconObj)}
-
-
+// onClick={() => onPickMood(moodObj)}

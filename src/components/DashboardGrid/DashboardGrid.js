@@ -29,14 +29,24 @@ function DashboardGrid({ moodsArr = [] }) {
 
   const moodBalanceArr = Object.keys(counts).map((moodName) => {
     const countVal = counts[moodName];
+    const lengthOfFilteredArr = moodsCreatedToday.length;
 
     const percentVal =
-      moodsCreatedToday.length === 0
+      lengthOfFilteredArr === 0
         ? 0
-        : Math.round((countVal / moodsCreatedToday.length) * 100);
+        : Math.round((countVal / lengthOfFilteredArr) * 100);
 
     return { moodName, countVal, percentVal };
   });
+
+  const moodColors = {
+    Happy: 'var(--grad-happy)',
+    Calm: 'var(--grad-calm)',
+    Neutral: 'var(--grad-neutral)',
+    Sad: 'var(--grad-sad)',
+    Anxious: 'var(--grad-anxious)',
+    Angry: 'var(--grad-angry)',
+  };
 
   if (moodsCreatedToday.length === 0) {
     return (
@@ -55,6 +65,22 @@ function DashboardGrid({ moodsArr = [] }) {
     <section className="mood-balance-container">
       <div className="mood-balance-card">
         <h4 className="card-title">Mood Balance</h4>
+
+        <div className="mood-balance-bar">
+          {moodBalanceArr
+            .filter((balObj) => balObj.countVal > 0)
+            .map((balObj) => (
+              <div
+                key={balObj.moodName}
+                className="mood-balance-slice"
+                style={{
+                  flex: balObj.countVal,
+                  background: moodColors[balObj.moodName],
+                }}
+                title={`${balObj.moodName} ${balObj.percentVal}%`}
+              />
+            ))}
+        </div>
 
         <div className="mood-pill-wrap">
           {moodBalanceArr.map((balObj) => (
