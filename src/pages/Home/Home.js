@@ -15,7 +15,7 @@ function Home() {
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
 
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab] = useState('dashboard');
   console.log(moodsArr);
 
   function handleMoodSelect(iconObj) {
