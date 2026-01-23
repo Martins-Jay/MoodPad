@@ -57,8 +57,8 @@ function ActiveMoodPanel({
   }
 
   return (
-    <div className="optional-container">
-      {isOpen ? (
+    <div className="optional-container amp-backdrop">
+      {isOpen && (
         <div className="active-mood-panel-wrapper">
           <div
             className="active-mood-container"
@@ -89,7 +89,7 @@ function ActiveMoodPanel({
                 autoFocus
                 className="text-area"
                 placeholder="Write about the thoughts or event that led to this feeling..."
-                autoCapitalize='on'
+                autoCapitalize="on"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
@@ -104,21 +104,6 @@ function ActiveMoodPanel({
             </form>
           </div>
         </div>
-      ) : !isOpen &&
-        Object.keys(activeMood).length > 0 &&
-        lastAction === 'added' ? (
-        <div className="length-value">
-          Awesome! You’ve logged {moodsArr.length}{' '}
-          {moodsArr.length === 1 ? 'mood ' : 'moods '}
-          today!
-        </div>
-      ) : !isOpen && lastAction === 'removed' ? (
-        <div className="mood-items-remaining">
-          Removed. You now have {moodsArr.length}{' '}
-          {moodsArr.length === 1 ? 'entry' : 'entries'} logged
-        </div>
-      ) : (
-        <div className="no-active-mood">No selected mood yet</div>
       )}
     </div>
   );

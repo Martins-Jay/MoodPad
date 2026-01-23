@@ -20,7 +20,8 @@ function DashboardHeader({ moodsArr }) {
       <h1 className="greetings">{getGreeting(timestamp)}, Martins</h1>
 
       <div className="description-wrapper">
-        <p>You've logged {moodsArr?.length} moods today.</p>
+        <p className='bridge-text'>Take a moment to check in with yourself</p>
+
 
         <div className="date-wrapper">
           <div className="clock-icon">
@@ -28,7 +29,7 @@ function DashboardHeader({ moodsArr }) {
           </div>
 
           <p className="date-container">
-            {formatRelativeDate(timestamp)},
+            {formatRelativeDate(timestamp)},{' '}
             {formatRelativeDate(timestamp, true)}
           </p>
         </div>

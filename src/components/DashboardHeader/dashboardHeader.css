@@ -7,8 +7,8 @@
 .dashboard-content-wrapper h1 {
   color: var(--text-primary);
   letter-spacing: 0.5px;
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 800;
 }
 
 .description-wrapper {
@@ -18,7 +18,7 @@
 
 .dashboard-content-wrapper p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .dashboard-content-wrapper .date-wrapper {

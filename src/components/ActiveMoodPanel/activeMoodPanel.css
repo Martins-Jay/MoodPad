@@ -1,5 +1,19 @@
+.amp-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0 20px;
+  overflow: hidden;
+  overscroll-behaviour: contain;
+}
+
 .active-mood-panel-wrapper {
-  display: flex;
+  display: relative;
+  top: 30%;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -8,7 +22,7 @@
   border-radius: 20px;
   margin: var(--container-margin);
   margin-bottom: 1.4rem;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
   padding: 0.4rem 0.6rem 0 0.1rem;
   box-shadow: var(--shadow-md);
 }
@@ -94,10 +108,6 @@
   padding: 0.6rem 0;
   border-radius: 30px;
   font-size: 0.8rem;
-}
-
-.no-active-mood {
-  text-align: center;
 }
 
 .mood-items-remaining {

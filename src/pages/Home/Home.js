@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
@@ -7,6 +7,7 @@ import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js
 import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
+import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
 
 function Home() {
   const [moodsArr, setMoodsArr] = useState([]);
@@ -16,7 +17,25 @@ function Home() {
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
 
   const [activeTab] = useState('dashboard');
-  console.log(moodsArr);
+
+  useEffect(() => {
+    if (isActiveMoodPanelOpen || moodBeingEditted) {
+      // Lock background scroll
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none'; // iOS Safari fix
+    } else {
+      // Restore scroll
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+
+    // Cleanup: prevent “stuck scrolling” bugs
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [isActiveMoodPanelOpen, moodBeingEditted]);
+
 
   function handleMoodSelect(iconObj) {
     setActiveMood(() => ({
@@ -89,12 +108,21 @@ function Home() {
 
       <MoodPicker onPickMood={handleAddMood} onMoodSelect={handleMoodSelect} />
 
-      <ActiveMoodPanel
+      {isActiveMoodPanelOpen && (
+        <ActiveMoodPanel
+          activeMood={activeMood}
+          onAddMood={handleAddMood}
+          isOpen={isActiveMoodPanelOpen}
+          moodsArr={moodsArr}
+          lastAction={lastAction}
+        />
+      )}
+
+      <ActiveMoodStatus
+        isPanelOpen={isActiveMoodPanelOpen}
         activeMood={activeMood}
-        onAddMood={handleAddMood}
-        isOpen={isActiveMoodPanelOpen}
-        moodsArr={moodsArr}
         lastAction={lastAction}
+        moodsArr={moodsArr}
       />
 
       <DashboardOverview moodsArr={moodsArr} activeTab={activeTab} />
