@@ -113,6 +113,7 @@ function Home() {
           activeMood={activeMood}
           onAddMood={handleAddMood}
           isOpen={isActiveMoodPanelOpen}
+          setIsActiveMoodPanelOpen={setIsActiveMoodPanelOpen}
           moodsArr={moodsArr}
           lastAction={lastAction}
         />

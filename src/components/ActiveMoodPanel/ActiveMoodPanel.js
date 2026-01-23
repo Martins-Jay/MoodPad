@@ -21,6 +21,7 @@ function ActiveMoodPanel({
   activeMood,
   onAddMood,
   isOpen,
+  setIsActiveMoodPanelOpen,
   moodsArr,
   lastAction,
 }) {
@@ -56,6 +57,10 @@ function ActiveMoodPanel({
     setText('');
   }
 
+  function handleCLoseModal() {
+    setIsActiveMoodPanelOpen(false);
+  }
+
   return (
     <div className="optional-container amp-backdrop">
       {isOpen && (
@@ -68,15 +73,21 @@ function ActiveMoodPanel({
               background: `${cardColorGradient}`,
             }}
           >
-            <div className="header-content">
-              <div className="svg-wrapper">
-                <div className="svg-icon">{icons[activeMood.iconName]}</div>
+            <div className="top-header">
+              <div className="header-content">
+                <div className="svg-wrapper">
+                  <div className="svg-icon">{icons[activeMood.iconName]}</div>
+                </div>
+
+                <div className="mood-content">
+                  <h1 className="item-name">{name}</h1>
+                  {color?.colorGradient}
+                  <p className="date">{formatRelativeDate(isoDate)}</p>
+                </div>
               </div>
 
-              <div className="mood-content">
-                <h1 className="item-name">{name}</h1>
-                {color?.colorGradient}
-                <p className="date">{formatRelativeDate(isoDate)}</p>
+              <div className="close-active--btn" onClick={handleCLoseModal}>
+                X
               </div>
             </div>
           </div>

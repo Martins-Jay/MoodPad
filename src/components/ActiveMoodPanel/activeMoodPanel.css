@@ -33,6 +33,25 @@
   margin: 0 10px;
 }
 
+.top-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-active--btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: #dcdada;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .header-content {
   display: flex;
   align-items: center;
