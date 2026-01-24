@@ -1,5 +1,5 @@
 import MoodBalanceBar from './MoodBalanceBar';
-import MoodBalancePill from './MoodBalancePill';
+import MoodBalanceItem from './MoodBalanceItem';
 
 function MoodBalance({ moodsArr }) {
   const todayDateStr = new Date().toDateString(); // Str sample: Wed Jan 21 2026
@@ -62,7 +62,7 @@ function MoodBalance({ moodsArr }) {
 
         <div className="mood-pill-wrap">
           {moodBalanceArr.map((balObj) => (
-            <MoodBalancePill key={balObj.moodName} balObj={balObj} />
+            <MoodBalanceItem key={balObj.moodName} balObj={balObj} />
           ))}
         </div>
       </div>
