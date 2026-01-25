@@ -34,4 +34,3 @@ function MoodOption({ moodObj, onPickMood, onMoodSelect }) {
 
 export default MoodOption;
 
-// onClick={() => onPickMood(moodObj)}

@@ -60,7 +60,7 @@ function MoodBalance({ moodsArr }) {
 
         <MoodBalanceBar moodBalanceArr={moodBalanceArr} />
 
-        <div className="mood-pill-wrap">
+        <div className="mood-bal-wrap">
           {moodBalanceArr.map((balObj) => (
             <MoodBalanceItem key={balObj.moodName} balObj={balObj} />
           ))}

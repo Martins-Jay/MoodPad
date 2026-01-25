@@ -45,39 +45,35 @@
   color: rgba(18, 18, 18, 0.9);
 }
 
-/* pills layout */
-.mood-pill-wrap {
+/* bal layout */
+.mood-bal-wrap {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-/* pill */
-/* .mood-pill {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.3rem;
-
-  padding: 8px 10px;
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-} */
-
+/* mood balance */
 .mood-balance-item {
   display: flex;
   align-items: center;
-  gap: .4rem;
+}
+
+.mood-balance-group-1 {
+  display: flex;
+  align-items: center;
+  width: 4.8rem;
+  gap: 0.4rem;
+}
+
+.mood-balance-group-2 {
+  display: flex;
+  align-items: center;
 }
 
 .mood-balance-item__indicator {
   display: flex;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
 }
 
 .mood-balance-item__name {
@@ -87,9 +83,13 @@
 }
 
 .mood-balance-item__pct {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 900;
   color: rgba(18, 18, 18, 0.85);
+}
+
+.mood-balance-item__pct.dull {
+  color: var(--text-muted);
 }
 
 /* Horizontal mood balance bar */
