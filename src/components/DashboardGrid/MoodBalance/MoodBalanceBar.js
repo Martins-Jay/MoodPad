@@ -1,13 +1,6 @@
-function MoodBalanceBar({ moodBalanceArr }) {
-  const moodColors = {
-    Happy: 'var(--grad-happy)',
-    Calm: 'var(--grad-calm)',
-    Neutral: 'var(--grad-neutral)',
-    Sad: 'var(--grad-sad)',
-    Anxious: 'var(--grad-anxious)',
-    Angry: 'var(--grad-angry)',
-  };
+import moodColors from '../../SharedConstants/moodColors';
 
+function MoodBalanceBar({ moodBalanceArr }) {
   return (
     <div className="mood-balance-bar">
       {moodBalanceArr

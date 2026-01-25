@@ -1,13 +1,6 @@
-function MoodBalanceItem({ balObj }) {
-  const moodColors = {
-    Happy: 'var(--grad-happy)',
-    Calm: 'var(--grad-calm)',
-    Neutral: 'var(--grad-neutral)',
-    Sad: 'var(--grad-sad)',
-    Anxious: 'var(--grad-anxious)',
-    Angry: 'var(--grad-angry)',
-  };
+import moodColors from '../../SharedConstants/moodColors';
 
+function MoodBalanceItem({ balObj }) {
   return (
     <div className="mood-balance-item">
       <div className="mood-balance-group-1">
@@ -23,7 +16,11 @@ function MoodBalanceItem({ balObj }) {
       </div>
 
       <div className="mood-balance-group-2">
-        <span className={`mood-balance-item__pct ${balObj.percentVal === 0 ? 'dull' : ''}`}>{balObj.percentVal}%</span>
+        <span
+          className={`mood-balance-item__pct ${balObj.percentVal === 0 ? 'dull' : ''}`}
+        >
+          {balObj.percentVal}%
+        </span>
       </div>
     </div>
   );

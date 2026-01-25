@@ -5,6 +5,8 @@ function DashboardGrid({ moodsArr = [] }) {
   return (
     <section className="dashboard-grid">
       <MoodBalance moodsArr={moodsArr} />
+
+      
     </section>
   );
 }

@@ -48,11 +48,9 @@ function Home() {
     };
   }, [isActiveMoodPanelOpen, moodBeingEditted]);
 
-  function handleMoodSelect(iconObj) {
+  function handleMoodSelect(moodObj) {
     setActiveMood(() => ({
-      ...iconObj,
-      id: Date.now(),
-      isoDate: new Date().toISOString(),
+      ...moodObj,
     }));
 
     setIsActiveMoodPanelOpen(true);
@@ -73,8 +71,7 @@ function Home() {
       {
         ...iconObj,
         text: formattedText,
-        id: Date.now(),
-        isoDate: new Date().toISOString(),
+        timestamp: Date.now(),
       },
       ...prevMoods,
     ]);

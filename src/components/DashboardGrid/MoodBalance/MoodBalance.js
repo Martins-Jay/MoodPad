@@ -5,9 +5,9 @@ function MoodBalance({ moodsArr }) {
   const todayDateStr = new Date().toDateString(); // Str sample: Wed Jan 21 2026
 
   const moodsCreatedToday = moodsArr.filter((moodObj) => {
-    if (!moodObj.isoDate) return false;
+    if (!moodObj.timestamp) return false;
 
-    const dateStr = new Date(moodObj.isoDate).toDateString(); // Str sample: Wed Jan 21 2026
+    const dateStr = new Date(moodObj.timestamp).toDateString(); // Str sample: Wed Jan 21 2026
 
     return dateStr === todayDateStr; // we only want array of objects with date === today's date
   });

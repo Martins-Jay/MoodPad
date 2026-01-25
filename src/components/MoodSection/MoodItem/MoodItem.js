@@ -32,7 +32,7 @@ function MoodItem({
     color,
     colorGradient,
     cardColorGradient,
-    isoDate,
+    timestamp,
     text,
   } = moodObj;
 
@@ -96,7 +96,7 @@ function MoodItem({
               <h1 className="item-name">{name}</h1>
               {color?.colorGradient}
               <p className="date">
-                {formatRelativeDate(isoDate)}: {getFormattedTime(isoDate)}
+                {formatRelativeDate(timestamp)}: {getFormattedTime(timestamp)}
               </p>
             </div>
           </div>
