@@ -133,7 +133,7 @@ function StreakCard({ moodsArr }) {
     return (
       <div className="streak-active-container">
         <div className="streak-active">
-          <div className="zero-streak-title">Streak Added</div>
+          <div className="streak-active-title">Streak Added</div>
           <div className="zero-streak-sub">Your current streak: {value}</div>
         </div>
       </div>
