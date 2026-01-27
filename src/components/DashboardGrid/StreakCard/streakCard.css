@@ -23,3 +23,15 @@
   line-height: 1.35;
   color: var(--text-secondary);
 }
+
+.streak-active-container {
+  padding: 0.4rem 0rem;
+}
+
+.streak-active {
+  border-radius: 0.8rem;
+  padding: 14px;
+
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-md);
+}

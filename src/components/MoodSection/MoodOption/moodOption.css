@@ -19,7 +19,7 @@
 }
 
 .mood-svg-icon:active {
-  transform: scale(4.96);
+  transform: scale(0.96);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 

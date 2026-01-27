@@ -49,33 +49,34 @@ function StreakCard({ moodsArr }) {
 
   function calculateStreak(uniqueDatesSet) {
     // Get how many days ago the current streak started -->> 0 = today, 1 = yesterday
-    const streakStartValue = getStreakStartDay(uniqueDatesSet);
-    if (streakStartValue === null) return 0;
+    const streakStartDaysAgo = getStreakStartDay(uniqueDatesSet);
+    if (streakStartDaysAgo === null) return 0;
 
     // Initialize streak count
     let streakCount = 0;
 
     // Initialize how many days ago we are checking -----> daysAgoValue === 0 || 1
-    let daysAgoValue = streakStartValue;
+    let daysAgoCounter = streakStartDaysAgo;
+
+    const todayDate = new Date(); // get todays date
 
     while (true) {
-      const today = new Date(); // get today's date
-      const todayDayValue = today.getDate(); // get today's day number (1–31)
+      const todayDayNumber = todayDate.getDate(); // get today's day number (1–31)
 
       // calculate the day number to check by subtracting daysAgoValue
-      const dayDifference = todayDayValue - daysAgoValue;
+      const dayToCheckNumber = todayDayNumber - daysAgoCounter;
 
       // create the date we want to check
-      const checkDate = new Date(today); // clone today
-      checkDate.setDate(dayDifference); // set the correct day
+      const dateToCheck = new Date(todayDate); // clone today
+      dateToCheck.setDate(dayToCheckNumber); // set the correct day
 
       // format the date to YYYY-MM-DD for comparison
-      const formattedDate = formatDate(checkDate);
+      const formattedDate = formatDate(dateToCheck);
 
       // check if the user logged mood on this date
       if (uniqueDatesSet.has(formattedDate)) {
         streakCount++; // increase streak
-        daysAgoValue++; // move one more day back
+        daysAgoCounter++; // move one more day back
       } else {
         break; // streak ends here
       }
@@ -84,7 +85,35 @@ function StreakCard({ moodsArr }) {
     return streakCount;
   }
 
-  if (getStreakStartDay(uniqueDatesSet) === null) {
+  function getLast7Days() {
+    return Array.from({ length: 7 }, (_, index) => {
+      const today = new Date(); // today's full date object
+      const todayDayNumber = today.getDate(); // e.g. 27
+
+      const daysAgoValue = 6 - index; // starts from 6 days ago → today
+
+      const dayToGenerate = todayDayNumber - daysAgoValue; // get actual day number we want
+
+      // create the date we want to generate
+      const dateToGenerate = new Date(today); // clone today
+      dateToGenerate.setDate(dayToGenerate);
+
+      return formatDate(dateToGenerate);
+    });
+  }
+
+  function getRolling7DayBoxes(uniqueDatesSet) {
+    const last7DaysArr = getLast7Days();
+
+    return last7DaysArr.map((dayStr) => {
+      return {
+        dayStr, // "2026-01-27"
+        checked: uniqueDatesSet.has(dayStr), // true/false
+      };
+    });
+  }
+
+  if (calculateStreak(uniqueDatesSet) === 0) {
     return (
       <div className="zero-streak-container">
         <div className="zero-streak">
@@ -100,10 +129,10 @@ function StreakCard({ moodsArr }) {
 
   const value = calculateStreak(uniqueDatesSet);
 
-  if (getStreakStartDay(uniqueDatesSet) !== null) {
+  if (calculateStreak(uniqueDatesSet) !== 0) {
     return (
-      <div className="zero-streak-container">
-        <div className="zero-streak">
+      <div className="streak-active-container">
+        <div className="streak-active">
           <div className="zero-streak-title">Streak Added</div>
           <div className="zero-streak-sub">Your current streak: {value}</div>
         </div>
