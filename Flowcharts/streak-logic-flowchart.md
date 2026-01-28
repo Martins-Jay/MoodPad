@@ -17,14 +17,14 @@ Define getStreakStartDay(uniqueDatesSet), which checks:
 +---------------------------+
 | Has the user logged today? |
 +---------------------------+
-  | Yes → return 0 (streak starts today, include today)
+  | Yes → return 0 (because in the calculation, today − 0 gives today’s date)
   |
-  | No → No problem, allowe but check the most important i.e. yesterday
+  | No → No problem, but check the most important i.e. yesterday
   v
 +---------------------------+
 | Has the user logged yesterday? |
 +---------------------------+
-  | Yes → return 1 (streak starts yesterday, most important day)
+  | Yes → return 1 (most important day -----> today − 1 gives yesterday’s date)
   |
   | No → return null (streak broken, consistency failed)
   |
