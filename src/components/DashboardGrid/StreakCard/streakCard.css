@@ -4,21 +4,20 @@
 
 .zero-streak {
   border-radius: 1rem;
-  padding: 0.8rem;
+  padding: 0.9rem 0.8rem 1.8rem;
 
   background: var(--bg-card);
   box-shadow: var(--shadow-md);
 }
 
 .zero-streak-title {
-  margin: 0;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .zero-streak-sub {
-  margin: 0.4rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 0.8rem;
   line-height: 1.35;
   color: var(--text-secondary);
@@ -28,10 +27,110 @@
   padding: 0.4rem 0rem;
 }
 
+/* ---------------------
+        Streak inactive
+--------------------- */
+.no-active-streak-container {
+  padding: 0.4rem 0rem;
+}
+
+.inactive-streak {
+  border-radius: 0.8rem;
+  padding: 14px;
+
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-md);
+}
+
+.inactive-streak-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(18, 18, 18, 0.9);
+}
+
+.inactive-streak-sub {
+  margin: 0.2rem 0 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.check-box-list {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0.4rem 0;
+}
+
+.checkin-box {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #a69e9e;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.checkin-box--filled {
+  background: #32fa00b4;
+  border-color: transparent;
+}
+
+.checkin-box--filled::after {
+  content: '✓';
+  position: absolute;
+  top: -0.15rem;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: #5f6933d4;
+}
+
+.checkin-box--empty {
+  background: #fa260f73;
+  border-color: transparent;
+}
+
+.checkin-box--empty::after {
+  content: '-';
+  position: absolute;
+  top: -1.05rem;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 100;
+  color: #30351bd4;
+}
+
+/* ---------------------
+        Streak Active
+--------------------- */
 .streak-active {
   border-radius: 0.8rem;
   padding: 14px;
 
   background: rgba(255, 255, 255, 0.55);
   box-shadow: var(--shadow-md);
+}
+
+.streak-active-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(18, 18, 18, 0.9);
+}
+
+.streak-active-sub {
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+.added-text-bold {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.missed-notice {
+  font-size: 0.8rem;
 }

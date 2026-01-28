@@ -1,3 +1,4 @@
+import Lock from '../../../assets/icons/lock';
 import MoodBalanceBar from './MoodBalanceBar';
 import MoodBalanceItem from './MoodBalanceItem';
 
@@ -20,6 +21,10 @@ function MoodBalance({ moodsArr }) {
           <p className="mood-empty-sub">
             Pick a mood above to unlock today’s balance and insights.
           </p>
+
+          <div className='lock-svg'>
+            <Lock />
+          </div>
         </div>
       </section>
     );

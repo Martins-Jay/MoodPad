@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-content: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .mood-bal-empty-container {
@@ -10,8 +10,9 @@
 }
 
 .mood-bal-empty {
+  position: relative;
   border-radius: 1rem;
-  padding: 0.8rem;
+  padding: 0.9rem 0.8rem 2.9rem;
 
   background: var(--bg-card);
   box-shadow: var(--shadow-md);
@@ -20,15 +21,20 @@
 .mood-empty-title {
   margin: 0;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .mood-empty-sub {
-  margin: 0.4rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 0.8rem;
   line-height: 1.35;
   color: var(--text-secondary);
+}
+
+.lock-svg {
+  position: absolute;
+  right: .5rem;;
 }
 
 /* ---------- Mood Balance card ---------- */
@@ -46,8 +52,8 @@
 
 .card-title {
   margin: 0 0 10px;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: rgba(18, 18, 18, 0.9);
 }
 

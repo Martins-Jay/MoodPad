@@ -23,6 +23,8 @@ function StreakCard({ moodsArr }) {
     return formatDate(todayDate);
   }
 
+  
+
   function getYesterdayDateString() {
     const todayDate = new Date();
     const todayDayValue = todayDate.getDate(); // e.g. 26
@@ -44,8 +46,6 @@ function StreakCard({ moodsArr }) {
 
     return null;
   }
-
-  console.log(dateStrings, uniqueDatesSet, getStreakStartDay(uniqueDatesSet));
 
   function calculateStreak(uniqueDatesSet) {
     // Get how many days ago the current streak started -->> 0 = today, 1 = yesterday
@@ -88,11 +88,11 @@ function StreakCard({ moodsArr }) {
   function getLast7Days() {
     return Array.from({ length: 7 }, (_, index) => {
       const today = new Date(); // today's full date object
-      const todayDayNumber = today.getDate(); // e.g. 27
+      const todayDayValue = today.getDate(); // e.g. 27
 
       const daysAgoValue = 6 - index; // starts from 6 days ago → today
 
-      const dayToGenerate = todayDayNumber - daysAgoValue; // get actual day number we want
+      const dayToGenerate = todayDayValue - daysAgoValue; // get actual day number we want
 
       // create the date we want to generate
       const dateToGenerate = new Date(today); // clone today
@@ -102,39 +102,96 @@ function StreakCard({ moodsArr }) {
     });
   }
 
-  function getRolling7DayBoxes(uniqueDatesSet) {
+  function getLast7DayCheckIns(uniqueDatesSet) {
     const last7DaysArr = getLast7Days();
 
-    return last7DaysArr.map((dayStr) => {
+    return last7DaysArr.map((dateStr) => {
       return {
-        dayStr, // "2026-01-27"
-        checked: uniqueDatesSet.has(dayStr), // true/false
+        dateStr, // "2026-01-27"
+        checked: uniqueDatesSet.has(dateStr), // true/false
+        isToday: dateStr === getTodayDateString(),
       };
     });
   }
 
-  if (calculateStreak(uniqueDatesSet) === 0) {
+  function renderCheckInList() {
+    const last7DaysInfo = getLast7DayCheckIns(uniqueDatesSet);
+
+    return (
+      <ul className="check-box-list">
+        {last7DaysInfo.map((dayObj, i) => (
+          <li
+            key={dayObj.dateStr}
+            className={`checkin-box ${dayObj.checked ? 'checkin-box--filled' : 'checkin-box--empty'}`}
+          ></li>
+        ))}
+      </ul>
+    );
+  }
+
+  const streakValue = calculateStreak(uniqueDatesSet);
+
+  if (streakValue === 0 && moodsArr.length > 0) {
+    // Brand new user
     return (
       <div className="zero-streak-container">
         <div className="zero-streak">
-          <div className="zero-streak-title">No streak yet</div>
+          <div className="zero-streak-title">Start your streak</div>
           <div className="zero-streak-sub">
-            Your daily streak will appear after your first mood check-in.
+            Log your first mood to begin building a daily check-in habit.
           </div>
         </div>
       </div>
     );
   }
-  console.log(calculateStreak(uniqueDatesSet));
 
-  const value = calculateStreak(uniqueDatesSet);
+  if (streakValue === 0 && moodsArr.length === 0) {
+    // Returning user, streak not active
+    return (
+      <div className="no-active-streak-container">
+        <div className="inactive-streak">
+          <div className="inactive-streak-title">Start fresh today</div>
+          <div className="inactive-streak-sub">
+            No active streak yet but your daily check-in still counts!
+          </div>
+
+          <div className="checkin-progress-list">{renderCheckInList()}</div>
+        </div>
+      </div>
+    );
+  }
+
+  const dayDiff = getLast7DayCheckIns(uniqueDatesSet).filter(
+    (dayObj) => !dayObj.checked,
+  ).length;
 
   if (calculateStreak(uniqueDatesSet) !== 0) {
     return (
       <div className="streak-active-container">
         <div className="streak-active">
-          <div className="streak-active-title">Streak Added</div>
-          <div className="zero-streak-sub">Your current streak: {value}</div>
+          <div className="streak-active-title">Current Streak</div>
+          <div className="streak-active-sub">
+            {calculateStreak(uniqueDatesSet)}
+            <span className="added-text-bold">
+              -
+              {calculateStreak(uniqueDatesSet) === 1
+                ? 'day 🔥🔥🔥'
+                : calculateStreak(uniqueDatesSet) >= 100
+                  ? 'days'
+                  : calculateStreak(uniqueDatesSet) <= 9
+                    ? 'days 🔥🔥'
+                    : calculateStreak(uniqueDatesSet) > 9
+                      ? 'days 🔥'
+                      : ''}
+            </span>
+          </div>
+
+          <div className="checkin-progress-list">{renderCheckInList()}</div>
+
+          <div className="missed-notice">
+            {dayDiff <= 3 ? 'Just ' : ''}
+            {dayDiff} {dayDiff === 1 ? 'day' : 'days'} missed
+          </div>
         </div>
       </div>
     );
