@@ -1,0 +1,46 @@
+.mood-empty-insight-card {
+  border-radius: 0.8rem;
+
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-md);
+}
+
+.empty-insight-container {
+  position: relative;
+  padding: 14px 14px 25px 14px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mood-insight-text {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.streak-lock-svg {
+  position: absolute;
+  bottom: -8.6rem;
+  right: -0.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-content: center;
+  background: var(--grad-tab);
+  border: 1px solid #7165652f;
+  border-radius: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+.mood-insight-card {
+  border-radius: 0.8rem;
+  padding: 14px 14px 25px 14px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-md);
+}

@@ -98,14 +98,15 @@ export function useMoodStreak(moodsArr) {
       return {
         dateStr, // "2026-01-27"
         checked: uniqueDatesSet.has(dateStr), // true/false
-        isToday: dateStr === getTodayDateString(),
       };
     });
   }
 
   const dayDiff = getLast7DayCheckIns(uniqueDatesSet).filter(
-    (dayObj) => !dayObj.checked,
+    (dateObj) => !dateObj.checked,
   ).length;
 
-  return { getLast7DayCheckIns, uniqueDatesSet, calculateStreak, dayDiff };
+  const isCheckedInToday = getLast7DayCheckIns(uniqueDatesSet).filter(dateObj => dateObj.checked)
+
+  return { getLast7DayCheckIns, uniqueDatesSet, calculateStreak, dayDiff, isCheckedInToday };
 }

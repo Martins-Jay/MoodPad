@@ -5,6 +5,10 @@
   gap: 0.8rem;
 }
 
+.dashboard-grid-full {
+  grid-column: 1 / -1;
+}
+
 .mood-bal-empty-container {
   padding: 0.4rem 0rem;
 }
@@ -12,7 +16,7 @@
 .mood-bal-empty {
   position: relative;
   border-radius: 1rem;
-  padding: 0.9rem 0.8rem 2.9rem;
+  padding: 0.9rem 0.8rem 1.8rem;
 
   background: var(--bg-card);
   box-shadow: var(--shadow-md);
@@ -32,9 +36,18 @@
   color: var(--text-secondary);
 }
 
-.lock-svg {
+.mood-lock-svg {
   position: absolute;
-  right: .5rem;;
+  bottom: -0.6rem;
+  right: -0.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-content: center;
+  background: var(--grad-tab);
+  border: 1px solid #7165652f;
+  border-radius: 3rem;
+  box-shadow: var(--shadow-md);
 }
 
 /* ---------- Mood Balance card ---------- */

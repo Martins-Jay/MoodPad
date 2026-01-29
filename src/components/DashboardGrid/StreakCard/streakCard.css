@@ -3,6 +3,7 @@
 }
 
 .zero-streak {
+  position: relative;
   border-radius: 1rem;
   padding: 0.9rem 0.8rem 1.8rem;
 
@@ -25,6 +26,20 @@
 
 .streak-active-container {
   padding: 0.4rem 0rem;
+}
+
+.streak-lock-svg {
+  position: absolute;
+  bottom: -0.6rem;
+  right: -0.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-content: center;
+  background: var(--grad-tab);
+  border: 1px solid #7165652f;
+  border-radius: 3rem;
+  box-shadow: var(--shadow-md);
 }
 
 /* ---------------------
@@ -132,5 +147,9 @@
 }
 
 .missed-notice {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
+}
+
+.success-notice {
+  font-size: 0.7rem;
 }

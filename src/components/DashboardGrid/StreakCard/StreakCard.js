@@ -1,9 +1,17 @@
 import './streakCard.css';
 import { useMoodStreak } from '../../../hooks/useMoodStreak';
+import Lock from '../../../assets/icons/lock';
 
 function StreakCard({ moodsArr }) {
-  const { getLast7DayCheckIns, uniqueDatesSet, calculateStreak, dayDiff } =
-    useMoodStreak(moodsArr);
+  const {
+    getLast7DayCheckIns,
+    uniqueDatesSet,
+    calculateStreak,
+    dayDiff,
+    isCheckedInToday,
+  } = useMoodStreak(moodsArr);
+
+  console.log(isCheckedInToday);
 
   const streakValue = calculateStreak(uniqueDatesSet);
 
@@ -22,7 +30,7 @@ function StreakCard({ moodsArr }) {
     );
   }
 
-  if (streakValue === 0 && moodsArr.length > 0) {
+  if (streakValue === 0 && moodsArr.length === 0) {
     // Brand new user
     return (
       <div className="zero-streak-container">
@@ -31,12 +39,16 @@ function StreakCard({ moodsArr }) {
           <div className="zero-streak-sub">
             Log your first mood to begin building a daily check-in habit.
           </div>
+
+          <div className="streak-lock-svg">
+            <Lock size={25} />
+          </div>
         </div>
       </div>
     );
   }
 
-  if (streakValue === 0 && moodsArr.length === 0) {
+  if (streakValue === 0 && moodsArr.length > 0) {
     // Returning user, streak not active
     return (
       <div className="no-active-streak-container">
@@ -52,7 +64,7 @@ function StreakCard({ moodsArr }) {
     );
   }
 
-  if (streakValue !== 0) {
+  if (streakValue !== 0 && moodsArr.length > 0) {
     return (
       <div className="streak-active-container">
         <div className="streak-active">
@@ -75,9 +87,12 @@ function StreakCard({ moodsArr }) {
 
           <div className="checkin-progress-list">{renderCheckInList()}</div>
 
+          <div className="success-notice">
+            {isCheckedInToday.length > 0 ? 'Streak extended!' : ''}
+          </div>
+
           <div className="missed-notice">
-            {dayDiff <= 3 ? 'Just ' : ''}
-            {dayDiff} {dayDiff === 1 ? 'day' : 'days'} missed
+            No record for the past {dayDiff} {dayDiff === 1 ? 'day' : 'days'}
           </div>
         </div>
       </div>
