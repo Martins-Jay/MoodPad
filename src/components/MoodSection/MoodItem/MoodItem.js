@@ -74,7 +74,6 @@ function MoodItem({
   function handleEdit() {
     onEditMood(moodObj);
   }
-  console.log(colorGradient);
 
   return (
     <li className="mood-item-container">

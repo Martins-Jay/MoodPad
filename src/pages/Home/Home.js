@@ -4,7 +4,7 @@ import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
 import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
-import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
+// import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
@@ -56,15 +56,15 @@ function Home() {
     setIsActiveMoodPanelOpen(true);
   }
 
-  function handleSaveNote(selectedMoodId, formattedText) {
-    setMoodsArr((prevMoods) =>
-      prevMoods.map((moodObj) =>
-        moodObj.id === selectedMoodId
-          ? { ...moodObj, text: formattedText }
-          : moodObj,
-      ),
-    );
-  }
+  // function handleSaveNote(selectedMoodId, formattedText) {
+  //   setMoodsArr((prevMoods) =>
+  //     prevMoods.map((moodObj) =>
+  //       moodObj.id === selectedMoodId
+  //         ? { ...moodObj, text: formattedText }
+  //         : moodObj,
+  //     ),
+  //   );
+  // }
 
   function handleAddMood(iconObj, formattedText) {
     setMoodsArr((prevMoods) => [
@@ -80,17 +80,17 @@ function Home() {
     setLastAction('added');
   }
 
-  function handleRemoveNote(selectedMoodId) {
-    setMoodsArr((prevMoods) =>
-      prevMoods.filter((moodObj) => moodObj.id !== selectedMoodId),
-    );
+  // function handleRemoveNote(selectedMoodId) {
+  //   setMoodsArr((prevMoods) =>
+  //     prevMoods.filter((moodObj) => moodObj.id !== selectedMoodId),
+  //   );
 
-    setLastAction('removed');
-  }
+  //   setLastAction('removed');
+  // }
 
-  function handleEditMood(moodObj) {
-    setMoodBeingEditted(moodObj);
-  }
+  // function handleEditMood(moodObj) {
+  //   setMoodBeingEditted(moodObj);
+  // }
 
   function handleUpdateText(selectedMoodId, formattedText) {
     if (!formattedText.trim()) return;
@@ -144,12 +144,12 @@ function Home() {
         />
       )}
 
-      <MoodList
+      {/* <MoodList
         moodsArr={moodsArr}
         onSaveNote={handleSaveNote}
         onRemoveNote={handleRemoveNote}
         onEditMood={handleEditMood}
-      />
+      /> */}
     </PageWrapper>
   );
 }

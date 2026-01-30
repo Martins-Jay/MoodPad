@@ -1,4 +1,4 @@
-import { getMoodBalanceForToday } from '../../utils/getMoodBalanceForToday';
+import { getMoodBalanceForToday } from '../../utils/moodUtils';
 
 import './dashboardGrid.css';
 import MoodBalance from './MoodBalance/MoodBalance';
@@ -8,8 +8,6 @@ import StreakCard from './StreakCard/StreakCard';
 function DashboardGrid({ moodsArr }) {
   const { moodBalanceArr, moodsCreatedToday } =
     getMoodBalanceForToday(moodsArr);
-
-  console.log(moodsCreatedToday);
 
   return (
     <section className="dashboard-grid">
@@ -22,7 +20,7 @@ function DashboardGrid({ moodsArr }) {
       <StreakCard moodsArr={moodsArr} />
 
       <div className="dashboard-grid-full">
-        <MoodInsight moodsArr={moodsArr} moodsCreatedToday={moodsCreatedToday} />
+        <MoodInsight moodsArr={moodsArr} moodsCreatedToday={moodsCreatedToday} moodBalanceArr={moodBalanceArr} />
       </div>
     </section>
   );

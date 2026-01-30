@@ -10,8 +10,15 @@
   padding: 14px 14px 25px 14px;
 }
 
-.card-title {
-  margin: 0;
+.empty-insight-container .card-title {
+  margin: 0 0 0.3rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mood-insight-card .card-title {
+  margin: 0 0 0.3rem 0;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);

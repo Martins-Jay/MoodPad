@@ -11,8 +11,6 @@ function StreakCard({ moodsArr }) {
     isCheckedInToday,
   } = useMoodStreak(moodsArr);
 
-  console.log(isCheckedInToday);
-
   const streakValue = calculateStreak(uniqueDatesSet);
 
   function renderCheckInList() {

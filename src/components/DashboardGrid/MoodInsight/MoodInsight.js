@@ -1,10 +1,16 @@
 import Lock from '../../../assets/icons/lock';
+
+import { generateMoodInsight } from '../../../utils/moodInsights';
+
 import './moodInsight.css';
 
-function MoodInsight({ moodsArr, moodsCreatedToday, aiMessage }) {
+function MoodInsight({ moodsArr, moodsCreatedToday, moodBalanceArr }) {
+  const message = generateMoodInsight(moodBalanceArr);
+  console.log(message);
+
   function getInsightState(moodsArr, moodsCreatedToday) {
-    if (moodsArr.length === 0) return 'new';
-    if (moodsCreatedToday.length === 0) return 'noneToday';
+    if (moodsArr.length === 0) return 'new-user';
+    if (moodsCreatedToday.length === 0) return 'existing-with-no-mood';
     return 'hasData';
   }
 
@@ -15,7 +21,7 @@ function MoodInsight({ moodsArr, moodsCreatedToday, aiMessage }) {
     return (
       <div className="mood-empty-insight-card">
         <div className="empty-insight-container">
-          <h4 className="card-title">AI Insight</h4>
+          <h4 className="card-title">Mood Insight</h4>
 
           <p className="mood-insight-text">{text}</p>
 
@@ -28,14 +34,14 @@ function MoodInsight({ moodsArr, moodsCreatedToday, aiMessage }) {
   }
 
   // New user
-  if (state === 'new') {
+  if (state === 'new-user') {
     return (
       <EmptyCard text="Start tracking your mood to unlock personalized insights." />
     );
   }
 
   // No mood today
-  if (state === 'noneToday') {
+  if (state === 'existing-with-no-mood') {
     return (
       <EmptyCard text="No mood logged today. Check in to unlock insights." />
     );
@@ -45,11 +51,12 @@ function MoodInsight({ moodsArr, moodsCreatedToday, aiMessage }) {
   if (state === 'hasData') {
     return (
       <div className="mood-insight-card">
-        <h4 className="card-title">AI Insight</h4>
+        <h4 className="card-title">Mood Insight</h4>
 
-        <p className="mood-insight-text">
-          {aiMessage || 'Analyzing your mood...'}
-        </p>
+        <div className="mood-insight-text">
+          {/* {aiMessage || 'Analyzing your mood...'} */}
+          {message}
+        </div>
       </div>
     );
   }

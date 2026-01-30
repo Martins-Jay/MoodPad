@@ -4,9 +4,9 @@ export function getMoodBalanceForToday(moodsArr = []) {
   const moodsCreatedToday = moodsArr.filter((moodObj) => {
     if (!moodObj.timestamp) return false;
 
-    const dateStr = new Date(moodObj.timestamp).toDateString(); // Str sample: Wed Jan 21 2026
+    const moodCreationDateStr = new Date(moodObj.timestamp).toDateString(); // Str sample: Wed Jan 21 2026
 
-    return dateStr === todayDateStr; // we only want array of objects with date === today's date
+    return moodCreationDateStr === todayDateStr; // we only want array of objects with date === today's date
   });
 
   const counts = {
@@ -39,3 +39,4 @@ export function getMoodBalanceForToday(moodsArr = []) {
 
   return { moodBalanceArr, moodsCreatedToday };
 }
+

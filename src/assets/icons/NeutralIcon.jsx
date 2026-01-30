@@ -14,9 +14,9 @@ function NeutralIcon({ size = 45 }) {
         y2="128"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="16"
       />
     </svg>
   );
