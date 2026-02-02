@@ -3,7 +3,7 @@ import { loadMoods, saveMoods } from '../utils/storage';
 
 export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
   const [moodsArr, setMoodsArr] = useState(() => loadMoods());
-  const [activeMood, setActiveMood] = useState({}); // currently open panel
+
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
 
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
@@ -72,7 +72,6 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
 
   return {
     moodsArr,
-    activeMood,
     lastAction,
     moodBeingEditted,
     handleSaveNote,
@@ -81,6 +80,5 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     handleEditMood,
     handleUpdateText,
     handleCancelEdit,
-    setActiveMood,
   };
 }

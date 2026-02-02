@@ -12,16 +12,14 @@ import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodMo
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
 
-
 function Home() {
+  const [activeTab] = useState('dashboard');
   const [isRecomendationPanelOpen, setIsRecomendationPanelOpen] =
     useState(false);
-
+  const [activeMood, setActiveMood] = useState({}); // currently open panel
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
-
   const {
     moodsArr,
-    activeMood,
     lastAction,
     moodBeingEditted,
     handleSaveNote,
@@ -31,12 +29,11 @@ function Home() {
     handleUpdateText,
     handleCancelEdit,
   } = useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen);
-  const [activeTab] = useState('dashboard');
-
   const { handleMoodSelect } = useActiveMoodPanel(
     moodBeingEditted,
     isActiveMoodPanelOpen,
     setIsActiveMoodPanelOpen,
+    setActiveMood,
   );
 
   return (

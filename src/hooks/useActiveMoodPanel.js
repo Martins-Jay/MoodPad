@@ -6,6 +6,7 @@ export function useActiveMoodPanel(
   setIsActiveMoodPanelOpen,
   setActiveMood,
 ) {
+  
   useEffect(() => {
     if (!(isActiveMoodPanelOpen || moodBeingEditted)) return;
 
