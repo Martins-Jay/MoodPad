@@ -30,7 +30,6 @@ function MoodItem({
     timestamp: selectedMoodId,
     name,
     color,
-    colorGradient,
     cardColorGradient,
     timestamp,
     text,
