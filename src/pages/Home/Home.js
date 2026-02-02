@@ -4,19 +4,32 @@ import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
 import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
-// import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
+import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
 
+import { loadMoods } from '../../utils/storage.js';
+import { saveMoods } from '../../utils/storage.js';
+
 function Home() {
-  const [moodsArr, setMoodsArr] = useState([]);
+  const [moodsArr, setMoodsArr] = useState(() => loadMoods());
   const [activeMood, setActiveMood] = useState({}); // currently open panel
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
 
+  const [isRecomendationPanelOpen, setIsRecomendationPanelOpen] =
+    useState(false);
+
   const [activeTab] = useState('dashboard');
+
+  useEffect(
+    function () {
+      saveMoods(moodsArr);
+    },
+    [moodsArr],
+  );
 
   useEffect(() => {
     if (!(isActiveMoodPanelOpen || moodBeingEditted)) return;
@@ -56,15 +69,15 @@ function Home() {
     setIsActiveMoodPanelOpen(true);
   }
 
-  // function handleSaveNote(selectedMoodId, formattedText) {
-  //   setMoodsArr((prevMoods) =>
-  //     prevMoods.map((moodObj) =>
-  //       moodObj.id === selectedMoodId
-  //         ? { ...moodObj, text: formattedText }
-  //         : moodObj,
-  //     ),
-  //   );
-  // }
+  function handleSaveNote(selectedMoodId, formattedText) {
+    setMoodsArr((prevMoods) =>
+      prevMoods.map((moodObj) =>
+        moodObj.id === selectedMoodId
+          ? { ...moodObj, text: formattedText }
+          : moodObj,
+      ),
+    );
+  }
 
   function handleAddMood(iconObj, formattedText) {
     setMoodsArr((prevMoods) => [
@@ -80,17 +93,17 @@ function Home() {
     setLastAction('added');
   }
 
-  // function handleRemoveNote(selectedMoodId) {
-  //   setMoodsArr((prevMoods) =>
-  //     prevMoods.filter((moodObj) => moodObj.id !== selectedMoodId),
-  //   );
+  function handleRemoveNote(selectedMoodId) {
+    setMoodsArr((prevMoods) =>
+      prevMoods.filter((moodObj) => moodObj.timestamp !== selectedMoodId),
+    );
 
-  //   setLastAction('removed');
-  // }
+    setLastAction('removed');
+  }
 
-  // function handleEditMood(moodObj) {
-  //   setMoodBeingEditted(moodObj);
-  // }
+  function handleEditMood(moodObj) {
+    setMoodBeingEditted(moodObj);
+  }
 
   function handleUpdateText(selectedMoodId, formattedText) {
     if (!formattedText.trim()) return;
@@ -134,7 +147,12 @@ function Home() {
         moodsArr={moodsArr}
       />
 
-      <DashboardOverview moodsArr={moodsArr} activeTab={activeTab} />
+      <DashboardOverview
+        moodsArr={moodsArr}
+        activeTab={activeTab}
+        setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
+        isRecomendationPanelOpen={isRecomendationPanelOpen}
+      />
 
       {moodBeingEditted && (
         <EditMoodModal
@@ -144,12 +162,12 @@ function Home() {
         />
       )}
 
-      {/* <MoodList
+      <MoodList
         moodsArr={moodsArr}
         onSaveNote={handleSaveNote}
         onRemoveNote={handleRemoveNote}
         onEditMood={handleEditMood}
-      /> */}
+      />
     </PageWrapper>
   );
 }

@@ -152,6 +152,24 @@
   );
 
   --container-base: #faf9f7;
+
+
+  /* --------------------------------
+   SLIDE PANEL ICON CONTAINER LAYERS
+   -------------------------------- */
+  --slide-radial-left: radial-gradient(
+    1300px circle at bottom left,
+    #fff0c890,
+    transparent 40%
+  );
+
+  --slide-radial-right: radial-gradient(
+    900px circle at top right,
+    #fff0c886,
+    transparent 20%
+  );
+
+  --slide-base: #faf9f7;
 }
 
 /* ================================

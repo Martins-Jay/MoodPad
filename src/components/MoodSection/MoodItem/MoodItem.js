@@ -27,7 +27,7 @@ function MoodItem({
 }) {
   // id: selectedMoodId,
   const {
-    id: selectedMoodId,
+    timestamp: selectedMoodId,
     name,
     color,
     colorGradient,
@@ -67,6 +67,7 @@ function MoodItem({
   //   setIsEditing(!isEditing);
   // }
 
+  console.log(selectedMoodId);
   function handleRemove() {
     onRemoveNote(selectedMoodId);
   }

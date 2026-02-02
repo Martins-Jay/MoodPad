@@ -1,12 +1,18 @@
 import Lock from '../../../assets/icons/lock';
 
 import { generateMoodInsight } from '../../../utils/moodInsights';
+import ArrowUpIcon from '../../../assets/icons/ArrowUpleft';
 
 import './moodInsight.css';
 
-function MoodInsight({ moodsArr, moodsCreatedToday, moodBalanceArr }) {
+function MoodInsight({
+  moodsArr,
+  moodsCreatedToday,
+  moodBalanceArr,
+  isRecomendationPanelOpen,
+  setIsRecomendationPanelOpen,
+}) {
   const message = generateMoodInsight(moodBalanceArr);
-  console.log(message);
 
   function getInsightState(moodsArr, moodsCreatedToday) {
     if (moodsArr.length === 0) return 'new-user';
@@ -51,11 +57,19 @@ function MoodInsight({ moodsArr, moodsCreatedToday, moodBalanceArr }) {
   if (state === 'hasData') {
     return (
       <div className="mood-insight-card">
-        <h4 className="card-title">Mood Insight</h4>
+        <div className="card-content">
+          <h4 className="card-title">Mood Insight</h4>
 
-        <div className="mood-insight-text">
-          {/* {aiMessage || 'Analyzing your mood...'} */}
-          {message}
+          <div className="mood-insight-text" style={{width: '95%'}}>{message}</div>
+        </div>
+
+        <div className="card-rec-btn">
+          <button
+            className="recommendation-btn"
+            onClick={() => setIsRecomendationPanelOpen(!isRecomendationPanelOpen)}
+          >
+            {<ArrowUpIcon size={17} />}
+          </button>
         </div>
       </div>
     );

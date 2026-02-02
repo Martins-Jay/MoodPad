@@ -65,7 +65,7 @@ export function generateMoodInsight(moodBalanceArr = []) {
   }
 
   // Friendly ending
-  message += ' Remember that all your feelings are valid and important.';
+  // message += ' Remember that all your feelings are valid and important.';
 
   return message;
 }

@@ -25,7 +25,7 @@
 }
 
 .mood-insight-text {
-  margin: 0.2rem 0 0;
+  margin: 0.2rem 0 0.2rem;
   font-size: 0.8rem;
   line-height: 1.35;
   color: var(--text-secondary);
@@ -46,8 +46,27 @@
 }
 
 .mood-insight-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+
   border-radius: 0.8rem;
-  padding: 14px 14px 25px 14px;
+  padding: 14px 14px 14px 14px;
   background: rgba(255, 255, 255, 0.55);
   box-shadow: var(--shadow-md);
+}
+
+.recommendation-btn {
+  position: absolute;
+  right: .5rem;
+  bottom: 0.3rem;
+  background: #ddc3a476;
+  color: #555050;
+
+  width: 32px;
+  height: 32px;
+  font-weight: 800;
+  border-radius: 4rem;
+  border-width: 0;
 }

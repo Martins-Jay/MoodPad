@@ -3,25 +3,23 @@ import DashboardTab from '../DashboardTab/DashboardTab';
 
 import './dashboardOverview.css';
 
-function DashboardOverview({ moodsArr, activeTab }) {
+function DashboardOverview({
+  moodsArr,
+  activeTab,
+  isRecomendationPanelOpen,
+  setIsRecomendationPanelOpen,
+}) {
   return (
     <div className="dashboard-overview-container">
       <Tabs activeTab={activeTab} />
 
-      <DashboardTab moodsArr={moodsArr} />
+      <DashboardTab
+        moodsArr={moodsArr}
+        isRecomendationPanelOpen={isRecomendationPanelOpen}
+        setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
+      />
     </div>
   );
 }
 
 export default DashboardOverview;
-
-//  {activeTab === "dashboard" && (
-//     <DashboardOverview>
-//       <TodayAtAGlance />
-//       <DashboardGrid />
-//       <RecentReflections />
-//     </DashboardOverview>
-//   )}
-
-//   {activeTab === "history" && <HistorySection />}
-//   {activeTab === "insights" && <InsightsSection />}

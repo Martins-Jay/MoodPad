@@ -1,0 +1,33 @@
+function ArrowUpIcon({ size = 45 }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+      width={size}
+      height={size}
+    >
+      <rect width="256" height="256" fill="none" />
+      <line
+        x1="192"
+        y1="192"
+        x2="64"
+        y2="64"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="16"
+      />
+      <polyline
+        points="168 64 64 64 64 168"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="16"
+      />
+    </svg>
+  );
+}
+
+export default ArrowUpIcon;
