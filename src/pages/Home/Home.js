@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useMoods } from '../../hooks/useMoodHistory.js';
+import { useState } from 'react';
+
+import { useActiveMoodPanel } from '../../hooks/useActiveMoodPanel.js';
 
 import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
@@ -9,119 +12,32 @@ import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodMo
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
 
-import { loadMoods } from '../../utils/storage.js';
-import { saveMoods } from '../../utils/storage.js';
 
 function Home() {
-  const [moodsArr, setMoodsArr] = useState(() => loadMoods());
-  const [activeMood, setActiveMood] = useState({}); // currently open panel
-  const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
-  const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
-  const [moodBeingEditted, setMoodBeingEditted] = useState(null);
-
   const [isRecomendationPanelOpen, setIsRecomendationPanelOpen] =
     useState(false);
 
+  const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
+
+  const {
+    moodsArr,
+    activeMood,
+    lastAction,
+    moodBeingEditted,
+    handleSaveNote,
+    handleAddMood,
+    handleRemoveNote,
+    handleEditMood,
+    handleUpdateText,
+    handleCancelEdit,
+  } = useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen);
   const [activeTab] = useState('dashboard');
 
-  useEffect(
-    function () {
-      saveMoods(moodsArr);
-    },
-    [moodsArr],
+  const { handleMoodSelect } = useActiveMoodPanel(
+    moodBeingEditted,
+    isActiveMoodPanelOpen,
+    setIsActiveMoodPanelOpen,
   );
-
-  useEffect(() => {
-    if (!(isActiveMoodPanelOpen || moodBeingEditted)) return;
-
-    // get how far the page is scrolled vertically from the top so we can restore it later
-    const scrollY = window.scrollY;
-    const body = document.body;
-
-    // lock body position to fixed and
-    body.style.position = 'fixed';
-    body.style.inset = '0';
-
-    // prevent default scroll
-    const lockScroll = (e) => e.preventDefault();
-
-    // block wheel and touch scroll
-    window.addEventListener('wheel', lockScroll, { passive: false });
-    window.addEventListener('touchmove', lockScroll, { passive: false });
-
-    // Runs whenever the component unmounts and before the effect is executed again
-    return () => {
-      body.style.position = '';
-      body.style.inset = '';
-
-      window.removeEventListener('wheel', lockScroll);
-      window.removeEventListener('touchmove', lockScroll);
-
-      window.scrollTo(0, scrollY);
-    };
-  }, [isActiveMoodPanelOpen, moodBeingEditted]);
-
-  function handleMoodSelect(moodObj) {
-    setActiveMood(() => ({
-      ...moodObj,
-    }));
-
-    setIsActiveMoodPanelOpen(true);
-  }
-
-  function handleSaveNote(selectedMoodId, formattedText) {
-    setMoodsArr((prevMoods) =>
-      prevMoods.map((moodObj) =>
-        moodObj.id === selectedMoodId
-          ? { ...moodObj, text: formattedText }
-          : moodObj,
-      ),
-    );
-  }
-
-  function handleAddMood(iconObj, formattedText) {
-    setMoodsArr((prevMoods) => [
-      {
-        ...iconObj,
-        text: formattedText,
-        timestamp: Date.now(),
-      },
-      ...prevMoods,
-    ]);
-
-    setIsActiveMoodPanelOpen(false);
-    setLastAction('added');
-  }
-
-  function handleRemoveNote(selectedMoodId) {
-    setMoodsArr((prevMoods) =>
-      prevMoods.filter((moodObj) => moodObj.timestamp !== selectedMoodId),
-    );
-
-    setLastAction('removed');
-  }
-
-  function handleEditMood(moodObj) {
-    setMoodBeingEditted(moodObj);
-  }
-
-  function handleUpdateText(selectedMoodId, formattedText) {
-    if (!formattedText.trim()) return;
-
-    setMoodsArr((prevMoods) =>
-      prevMoods.map((moodObj) =>
-        moodObj.id === selectedMoodId
-          ? { ...moodObj, text: formattedText }
-          : moodObj,
-      ),
-    );
-
-    setMoodBeingEditted(null);
-  }
-
-  function handleCancelEdit() {
-    setMoodBeingEditted(null);
-  }
 
   return (
     <PageWrapper>
