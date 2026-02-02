@@ -14,7 +14,7 @@ import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus
 
 function Home() {
   const [activeTab] = useState('dashboard');
-  const [isRecomendationPanelOpen, setIsRecomendationPanelOpen] =
+  const [isRecommendationPanelOpen, setIsRecommendationPanelOpen] =
     useState(false);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
@@ -63,8 +63,8 @@ function Home() {
       <DashboardOverview
         moodsArr={moodsArr}
         activeTab={activeTab}
-        setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
-        isRecomendationPanelOpen={isRecomendationPanelOpen}
+        setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
+        isRecommendationPanelOpen={isRecommendationPanelOpen}
       />
 
       {moodBeingEditted && (

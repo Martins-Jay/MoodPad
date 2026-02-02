@@ -6,8 +6,8 @@ import './dashboardOverview.css';
 function DashboardOverview({
   moodsArr,
   activeTab,
-  isRecomendationPanelOpen,
-  setIsRecomendationPanelOpen,
+  isRecommendationPanelOpen,
+  setIsRecommendationPanelOpen,
 }) {
   return (
     <div className="dashboard-overview-container">
@@ -15,8 +15,8 @@ function DashboardOverview({
 
       <DashboardTab
         moodsArr={moodsArr}
-        isRecomendationPanelOpen={isRecomendationPanelOpen}
-        setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
+        isRecommendationPanelOpen={isRecommendationPanelOpen}
+        setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
       />
     </div>
   );

@@ -1,12 +1,16 @@
-import Cancel from '../../assets/icons/Cancel';
 import { getMoodBalanceForToday } from '../../utils/moodUtils';
+import RecommendationPanel from './RecommendationPanel/RecommendationPanel';
 
 import './dashboardGrid.css';
 import MoodBalance from './MoodBalance/MoodBalance';
 import MoodInsight from './MoodInsight/MoodInsight';
 import StreakCard from './StreakCard/StreakCard';
 
-function DashboardGrid({ moodsArr, isRecomendationPanelOpen, setIsRecomendationPanelOpen }) {
+function DashboardGrid({
+  moodsArr,
+  isRecommendationPanelOpen,
+  setIsRecommendationPanelOpen,
+}) {
   const { moodBalanceArr, moodsCreatedToday } =
     getMoodBalanceForToday(moodsArr);
 
@@ -25,36 +29,17 @@ function DashboardGrid({ moodsArr, isRecomendationPanelOpen, setIsRecomendationP
           moodsArr={moodsArr}
           moodsCreatedToday={moodsCreatedToday}
           moodBalanceArr={moodBalanceArr}
-          isRecomendationPanelOpen={isRecomendationPanelOpen}
-          setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
+          isRecommendationPanelOpen={isRecommendationPanelOpen}
+          setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
         />
       </div>
 
-      <InsightPanel
+      <RecommendationPanel
         moodBalanceArr={moodsArr}
-        isRecomendationPanelOpen={isRecomendationPanelOpen}
-        setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
+        isRecommendationPanelOpen={isRecommendationPanelOpen}
+        setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
       />
     </section>
-  );
-}
-
-function InsightPanel({ isRecomendationPanelOpen, setIsRecomendationPanelOpen }) {
-  return (
-    <div className={`insight-panel ${isRecomendationPanelOpen ? 'open' : ''}`}>
-      <div className="insight-header">
-        <h4>Mood Insight</h4>
-      </div>
-
-      <p className="insight-text">{'insightMessage'}</p>
-
-      <button
-        className="close-btn"
-        onClick={() => setIsRecomendationPanelOpen(!isRecomendationPanelOpen)}
-      >
-       <Cancel size={17} />
-      </button>
-    </div>
   );
 }
 

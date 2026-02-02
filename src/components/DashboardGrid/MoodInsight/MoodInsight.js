@@ -9,8 +9,8 @@ function MoodInsight({
   moodsArr,
   moodsCreatedToday,
   moodBalanceArr,
-  isRecomendationPanelOpen,
-  setIsRecomendationPanelOpen,
+  isRecommendationPanelOpen,
+  setIsRecommendationPanelOpen,
 }) {
   const message = generateMoodInsight(moodBalanceArr);
 
@@ -60,13 +60,17 @@ function MoodInsight({
         <div className="card-content">
           <h4 className="card-title">Mood Insight</h4>
 
-          <div className="mood-insight-text" style={{width: '95%'}}>{message}</div>
+          <div className="mood-insight-text" style={{ width: '96%' }}>
+            {message}
+          </div>
         </div>
 
-        <div className="card-rec-btn">
+        <div className="card-rec-container">
           <button
             className="recommendation-btn"
-            onClick={() => setIsRecomendationPanelOpen(!isRecomendationPanelOpen)}
+            onClick={() =>
+              setIsRecommendationPanelOpen(!isRecommendationPanelOpen)
+            }
           >
             {<ArrowUpIcon size={17} />}
           </button>

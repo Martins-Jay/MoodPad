@@ -57,16 +57,28 @@
   box-shadow: var(--shadow-md);
 }
 
+.card-rec-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .recommendation-btn {
   position: absolute;
-  right: .5rem;
-  bottom: 0.3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  right: 0rem;
+  bottom: 0rem;
   background: #ddc3a476;
   color: #555050;
 
   width: 32px;
   height: 32px;
   font-weight: 800;
-  border-radius: 4rem;
+  border-radius: 2rem;
   border-width: 0;
 }

@@ -3,15 +3,15 @@ import TodayAtAGlance from '../TodayAtAGlance/TodayAtAGlance';
 
 import './dashboardTab.css';
 
-function DashboardTab({ moodsArr, isRecomendationPanelOpen, setIsRecomendationPanelOpen }) {
+function DashboardTab({ moodsArr, isRecommendationPanelOpen, setIsRecommendationPanelOpen }) {
   return (
     <div className="dashboard-tab-container">
       <TodayAtAGlance />
 
       <DashboardGrid
         moodsArr={moodsArr}
-        isRecomendationPanelOpen={isRecomendationPanelOpen}
-        setIsRecomendationPanelOpen={setIsRecomendationPanelOpen}
+        isRecommendationPanelOpen={isRecommendationPanelOpen}
+        setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
       />
     </div>
   );

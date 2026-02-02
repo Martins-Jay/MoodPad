@@ -16,7 +16,7 @@ function ArrowUpIcon({ size = 45 }) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="16"
+        strokeWidth="20"
       />
       <polyline
         points="168 64 64 64 64 168"
@@ -24,7 +24,7 @@ function ArrowUpIcon({ size = 45 }) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="16"
+        strokeWidth="20"
       />
     </svg>
   );
