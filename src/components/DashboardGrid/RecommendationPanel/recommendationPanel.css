@@ -42,11 +42,36 @@
   font-weight: 700;
 }
 
+.rec-footer-btns {
+  display: flex;
+  align-items: center;
+}
+
+.recommendation-panel .rec-try-different-wrapper {
+  position: absolute;
+  bottom: 1rem;
+}
+
+.rec-try-different-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ddc3a476;
+  color: #555050;
+
+  font-weight: 500;
+  padding: 0.55rem 0.8rem;
+  border-radius: 2rem;
+  border-width: 0;
+}
+
 .close-rec-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .recommendation-panel .close-rec-btn {
   position: absolute;
 
@@ -66,9 +91,47 @@
   border-width: 0;
 }
 
+.rec-picker {
+  opacity: 0;
+  transform: translateY(6rem);
+  transition:
+    opacity .5s ease,
+    transform .5s ease;
+}
+
+.rec-picker.open {
+  opacity: 1;
+  transform: translateY(5rem);
+}
+
+.rec-picker-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.picker-options {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.option-btn {
+  background: #ddc3a476;
+  color: #555050;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+  border: none;
+  text-transform: capitalize;
+}
+
 /* Panel Text */
 .insight-text {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
 }
+
+/* .recommendation-panel .rec-picker {
+  position: absolute;
+  bottom: 5rem;
+} */

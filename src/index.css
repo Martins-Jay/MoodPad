@@ -62,7 +62,7 @@
   --grad-sad-fade: linear-gradient(90deg, #bbd4f2 0%, #ffffff 100%);
   --grad-anxious-fade: linear-gradient(90deg, #ddd6fe 0%, #ffffff 100%);
   --grad-angry-fade: linear-gradient(90deg, #fecaca 0%, #ffffff 100%); */
-  
+
   --grad-happy-fade: linear-gradient(
     90deg,
     #f9d237fa 0%,
@@ -153,7 +153,6 @@
 
   --container-base: #faf9f7;
 
-
   /* --------------------------------
    SLIDE PANEL ICON CONTAINER LAYERS
    -------------------------------- */
@@ -204,4 +203,13 @@ h6,
 p,
 d {
   margin: 0;
+}
+
+button {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  background-color: inherit;
 }

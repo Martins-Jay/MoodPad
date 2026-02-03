@@ -35,7 +35,7 @@ function DashboardGrid({
       </div>
 
       <RecommendationPanel
-        moodBalanceArr={moodsArr}
+        moodsArr={moodsArr}
         isRecommendationPanelOpen={isRecommendationPanelOpen}
         setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
       />

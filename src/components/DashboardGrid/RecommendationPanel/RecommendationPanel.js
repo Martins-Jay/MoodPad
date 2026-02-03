@@ -1,53 +1,48 @@
 import { useState } from 'react';
 import Cancel from '../../../assets/icons/Cancel';
-import './recommendationPanel.css';
+import ArrowLeft from '../../../assets/icons/ArrowLeft';
 
-const recommendations = [
-  {
-    type: 'music',
+import './recommendationPanel.css';
+import MusicRecommendation from './Components/Body/MusicRecommendation';
+
+const recommendationsByType = {
+  music: {
     title: 'Lo-fi Chill Beats',
     subtitle: 'Helps slow racing thoughts',
     message: 'You seem a bit tense today.',
     icon: '🎧',
   },
-  {
-    type: 'quote',
-    title: '“Keep going, you’re doing great”',
-    subtitle: 'Motivational quote',
-    message: 'You might need a little boost.',
-    icon: '💡',
-  },
-  {
-    type: 'movie',
+  movie: {
     title: 'Amélie',
     subtitle: 'Feel-good movie',
     message: 'Try watching something lighthearted.',
     icon: '🎬',
   },
-  {
-    type: 'joke',
+  joke: {
     title: 'Why did the tomato turn red?',
     subtitle: 'Because it saw the salad dressing!',
     message: 'A little laughter can help your mood.',
     icon: '😂',
   },
-];
+  quote: {
+    title: '“Keep going, you’re doing great”',
+    subtitle: 'Motivational quote',
+    message: 'You might need a little boost.',
+    icon: '💡',
+  },
+};
 
 function RecommendationPanel({
+  moodsArr,
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
 }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const recommendation = recommendations[currentIndex];
+  const [selectedType, setSelectedType] = useState('music');
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
 
-  function handleTryAnother() {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex === recommendations.length - 1) {
-        return 0;
-      } else {
-        return prevIndex + 1;
-      }
-    });
+  function handleCloseRecommendation() {
+    setIsRecommendationPanelOpen(false);
+    if (isPickerOpen) setIsPickerOpen(false);
   }
 
   return (
@@ -58,31 +53,46 @@ function RecommendationPanel({
         <h4>Recommendation</h4>
       </div>
 
-      <div className="rec-body">
-        <p className="rec-message">{recommendation.message}</p>
+      {/* Body */}
+      <MusicRecommendation moodsArr={moodsArr}/>
 
-        <div className="rec-card">
-          <span className="rec-icon">{recommendation.icon}</span>
+      <div className={`rec-picker ${isPickerOpen ? 'open' : ''}`}>
+        <div className="rec-picker-content">
+          <h5>What do you need right now?</h5>
 
-          <div className="rec-content">
-            <h5>{recommendation.title}</h5>
-            <p>{recommendation.subtitle}</p>
+          <div className="picker-options">
+            {Object.keys(recommendationsByType).map((type) => (
+              <button
+                key={type}
+                className="option-btn"
+                onClick={() => {
+                  setSelectedType(type);
+                  setIsPickerOpen(false);
+                }}
+              >
+                {type}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Actions */}
-      <div className="rec-actions">
-        <button onClick={handleTryAnother}>Try something else</button>
-      </div>
+      <div className="rec-footer-btns">
+        <div className="rec-try-different-wrapper">
+          <button
+            className="rec-try-different-btn"
+            onClick={() => setIsPickerOpen(!isPickerOpen)}
+          >
+            {isPickerOpen ? <ArrowLeft size={17} /> : 'Try something else'}
+          </button>
+        </div>
 
-      <div className="close-rec-container">
-        <button
-          className="close-rec-btn"
-          onClick={() => setIsRecommendationPanelOpen(false)}
-        >
-          {<Cancel size={17} />}
-        </button>
+        <div className="close-rec-container">
+          <button className="close-rec-btn" onClick={handleCloseRecommendation}>
+            {<Cancel size={17} />}
+          </button>
+        </div>
       </div>
     </div>
   );
