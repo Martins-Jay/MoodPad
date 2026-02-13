@@ -1,68 +1,80 @@
 // https://console.cloud.google.com/apis/credentials?project=moodmusicapp-486319
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
-import getCurrentMood from '../../../../../utils/getCurrentMood';
+import getDominantMood from '../../../../../utils/getDominantMood';
+// import { useMusicRecommendation } from '../../../../../hooks/useMusicRecommendation';
+
+// import getMusicRecommendation from '../../../../../utils/getMusicRecommendation';
 
 function MusicRecommendation({ moodsArr }) {
-  const [song, setSong] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [songs, setSongs] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // const [loading, setLoading] = useState(false);
+
+  const currentSong = songs[currentIndex];
 
   const { moodBalanceArr } = getMoodBalanceForToday(moodsArr);
-  const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
-  async function fetchSong(moodBalanceArr) {
-    setLoading(true);
-
-    const moodName1 = getCurrentMood(moodBalanceArr).toLowerCase();
-
-    console.log(moodName1);
+  async function fetchSong() {
     const moodToQuery = {
-      happy: 'top 2025 amapiano music',
-      calm: 'calming relaxing music',
-      sad: 'soft sad music comfort',
-      anxious: 'anxiety relief calming music',
-      angry: 'calming music to release anger',
-      neutral: 'chill background music',
+      happy: 'amapiano afrobeat',
+      calm: 'chill afro rnb',
+      sad: 'slow rnb soul',
+      anxious: 'lofi chill hop',
+      angry: 'hip hop rap',
+      neutral: 'afrobeats mix',
     };
 
-    const moodName = moodToQuery[moodName1];
+    const dominantMood = getDominantMood(moodBalanceArr).toLowerCase();
 
-    const res = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${encodeURIComponent(
-        moodName,
-      )}&key=${API_KEY}`,
-    );
+    const query = moodToQuery[dominantMood];
 
-    const data = await res.json();
+    try {
+      const res = await fetch(
+        `https://moodpad-backend.onrender.com/api/music?q=${encodeURIComponent(query)}`,
+      );
 
-    const cleanResult = data.items.filter(
-      (musicObj) =>
-        musicObj.videoId &&
-        !musicObj.snippet.title.toLowerCase().includes('mix') &&
-        !musicObj.snippet.title.toLowerCase().includes('radio'),
-    );
-
-    console.log(res, data, cleanResult);
+      const data = await res.json(); // the same object Deezer returned
+      console.log(data);
+      setSongs(data.data);
+    } catch (err) {
+      console.error('Failed to fetch song', err);
+    } finally {
+      setCurrentIndex((currentIndex) => currentIndex + 1);
+    }
   }
+
+  useEffect(
+    function () {
+      console.log(songs);
+    },
+    [songs],
+  );
 
   return (
     <div className="music-rec-card">
-      <img src="" alt="" className="abulm-cover" />
+      <img
+        src={currentSong?.album?.cover_medium}
+        alt=""
+        className="abulm-cover"
+        style={{ width: '140px', height: '140px' }}
+      />
 
       <div className="song-info">
-        <h5>title</h5>
+        <h5>{currentSong?.title}</h5>
         <p>artiste</p>
       </div>
 
       <div className="music-rec-actions">
-        <button onClick={() => fetchSong(moodBalanceArr)}>Next</button>
-        <a target="_blank" rel="noopener noreferrer">
+        <button onClick={() => fetchSong()}>Next</button>
+        {/* <a target="_blank" rel="noopener noreferrer">
           Open on Spotify
         </a>
         <a target="_blank" rel="noopener noreferrer">
           Open on Apple Music
-        </a>
+        </a> */}
       </div>
     </div>
   );

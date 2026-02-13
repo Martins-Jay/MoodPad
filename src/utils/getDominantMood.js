@@ -1,4 +1,4 @@
-function getCurrentMood(moodBalanceArr) {
+function getDominantMood(moodBalanceArr) {
   // filter moods with 0%
   const activeMoods = moodBalanceArr.filter(
     (moodObj) => moodObj.percentVal > 0,
@@ -10,4 +10,4 @@ function getCurrentMood(moodBalanceArr) {
 }
 
 
-export default getCurrentMood
+export default getDominantMood
