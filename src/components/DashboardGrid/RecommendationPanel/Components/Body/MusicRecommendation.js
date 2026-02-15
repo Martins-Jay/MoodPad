@@ -1,80 +1,124 @@
-// https://console.cloud.google.com/apis/credentials?project=moodmusicapp-486319
-
 import { useEffect, useState } from 'react';
 import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
 import getDominantMood from '../../../../../utils/getDominantMood';
-// import { useMusicRecommendation } from '../../../../../hooks/useMusicRecommendation';
 
-// import getMusicRecommendation from '../../../../../utils/getMusicRecommendation';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 function MusicRecommendation({ moodsArr }) {
   const [songs, setSongs] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // const [loading, setLoading] = useState(false);
-
-  const currentSong = songs[currentIndex];
+  const [isLoading, setIsLoading] = useState(false);
 
   const { moodBalanceArr } = getMoodBalanceForToday(moodsArr);
 
-  async function fetchSong() {
+  // dominantMood once per render
+  const dominantMood = getDominantMood(moodBalanceArr)?.toLowerCase();
+
+  function cleanTitle(title) {
+    if (!title) return 'Unknown Title';
+
+    // Remove everything inside brackets or parentheses
+    let cleaned = title.replace(/\(.*?\)|\[.*?\]/g, '');
+
+    // Remove extra quotes
+    cleaned = cleaned.replace(/["']/g, '');
+
+    // Trim whitespace
+    return cleaned.trim();
+  }
+
+  useEffect(() => {
     const moodToQuery = {
       happy: 'amapiano afrobeat',
-      calm: 'chill afro rnb',
+      calm: 'afro chill songs',
       sad: 'slow rnb soul',
       anxious: 'lofi chill hop',
       angry: 'hip hop rap',
       neutral: 'afrobeats mix',
     };
 
-    const dominantMood = getDominantMood(moodBalanceArr).toLowerCase();
+    if (!dominantMood) return;
 
-    const query = moodToQuery[dominantMood];
+    async function fetchSongs() {
+      setIsLoading(true);
 
-    try {
-      const res = await fetch(
-        `https://moodpad-backend.onrender.com/api/music?q=${encodeURIComponent(query)}`,
-      );
+      try {
+        const randomIndex = Math.floor(Math.random() * 100); // random btw (0–99)
 
-      const data = await res.json(); // the same object Deezer returned
-      console.log(data);
-      setSongs(data.data);
-    } catch (err) {
-      console.error('Failed to fetch song', err);
-    } finally {
-      setCurrentIndex((currentIndex) => currentIndex + 1);
+        const res = await fetch(
+          `https://moodpad-backend.onrender.com/api/music?q=${encodeURIComponent(
+            moodToQuery[dominantMood] || 'afrobeats',
+          )}&index=${randomIndex}`,
+        );
+
+        const data = await res.json();
+        console.log(data);
+
+        const cleanSongs = (data.data || []).map((musicObj) => ({
+          title: cleanTitle(musicObj.title_short || musicObj.title),
+          artist: musicObj.artist?.name || 'Unknown Artist',
+          albumCover: musicObj.album?.cover_medium || '/fallback.jpg',
+          preview: musicObj.preview || null,
+        }));
+
+        // easy shuffle
+        const shuffled = [...cleanSongs].sort(() => Math.random() - 0.5);
+
+        setSongs(shuffled);
+        setCurrentIndex(0); // always start from first shuffled song
+      } catch (error) {
+        console.error('Error fetching songs:', error);
+        setSongs([]);
+      } finally {
+        setIsLoading(false);
+      }
     }
-  }
 
-  useEffect(
-    function () {
-      console.log(songs);
-    },
-    [songs],
-  );
+    fetchSongs();
+  }, [dominantMood]);
 
-  return (
-    <div className="music-rec-card">
-      <img
-        src={currentSong?.album?.cover_medium}
-        alt=""
-        className="abulm-cover"
-        style={{ width: '140px', height: '140px' }}
-      />
+  const currentSong = songs[currentIndex] || {};
 
-      <div className="song-info">
-        <h5>{currentSong?.title}</h5>
-        <p>artiste</p>
+  // Next button
+  const handleNext = () => {
+    if (songs.length === 0) return;
+    setCurrentIndex((prev) => (prev + 1) % songs.length);
+  };
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : songs.length === 0 ? (
+    <p>No songs available.</p>
+  ) : (
+    <div className='music-container'>
+      <div className="music-info">
+        {/* Album Cover */}
+        <img
+          src={currentSong.albumCover}
+          alt={currentSong.title}
+          className="album-cover"
+        />
+
+        {/* Song Info */}
+        <div className="album-info">
+          <h5 className="song-title">{currentSong.title}</h5>
+          <p className="album-artist">{currentSong.artist}</p>
+        </div>
       </div>
 
-      <div className="music-rec-actions">
-        <button onClick={() => fetchSong()}>Next</button>
-        {/* <a target="_blank" rel="noopener noreferrer">
-          Open on Spotify
-        </a>
-        <a target="_blank" rel="noopener noreferrer">
-          Open on Apple Music
-        </a> */}
+      <div className='play-container'>
+        {currentSong.preview && (
+          <audio controls src={currentSong.preview} className="audio-preview" />
+        )}
+
+        {/* Controls */}
+        <button
+          onClick={handleNext}
+          className='next-btn'
+        >
+          Next
+        </button>
       </div>
     </div>
   );

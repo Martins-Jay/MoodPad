@@ -93,15 +93,15 @@
 
 .rec-picker {
   opacity: 0;
-  transform: translateY(6rem);
+  transform: translateY(4rem);
   transition:
-    opacity .5s ease,
-    transform .5s ease;
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .rec-picker.open {
   opacity: 1;
-  transform: translateY(5rem);
+  transform: translateY(3rem);
 }
 
 .rec-picker-content {
@@ -135,3 +135,55 @@
   position: absolute;
   bottom: 5rem;
 } */
+
+/* Music recommendation */
+.music-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.music-info {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.album-cover {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.album-artist {
+  font-size: 0.8rem;
+  color: #a29a9a;
+}
+
+.play-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.audio-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 300px;
+  height: 35px;
+  margin-top: 3px;
+  border-radius: 30px;
+}
+
+.next-btn {
+  padding: 0.6rem 0.6rem;
+  border-radius: 90px;
+  border: none;
+  background-color: var(--mood-calm);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+
+  font-size: 0.55rem;
+}
