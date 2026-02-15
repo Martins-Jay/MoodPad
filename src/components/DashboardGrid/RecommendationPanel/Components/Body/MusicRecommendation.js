@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
 import getDominantMood from '../../../../../utils/getDominantMood';
 
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
-
 function MusicRecommendation({ moodsArr }) {
   const [songs, setSongs] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
