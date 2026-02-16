@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
 import getDominantMood from '../../../../../utils/getDominantMood';
+import PlayNext from '../../../../../assets/icons/PlayNext';
 
 function MusicRecommendation({ moodsArr }) {
   const [songs, setSongs] = useState([]);
@@ -15,13 +16,15 @@ function MusicRecommendation({ moodsArr }) {
   function cleanTitle(title) {
     if (!title) return 'Unknown Title';
 
-    // Remove everything inside brackets or parentheses
-    let cleaned = title.replace(/\(.*?\)|\[.*?\]/g, '');
+    // 1. Convert &amp; to &
+    let cleaned = title.replace('&amp;', '&');
 
-    // Remove extra quotes
-    cleaned = cleaned.replace(/["']/g, '');
+    // 2. Remove everything after |
+    cleaned = cleaned.split('|')[0];
 
-    // Trim whitespace
+    // 3. Remove brackets
+    cleaned = cleaned.replace(/\(.*?\)|\[.*?\]/g, '');
+
     return cleaned.trim();
   }
 
@@ -43,22 +46,34 @@ function MusicRecommendation({ moodsArr }) {
       setIsLoading(true);
 
       try {
-        const randomIndex = Math.floor(Math.random() * 100); // random btw (0–99)
+        // const randomIndex = Math.floor(Math.random() * 100); // random btw (0–99)
+
+        // const res = await fetch(
+        //   `https://moodpad-backend.onrender.com/api/music?q=${encodeURIComponent(
+        //     moodToQuery[dominantMood] || 'afrobeats',
+        //   )}&index=${randomIndex}`,
+        //   { signal: controller.signal },
+        // );
+
+        // Jamendo uses offset paging (0, 25, 50...)
+        const randomOffset = Math.floor(Math.random() * 8) * 25; // random num btw 0-175
 
         const res = await fetch(
-          `https://moodpad-backend.onrender.com/api/music?q=${encodeURIComponent(
+          `https://moodpad-backend.onrender.com/api/jamendo?q=${encodeURIComponent(
             moodToQuery[dominantMood] || 'afrobeats',
-          )}&index=${randomIndex}`,
+          )}&offset=${randomOffset}`,
           { signal: controller.signal },
         );
 
         const data = await res.json();
 
+        console.log(data);
+
         const cleanSongs = (data.data || []).map((musicObj) => ({
-          title: cleanTitle(musicObj.title_short || musicObj.title),
-          artist: musicObj.artist?.name || 'Unknown Artist',
-          albumCover: musicObj.album?.cover_medium || '/fallback.jpg',
-          preview: musicObj.preview || null,
+          title: cleanTitle(musicObj.name),
+          artist: musicObj.artist_name || 'Unknown Artist',
+          albumCover: musicObj.album_image || musicObj.image || '/fallback.jpg',
+          preview: musicObj.audio || null, // stream url
         }));
 
         // easy shuffle
@@ -88,7 +103,7 @@ function MusicRecommendation({ moodsArr }) {
     setCurrentIndex((prev) => (prev + 1) % songs.length);
   };
 
-  return isLoading ? (
+  return isLoading || songs.length === 0 ? (
     <div className="skeleton-loader">
       <div className="music-info">
         <div className="skeleton-image"></div>
@@ -129,7 +144,7 @@ function MusicRecommendation({ moodsArr }) {
 
         {/* Controls */}
         <button onClick={handleNext} className="next-btn">
-          Next
+          <PlayNext size={33} />
         </button>
       </div>
     </div>

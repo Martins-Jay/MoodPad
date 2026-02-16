@@ -7,20 +7,32 @@ function formatRelativeDate(timestamp, intlDate) {
       month: 'long',
     }).format(timestamp);
 
-  const entryDate = new Date(timestamp); // the day this mood was recorded
-  const currentDate = new Date(); // the current day
+  // for moodItem
+  const entryDate = new Date(timestamp);
+  const todayDate = new Date();
 
-  // toDateString
-  const entryDateStr = entryDate.toDateString();
-  const currentDateStr = currentDate.toDateString();
+  // Remove time from both dates (compare only calendar days)
+  const entryDateWithoutTime = new Date(entryDate);
+  entryDateWithoutTime.setHours(0, 0, 0, 0);
 
-  if (entryDateStr === currentDateStr) return 'Today';
+  const todayDateWithoutTime = new Date(todayDate);
+  todayDateWithoutTime.setHours(0, 0, 0, 0);
 
-  const diffInMs = currentDate - entryDate;
-  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  const diffInMilliseconds = todayDateWithoutTime - entryDateWithoutTime;
 
+  const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+
+  if (diffInDays === 0) return 'Today';
   if (diffInDays === 1) return 'Yesterday';
   if (diffInDays < 7) return `${diffInDays} days ago`;
+  if (diffInDays > 7)
+    return new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(entryDate);
 }
 
 export default formatRelativeDate;
+
+//   if (diffInDays === 0) return 'Yesterday';
