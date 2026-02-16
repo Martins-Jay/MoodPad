@@ -37,7 +37,8 @@ function RecommendationPanel({
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
 }) {
-  const [selectedType, setSelectedType] = useState('music');
+  // selectedType
+  const [setSelectedType] = useState('music');
   const [isPickerOpen, setIsPickerOpen] = useState(false);
 
   function handleCloseRecommendation() {
@@ -54,7 +55,7 @@ function RecommendationPanel({
       </div>
 
       {/* Body */}
-      <MusicRecommendation moodsArr={moodsArr}/>
+      <MusicRecommendation moodsArr={moodsArr} />
 
       <div className={`rec-picker ${isPickerOpen ? 'open' : ''}`}>
         <div className="rec-picker-content">
