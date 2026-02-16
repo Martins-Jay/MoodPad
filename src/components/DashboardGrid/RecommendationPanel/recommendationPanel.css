@@ -190,20 +190,65 @@
 
 /* skeleton loader */
 .skeleton-image {
-  width: 1rem;
+  width: 6rem;
+  height: 6rem;
+  background: #b7a9a9;
+  border-radius: 0.5rem;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.skeleton-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skeleton-title {
+  width: 10rem;
   height: 1rem;
-  background: var(--bg-card);
-  animation: pulse 1.5s infinite ease-in-out;
+  background: #b7a9a9;
+  border-radius: 0.5rem;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.skeleton-artist {
+  width: 5rem;
+  height: 1rem;
+  background: #b7a9a9;
+  border-radius: 0.5rem;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.skeleton-play-container {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 0.8rem;
+}
+
+.skeleton-audio {
+  width: 80%;
+  height: 1.8rem;
+  background: #b7a9a9;
+  border-radius: 0.5rem;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.skeleton-next-btn {
+  width: 1.8rem;
+  height: 1.8rem;
+  background: #b7a9a9;
+  border-radius: 0.5rem;
+  animation: pulse 3s infinite ease-in-out;
 }
 
 @keyframes pulse {
   0% {
-    opacity: 1;
-  }
-  50% {
     opacity: 0.4;
   }
+  50% {
+    opacity: 0.8;
+  }
   100% {
-    opacity: 0;
+    opacity: 0.4;
   }
 }

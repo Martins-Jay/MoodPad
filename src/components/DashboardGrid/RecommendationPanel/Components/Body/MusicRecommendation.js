@@ -90,10 +90,21 @@ function MusicRecommendation({ moodsArr }) {
 
   return isLoading ? (
     <div className="skeleton-loader">
-      <div className="skeleton-image"></div>
+      <div className="music-info">
+        <div className="skeleton-image"></div>
+
+        <div className="skeleton-info">
+          <div className="skeleton-title"></div>
+          <div className="skeleton-artist"></div>
+        </div>
+      </div>
+
+      <div className="skeleton-play-container">
+        <div className="skeleton-audio"></div>
+
+        <div className="skeleton-next-btn"></div>
+      </div>
     </div>
-  ) : songs.length === 0 ? (
-    <p>No songs available.</p>
   ) : (
     <div className="music-container">
       <div className="music-info">
@@ -105,7 +116,7 @@ function MusicRecommendation({ moodsArr }) {
         />
 
         {/* Song Info */}
-        <div className="album-info">
+        <div className=" abulm-info">
           <h5 className="song-title">{currentSong.title}</h5>
           <p className="album-artist">{currentSong.artist}</p>
         </div>
