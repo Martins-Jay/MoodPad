@@ -26,6 +26,8 @@ function MusicRecommendation({ moodsArr }) {
   }
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const moodToQuery = {
       happy: 'amapiano afrobeat',
       calm: 'afro chill songs',
@@ -47,10 +49,10 @@ function MusicRecommendation({ moodsArr }) {
           `https://moodpad-backend.onrender.com/api/music?q=${encodeURIComponent(
             moodToQuery[dominantMood] || 'afrobeats',
           )}&index=${randomIndex}`,
+          { signal: controller.signal },
         );
 
         const data = await res.json();
-        console.log(data);
 
         const cleanSongs = (data.data || []).map((musicObj) => ({
           title: cleanTitle(musicObj.title_short || musicObj.title),
@@ -65,7 +67,7 @@ function MusicRecommendation({ moodsArr }) {
         setSongs(shuffled);
         setCurrentIndex(0); // always start from first shuffled song
       } catch (error) {
-        console.error('Error fetching songs:', error);
+        console.error(error);
         setSongs([]);
       } finally {
         setIsLoading(false);
@@ -73,22 +75,27 @@ function MusicRecommendation({ moodsArr }) {
     }
 
     fetchSongs();
+
+    return function () {
+      controller.abort();
+    };
   }, [dominantMood]);
 
   const currentSong = songs[currentIndex] || {};
 
-  // Next button
   const handleNext = () => {
     if (songs.length === 0) return;
     setCurrentIndex((prev) => (prev + 1) % songs.length);
   };
 
   return isLoading ? (
-    <p>Loading...</p>
+    <div className="skeleton-loader">
+      <div className="skeleton-image"></div>
+    </div>
   ) : songs.length === 0 ? (
     <p>No songs available.</p>
   ) : (
-    <div className='music-container'>
+    <div className="music-container">
       <div className="music-info">
         {/* Album Cover */}
         <img
@@ -104,16 +111,13 @@ function MusicRecommendation({ moodsArr }) {
         </div>
       </div>
 
-      <div className='play-container'>
+      <div className="play-container">
         {currentSong.preview && (
           <audio controls src={currentSong.preview} className="audio-preview" />
         )}
 
         {/* Controls */}
-        <button
-          onClick={handleNext}
-          className='next-btn'
-        >
+        <button onClick={handleNext} className="next-btn">
           Next
         </button>
       </div>

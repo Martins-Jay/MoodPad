@@ -173,7 +173,7 @@
   max-width: 300px;
   height: 35px;
   margin-top: 3px;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .next-btn {
@@ -186,4 +186,24 @@
   font-weight: 600;
 
   font-size: 0.55rem;
+}
+
+/* skeleton loader */
+.skeleton-image {
+  width: 1rem;
+  height: 1rem;
+  background: var(--bg-card);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
 }
