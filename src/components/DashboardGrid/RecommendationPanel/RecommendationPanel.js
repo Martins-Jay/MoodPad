@@ -4,42 +4,17 @@ import ArrowLeft from '../../../assets/icons/ArrowLeft';
 
 import './recommendationPanel.css';
 import MusicRecommendation from './Components/Body/MusicRecommendation';
-
-const recommendationsByType = {
-  music: {
-    title: 'Lo-fi Chill Beats',
-    subtitle: 'Helps slow racing thoughts',
-    message: 'You seem a bit tense today.',
-    icon: '🎧',
-  },
-  movie: {
-    title: 'Amélie',
-    subtitle: 'Feel-good movie',
-    message: 'Try watching something lighthearted.',
-    icon: '🎬',
-  },
-  joke: {
-    title: 'Why did the tomato turn red?',
-    subtitle: 'Because it saw the salad dressing!',
-    message: 'A little laughter can help your mood.',
-    icon: '😂',
-  },
-  quote: {
-    title: '“Keep going, you’re doing great”',
-    subtitle: 'Motivational quote',
-    message: 'You might need a little boost.',
-    icon: '💡',
-  },
-};
+import MoviesRecommendation from './Components/Body/MovieRecommendation';
 
 function RecommendationPanel({
   moodsArr,
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
 }) {
-  // selectedType
-  const [setSelectedType] = useState('music');
+  const [selectedType, setSelectedType] = useState('music');
   const [isPickerOpen, setIsPickerOpen] = useState(false);
+
+  const recommendationOptions = ['music', 'movies', 'quotes'];
 
   function handleCloseRecommendation() {
     setIsRecommendationPanelOpen(false);
@@ -51,18 +26,33 @@ function RecommendationPanel({
       className={`recommendation-panel ${isRecommendationPanelOpen ? 'open' : ''}`}
     >
       <div className="recommendation-header">
-        <h4>Recommendation</h4>
+        <h4>
+          {selectedType?.charAt(0).toUpperCase() + selectedType?.slice(1) + ' '}
+          Recommendation
+        </h4>
       </div>
 
-      {/* Body */}
-      <MusicRecommendation moodsArr={moodsArr} />
+      {selectedType === 'music' && (
+        <MusicRecommendation
+          moodsArr={moodsArr}
+          isPickerOpen={isPickerOpen}
+          setIsPickerOpen={setIsPickerOpen}
+        />
+      )}
+      {selectedType === 'movies' && (
+        <MoviesRecommendation
+          moodsArr={moodsArr}
+          isPickerOpen={isPickerOpen}
+          setIsPickerOpen={setIsPickerOpen}
+        />
+      )}
 
       <div className={`rec-picker ${isPickerOpen ? 'open' : ''}`}>
         <div className="rec-picker-content">
-          <h5>What do you need right now?</h5>
+          <h5 className="picker-que">What do you need right now?</h5>
 
           <div className="picker-options">
-            {Object.keys(recommendationsByType).map((type) => (
+            {recommendationOptions.map((type) => (
               <button
                 key={type}
                 className="option-btn"
@@ -77,7 +67,6 @@ function RecommendationPanel({
           </div>
         </div>
       </div>
-
       {/* Actions */}
       <div className="rec-footer-btns">
         <div className="rec-try-different-wrapper">

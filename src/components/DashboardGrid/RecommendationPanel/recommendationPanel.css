@@ -38,7 +38,7 @@
 
 .recommendation-header h4 {
   margin: 0;
-  font-size: 15px;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
@@ -60,6 +60,7 @@
   background: #ddc3a476;
   color: #555050;
 
+  font-size: 0.6rem;
   font-weight: 500;
   padding: 0.55rem 0.8rem;
   border-radius: 2rem;
@@ -93,7 +94,7 @@
 
 .rec-picker {
   opacity: 0;
-  transform: translateY(4rem);
+  transform: translateY(0rem);
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
@@ -101,13 +102,17 @@
 
 .rec-picker.open {
   opacity: 1;
-  transform: translateY(3rem);
+  transform: translateY(2rem);
 }
 
 .rec-picker-content {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.picker-que {
+  font-size: 0.7rem;
 }
 
 .picker-options {
@@ -121,6 +126,7 @@
   padding: 0.4rem 0.8rem;
   border-radius: 2rem;
   border: none;
+  font-size: 0.6rem;
   text-transform: capitalize;
 }
 
@@ -142,14 +148,15 @@
   flex-direction: column;
   gap: 0.6rem;
 }
+
 .music-info {
   display: flex;
   gap: 0.5rem;
 }
 
 .album-cover {
-  width: 90px;
-  height: 90px;
+  min-width: 7rem;
+  height: 7rem;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -162,24 +169,30 @@
 .play-container {
   display: flex;
   align-items: center;
-  gap: 0.1rem;
+  gap: 1rem;
 }
 
 .audio-preview {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 84%;
   max-width: 300px;
   margin-top: 3px;
   border-radius: 10px;
 }
 
-.next-btn {
-  background: transparent;
-  color: #b1a9a9;
+.music-next-btn {
+  background: #ddc3a476;
+  color: #323131;
   border: none;
   cursor: pointer;
+
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 2rem;
 }
 
 /* skeleton loader */
@@ -245,4 +258,50 @@
   100% {
     opacity: 0.4;
   }
+}
+
+/* movies styles */
+.movie-info {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.poster-cover {
+  min-width: 6rem;
+  height: 7rem;
+  border-radius: 0.8rem;
+}
+
+.movie-overview {
+  font-size: 0.55rem;
+  min-width: 80%;
+}
+
+.next-movie-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-content {
+}
+
+.next-movie-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ddc3a476;
+  color: #010000d7;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.01rem;
+  width: 1rem;
+  height: 3.9rem;
 }

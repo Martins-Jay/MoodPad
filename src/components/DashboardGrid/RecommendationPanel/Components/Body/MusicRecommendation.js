@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
 import getDominantMood from '../../../../../utils/getDominantMood';
-import PlayNext from '../../../../../assets/icons/PlayNext';
+import CaretRight from '../../../../../assets/icons/CaretRight';
 
-function MusicRecommendation({ moodsArr }) {
+function MusicRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
   const [songs, setSongs] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,12 +32,12 @@ function MusicRecommendation({ moodsArr }) {
     const controller = new AbortController();
 
     const moodToQuery = {
-      happy: 'amapiano afrobeat',
-      calm: 'afro chill songs',
-      sad: 'slow rnb soul',
-      anxious: 'lofi chill hop',
-      angry: 'hip hop rap',
-      neutral: 'afrobeats mix',
+      happy: 'afrobeats pop dance feel good',
+      calm: 'chill afrobeats chill pop ambient relax',
+      sad: 'emotional pop rnb acoustic ballad',
+      anxious: 'lofi chill instrumental ambient calm',
+      angry: 'hip hop rap trap energy',
+      neutral: 'popular afrobeats pop hits',
     };
 
     if (!dominantMood) return;
@@ -76,11 +76,10 @@ function MusicRecommendation({ moodsArr }) {
           preview: musicObj.audio || null, // stream url
         }));
 
-        // easy shuffle
-        const shuffled = [...cleanSongs].sort(() => Math.random() - 0.5);
+        const shuffled = [...cleanSongs].sort(() => Math.random() - 0.5); // easy shuffle
 
         setSongs(shuffled);
-        setCurrentIndex(0); // always start from first shuffled song
+        setCurrentIndex(0);
       } catch (error) {
         console.error(error);
         setSongs([]);
@@ -99,6 +98,8 @@ function MusicRecommendation({ moodsArr }) {
   const currentSong = songs[currentIndex] || {};
 
   const handleNext = () => {
+    if (isPickerOpen) setIsPickerOpen(!isPickerOpen);
+
     if (songs.length === 0) return;
     setCurrentIndex((prev) => (prev + 1) % songs.length);
   };
@@ -137,16 +138,24 @@ function MusicRecommendation({ moodsArr }) {
         </div>
       </div>
 
-      <div className="play-container">
-        {currentSong.preview && (
-          <audio controls src={currentSong.preview} className="audio-preview" />
-        )}
+      {isPickerOpen ? (
+        ''
+      ) : (
+        <div className="play-container">
+          {currentSong.preview && (
+            <audio
+              controls
+              src={currentSong.preview}
+              className="audio-preview"
+            />
+          )}
 
-        {/* Controls */}
-        <button onClick={handleNext} className="next-btn">
-          <PlayNext size={33} />
-        </button>
-      </div>
+          {/* Controls */}
+          <button onClick={handleNext} className="music-next-btn">
+            <CaretRight size={18} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
