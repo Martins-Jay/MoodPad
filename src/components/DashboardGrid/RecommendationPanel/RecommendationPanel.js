@@ -80,7 +80,7 @@ function RecommendationPanel({
 
         <div className="close-rec-container">
           <button className="close-rec-btn" onClick={handleCloseRecommendation}>
-            {<Cancel size={17} />}
+            {<Cancel size={15} />}
           </button>
         </div>
       </div>

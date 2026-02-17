@@ -152,7 +152,7 @@ function MusicRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
 
           {/* Controls */}
           <button onClick={handleNext} className="music-next-btn">
-            <CaretRight size={18} />
+            <CaretRight size={17} />
           </button>
         </div>
       )}

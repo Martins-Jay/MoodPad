@@ -149,7 +149,11 @@ function MoviesRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
         <div className="movie-text">
           <div className="movie-top">
             <h5 className="movie-title">
-              {currentMovie.title} - {currentMovie.year}{' '}
+              {currentMovie.title} 
+            </h5>
+
+            <h5 className="year-released">
+              Release Year: {currentMovie.year}
             </h5>
             {isPickerOpen ? (
               ''
@@ -163,7 +167,7 @@ function MoviesRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
                     className="next-movie-btn"
                     aria-label="Next movie"
                   >
-                    <CaretRight size={18} />
+                    <CaretRight size={15} />
                   </button>
                 </div>
               </div>

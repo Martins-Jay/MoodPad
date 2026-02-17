@@ -72,7 +72,7 @@ function MoodInsight({
               setIsRecommendationPanelOpen(!isRecommendationPanelOpen)
             }
           >
-            {<ArrowUpIcon size={17} />}
+            {<ArrowUpIcon size={15} />}
           </button>
         </div>
       </div>
