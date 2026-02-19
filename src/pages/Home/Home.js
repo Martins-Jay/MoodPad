@@ -67,6 +67,9 @@ function Home() {
         moodsArr={moodsArr}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        onSaveNote={handleSaveNote}
+        onRemoveNote={handleRemoveNote}
+        onEditMood={handleEditMood}
         setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
         isRecommendationPanelOpen={isRecommendationPanelOpen}
       />
@@ -78,13 +81,6 @@ function Home() {
           onCancelEdit={handleCancelEdit}
         />
       )}
-
-      <MoodList
-        moodsArr={moodsArr}
-        onSaveNote={handleSaveNote}
-        onRemoveNote={handleRemoveNote}
-        onEditMood={handleEditMood}
-      />
     </PageWrapper>
   );
 }

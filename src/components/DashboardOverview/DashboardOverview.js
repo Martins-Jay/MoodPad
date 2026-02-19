@@ -2,11 +2,15 @@ import Tabs from '../Tabs/Tabs';
 import DashboardTab from '../DashboardTab/DashboardTab';
 
 import './dashboardOverview.css';
+import DashboardHistory from '../DashboardHistory/DashboardHistory';
 
 function DashboardOverview({
   moodsArr,
   activeTab,
   setActiveTab,
+  onSaveNote,
+  onRemoveNote,
+  onEditMood,
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
 }) {
@@ -23,14 +27,13 @@ function DashboardOverview({
       )}
 
       {activeTab === 'history' && (
-        <DashboardTab
+        <DashboardHistory
           moodsArr={moodsArr}
-          isRecommendationPanelOpen={isRecommendationPanelOpen}
-          setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
+          onSaveNote={onSaveNote}
+          onRemoveNote={onRemoveNote}
+          onEditMood={onEditMood}
         />
       )}
-
-
     </div>
   );
 }
