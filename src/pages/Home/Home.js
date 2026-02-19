@@ -7,7 +7,6 @@ import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.js';
 import Header from '../../components/Layout/Header/Header.js';
 import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
-import MoodList from '../../components/MoodSection/MoodList/MoodList.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
