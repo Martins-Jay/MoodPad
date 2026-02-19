@@ -102,7 +102,7 @@
 
 .rec-picker.open {
   opacity: 1;
-  transform: translateY(3.5rem);
+  transform: translateY(2rem);
 }
 
 .rec-picker-content {
@@ -155,8 +155,8 @@
 }
 
 .album-cover {
-  min-width: 7rem;
-  height: 7rem;
+  min-width: 9rem;
+  height: 9rem;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -197,8 +197,8 @@
 
 /* skeleton loader */
 .skeleton-image {
-  width: 6rem;
-  height: 6rem;
+  width: 9rem;
+  height: 9rem;
   background: #b7a9a9;
   border-radius: 0.5rem;
   animation: pulse 3s infinite ease-in-out;
@@ -283,8 +283,8 @@
 }
 
 .poster-cover {
-  min-width: 6rem;
-  height: 7rem;
+  min-width: 9rem;
+  height: 9rem;
   border-radius: 0.8rem;
 }
 

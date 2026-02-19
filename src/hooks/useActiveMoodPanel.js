@@ -5,8 +5,8 @@ export function useActiveMoodPanel(
   isActiveMoodPanelOpen,
   setIsActiveMoodPanelOpen,
   setActiveMood,
+  isRecommendationPanelOpen,
 ) {
-  
   useEffect(() => {
     if (!(isActiveMoodPanelOpen || moodBeingEditted)) return;
 
@@ -38,6 +38,8 @@ export function useActiveMoodPanel(
   }, [isActiveMoodPanelOpen, moodBeingEditted]);
 
   function handleMoodSelect(moodObj) {
+    if (isRecommendationPanelOpen) return;
+
     setActiveMood(() => ({
       ...moodObj,
     }));

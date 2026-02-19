@@ -6,18 +6,31 @@ import './dashboardOverview.css';
 function DashboardOverview({
   moodsArr,
   activeTab,
+  setActiveTab,
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
 }) {
   return (
     <div className="dashboard-overview-container">
-      <Tabs activeTab={activeTab} />
+      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <DashboardTab
-        moodsArr={moodsArr}
-        isRecommendationPanelOpen={isRecommendationPanelOpen}
-        setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
-      />
+      {activeTab === 'dashboard' && (
+        <DashboardTab
+          moodsArr={moodsArr}
+          isRecommendationPanelOpen={isRecommendationPanelOpen}
+          setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
+        />
+      )}
+
+      {activeTab === 'history' && (
+        <DashboardTab
+          moodsArr={moodsArr}
+          isRecommendationPanelOpen={isRecommendationPanelOpen}
+          setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
+        />
+      )}
+
+
     </div>
   );
 }

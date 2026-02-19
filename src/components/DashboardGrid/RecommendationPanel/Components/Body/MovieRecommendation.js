@@ -153,7 +153,7 @@ function MoviesRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
             </h5>
 
             <h5 className="year-released">
-              Release Year: {currentMovie.year}
+              Released: {currentMovie.year}
             </h5>
             {isPickerOpen ? (
               ''
