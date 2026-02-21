@@ -3,6 +3,7 @@ import './tabs.css';
 const TabsArr = [
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'history', label: 'History' },
+  { id: 'summary', label: 'Summary' },
 ];
 
 function Tabs({ activeTab, setActiveTab }) {

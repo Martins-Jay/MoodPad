@@ -10,12 +10,12 @@ import getFormattedTime from '../../../utils/time';
 import formatRelativeDate from '../../../utils/date';
 
 const icons = {
-  smile: <SmileIcon size={35} />,
-  leaf: <LeafIcon size={35} />,
-  sad: <SadIcon size={35} />,
-  anxious: <AnxiousIcon size={35} />,
-  neutral: <NeutralIcon size={35} />,
-  angry: <AngryIcon size={35} />,
+  smile: <SmileIcon size={25} />,
+  leaf: <LeafIcon size={25} />,
+  sad: <SadIcon size={25} />,
+  anxious: <AnxiousIcon size={25} />,
+  neutral: <NeutralIcon size={25} />,
+  angry: <AngryIcon size={25} />,
 };
 
 function MoodItem({
@@ -24,6 +24,8 @@ function MoodItem({
   onSaveNote,
   onRemoveNote,
   onEditMood,
+  activeReadMore,
+  onReadMore,
 }) {
   // id: selectedMoodId,
   const {
@@ -74,6 +76,10 @@ function MoodItem({
     onEditMood(moodObj);
   }
 
+  function handleReadMore() {
+    onReadMore(moodObj);
+  }
+
   return (
     <li className="mood-item-container">
       <div
@@ -85,14 +91,14 @@ function MoodItem({
         }}
       >
         <div className="item-content">
-          <div className="left-content">
+          <div className="card-left-content">
             <div className="svg-wrapper">
               <div className="svg-icon">{icons[moodObj.iconName]}</div>
             </div>
 
             <div className="mood-content">
               <h1 className="item-name">{name}</h1>
-              {color?.colorGradient}
+
               <p className="date">
                 {formatRelativeDate(timestamp)}: {getFormattedTime(timestamp)}
               </p>
@@ -111,6 +117,10 @@ function MoodItem({
 
         <div className="reflection-container">
           {text?.trim() && <p className="reflection-text">{text}</p>}
+
+          <button className="read-more-btn" onClick={handleReadMore}>
+            Read more
+          </button>
         </div>
       </div>
     </li>

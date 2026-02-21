@@ -18,6 +18,7 @@ const icons = {
 };
 
 function EditMoodModal({ moodObj, onUpdateText, onCancelEdit }) {
+  console.log(moodObj);
   const [newText, setNewText] = useState('');
 
   useEffect(
@@ -31,7 +32,8 @@ function EditMoodModal({ moodObj, onUpdateText, onCancelEdit }) {
   function handleSaveEdit() {
     const formattedText =
       newText.trim().charAt(0).toUpperCase() + newText.trim().slice(1);
-    onUpdateText(moodObj.id, formattedText);
+
+    onUpdateText(moodObj.timestamp, formattedText);
   }
 
   function handleCancel() {

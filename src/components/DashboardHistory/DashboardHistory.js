@@ -1,7 +1,14 @@
 import MoodList from '../MoodSection/MoodList/MoodList';
 import './DashboardHistory.css';
 
-function DashboardHistory({ moodsArr, onSaveNote, onRemoveNote, onEditMood }) {
+function DashboardHistory({
+  moodsArr,
+  onSaveNote,
+  onRemoveNote,
+  onEditMood,
+  activeReadMore,
+  onReadMore,
+}) {
   return (
     <div className="history-container">
       <div className="history-content">
@@ -10,6 +17,8 @@ function DashboardHistory({ moodsArr, onSaveNote, onRemoveNote, onEditMood }) {
           onRemoveNote={onRemoveNote}
           onEditMood={onEditMood}
           onSaveNote={onSaveNote}
+          activeReadMore={activeReadMore}
+          onReadMore={onReadMore}
         />
       </div>
     </div>

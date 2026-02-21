@@ -7,17 +7,21 @@ function MoodList({
   onSaveNote,
   onRemoveNote,
   onEditMood,
+  activeReadMore,
+  onReadMore,
 }) {
   return (
     <div className="mood-list-container">
       <ul className="mood-list">
         {moodsArr.map((moodObj) => (
           <MoodItem
-            key={moodObj.id}
+            key={moodObj.timestamp}
             moodObj={moodObj}
             onSaveNote={onSaveNote}
             onRemoveNote={onRemoveNote}
             onEditMood={onEditMood}
+            activeReadMore={activeReadMore}
+            onReadMore={onReadMore}
           />
         ))}
       </ul>

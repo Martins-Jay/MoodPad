@@ -13,6 +13,8 @@ function DashboardOverview({
   onEditMood,
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
+  activeReadMore,
+  onReadMore,
 }) {
   return (
     <div className="dashboard-overview-container">
@@ -32,6 +34,8 @@ function DashboardOverview({
           onSaveNote={onSaveNote}
           onRemoveNote={onRemoveNote}
           onEditMood={onEditMood}
+          activeReadMore={activeReadMore}
+          onReadMore={onReadMore}
         />
       )}
     </div>

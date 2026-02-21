@@ -8,6 +8,8 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
 
   const [moodBeingEditted, setMoodBeingEditted] = useState(null);
 
+  const [activeReadMore, setActiveReadMore] = useState(null);
+
   // Save moods
   useEffect(
     function () {
@@ -53,11 +55,12 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
   }
 
   function handleUpdateText(selectedMoodId, formattedText) {
+    console.log(selectedMoodId);
     if (!formattedText.trim()) return;
 
     setMoodsArr((prevMoods) =>
       prevMoods.map((moodObj) =>
-        moodObj.id === selectedMoodId
+        moodObj.timestamp === selectedMoodId
           ? { ...moodObj, text: formattedText }
           : moodObj,
       ),
@@ -70,6 +73,11 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     setMoodBeingEditted(null);
   }
 
+  function handleReadMore(moodObj) {
+    console.log(moodObj);
+    setActiveReadMore(moodObj);
+  }
+
   return {
     moodsArr,
     lastAction,
@@ -80,5 +88,7 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     handleEditMood,
     handleUpdateText,
     handleCancelEdit,
+    handleReadMore,
+    activeReadMore,
   };
 }
