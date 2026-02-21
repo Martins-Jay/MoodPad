@@ -6,16 +6,16 @@
   width: 100%;
   height: 100%;
 
-  transform: scale(0, 0); /* start collapsed */
-  transform-origin: bottom right; /* expand from bottom-right */
-  padding: 0.6rem; /* start padding small */
-
   background:
     var(--slide-radial-left), var(--slide-radial-right), var(--slide-base);
   background-repeat: no-repeat;
   box-shadow: var(--shadow-md);
   border-radius: 12px 12px;
   overflow: hidden;
+
+  transform: scale(0, 0); /* start collapsed */
+  transform-origin: bottom right; /* expand from bottom-right */
+  padding: 0.6rem; /* start padding small */
 
   transition:
     transform 0.3s ease,
@@ -279,7 +279,7 @@
 .year-released {
   font-size: 0.7rem;
   font-weight: 700;
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
 }
 
 .poster-cover {

@@ -17,7 +17,7 @@ function DashboardOverview({
   activeReadMore,
   onReadMore,
 }) {
-  // console.log(activeReadMore);
+  console.log(activeReadMore);
   return (
     <div className="dashboard-overview-container">
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
