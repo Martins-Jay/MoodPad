@@ -8,8 +8,9 @@ import Header from '../../components/Layout/Header/Header.js';
 import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
-import DashboardOverview from '../../components/DashboardOverview/DashboardOverview.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
+import DashboardOverview from '../../components/Overview/DashboardOverview/DashboardOverview.js';
+
 
 function Home() {
   const [activeTab, setActiveTab] = useState('history');

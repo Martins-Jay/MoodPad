@@ -1,4 +1,4 @@
-import MoodList from '../MoodSection/MoodList/MoodList';
+import MoodList from '../../MoodSection/MoodList/MoodList';
 import './DashboardHistory.css';
 
 function DashboardHistory({

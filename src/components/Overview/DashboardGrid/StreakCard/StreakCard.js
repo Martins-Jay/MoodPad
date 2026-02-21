@@ -1,6 +1,6 @@
 import './streakCard.css';
-import { useMoodStreak } from '../../../hooks/useMoodStreak';
-import Lock from '../../../assets/icons/lock';
+import { useMoodStreak } from '../../../../hooks/useMoodStreak';
+import Lock from '../../../../assets/icons/lock';
 
 function StreakCard({ moodsArr }) {
   const {

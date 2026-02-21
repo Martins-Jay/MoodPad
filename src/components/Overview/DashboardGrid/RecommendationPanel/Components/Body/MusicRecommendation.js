@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
-import getDominantMood from '../../../../../utils/getDominantMood';
-import CaretRight from '../../../../../assets/icons/CaretRight';
+import { getMoodBalanceForToday } from '../../../../../../utils/moodUtils';
+import getDominantMood from '../../../../../../utils/getDominantMood';
+import CaretRight from '../../../../../../assets/icons/CaretRight';
 
 function MusicRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
   const [songs, setSongs] = useState([]);

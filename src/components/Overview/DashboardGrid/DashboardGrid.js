@@ -1,4 +1,4 @@
-import { getMoodBalanceForToday } from '../../utils/moodUtils';
+import { getMoodBalanceForToday } from '../../../utils/moodUtils';
 import RecommendationPanel from './RecommendationPanel/RecommendationPanel';
 
 import './dashboardGrid.css';

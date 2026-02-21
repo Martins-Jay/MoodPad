@@ -1,5 +1,5 @@
-import ArrowLeft from '../../../../assets/icons/ArrowLeft';
-import Cancel from '../../../../assets/icons/Cancel';
+import ArrowLeft from '../../../../../assets/icons/ArrowLeft';
+import Cancel from '../../../../../assets/icons/Cancel';
 
 function RecommendationFooter({
   isPickerOpen,

@@ -1,4 +1,4 @@
-import moodColors from '../../SharedConstants/moodColors';
+import moodColors from '../../../SharedConstants/moodColors';
 
 function MoodBalanceItem({ balObj }) {
   return (

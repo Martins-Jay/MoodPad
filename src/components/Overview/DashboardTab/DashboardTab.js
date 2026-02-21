@@ -1,5 +1,5 @@
 import DashboardGrid from '../DashboardGrid/DashboardGrid';
-import TodayAtAGlance from '../TodayAtAGlance/TodayAtAGlance';
+import TodayAtAGlance from '../../TodayAtAGlance/TodayAtAGlance';
 
 import './dashboardTab.css';
 

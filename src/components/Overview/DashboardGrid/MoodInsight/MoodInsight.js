@@ -1,7 +1,7 @@
-import Lock from '../../../assets/icons/lock';
+import Lock from '../../../../assets/icons/lock';
 
-import { generateMoodInsight } from '../../../utils/moodInsights';
-import ArrowUpIcon from '../../../assets/icons/ArrowUpleft';
+import { generateMoodInsight } from '../../../../utils/moodInsights';
+import ArrowUpIcon from '../../../../assets/icons/ArrowUpleft';
 
 import './moodInsight.css';
 

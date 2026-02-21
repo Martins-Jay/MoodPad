@@ -1,4 +1,4 @@
-import Lock from '../../../assets/icons/lock';
+import Lock from '../../../../assets/icons/lock';
 import MoodBalanceBar from './MoodBalanceBar';
 import MoodBalanceItem from './MoodBalanceItem';
 

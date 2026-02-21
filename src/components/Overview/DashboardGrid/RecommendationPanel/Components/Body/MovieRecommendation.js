@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getMoodBalanceForToday } from '../../../../../utils/moodUtils';
-import getDominantMood from '../../../../../utils/getDominantMood';
+import { getMoodBalanceForToday } from '../../../../../../utils/moodUtils';
+import getDominantMood from '../../../../../../utils/getDominantMood';
 
 import '../../recommendationPanel.css';
-import CaretRight from '../../../../../assets/icons/CaretRight';
+import CaretRight from '../../../../../../assets/icons/CaretRight';
 
 function MoviesRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
   const [movies, setMovies] = useState([]);
@@ -148,13 +148,9 @@ function MoviesRecommendation({ moodsArr, isPickerOpen, setIsPickerOpen }) {
 
         <div className="movie-text">
           <div className="movie-top">
-            <h5 className="movie-title">
-              {currentMovie.title} 
-            </h5>
+            <h5 className="movie-title">{currentMovie.title}</h5>
 
-            <h5 className="year-released">
-              Released: {currentMovie.year}
-            </h5>
+            <h5 className="year-released">Released: {currentMovie.year}</h5>
             {isPickerOpen ? (
               ''
             ) : (

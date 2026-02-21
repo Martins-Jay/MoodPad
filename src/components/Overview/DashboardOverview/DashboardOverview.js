@@ -1,8 +1,8 @@
-import Tabs from '../Tabs/Tabs';
-import DashboardTab from '../DashboardTab/DashboardTab';
+import Tabs from '../../Tabs/Tabs';
+import DashboardHistory from '../DashboardHistory/DashboardHistory';
+import DashboardTab from'../DashboardTab/DashboardTab'
 
 import './dashboardOverview.css';
-import DashboardHistory from '../DashboardHistory/DashboardHistory';
 
 function DashboardOverview({
   moodsArr,
@@ -38,6 +38,8 @@ function DashboardOverview({
           onReadMore={onReadMore}
         />
       )}
+
+      {/* {activeReadMore ? } */}
     </div>
   );
 }

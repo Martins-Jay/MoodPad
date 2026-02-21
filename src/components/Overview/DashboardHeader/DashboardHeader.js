@@ -1,6 +1,6 @@
 import './dashboardHeader.css';
-import ClockIcon from '../../assets/icons/Clock';
-import formatRelativeDate from '../../utils/date';
+import ClockIcon from '../../../assets/icons/Clock';
+import formatRelativeDate from '../../../utils/date'
 
 import { useState } from 'react';
 
