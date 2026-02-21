@@ -74,7 +74,6 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
   }
 
   function handleReadMore(moodObj) {
-    console.log(moodObj);
     setActiveReadMore(moodObj);
   }
 

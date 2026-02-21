@@ -9,8 +9,7 @@ import MoodPicker from '../../components/MoodSection/MoodPicker/MoodPicker.js';
 import ActiveMoodPanel from '../../components/ActiveMoodPanel/ActiveMoodPanel.js';
 import EditMoodModal from '../../components/MoodSection/EditMoodModal/EditMoodModal.js';
 import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus.js';
-import DashboardOverview from '../../components/Overview/DashboardOverview/DashboardOverview.js';
-
+import DashboardOverview from '../../components/Overview/DashboardOverview.js';
 
 function Home() {
   const [activeTab, setActiveTab] = useState('history');
@@ -39,6 +38,7 @@ function Home() {
     setIsActiveMoodPanelOpen,
     setActiveMood,
     isRecommendationPanelOpen,
+    activeReadMore,
   );
 
   return (

@@ -1,5 +1,6 @@
-import TopNav from './TopNav/TopNav';
-import DashboardHeader from '../../Overview/DashboardHeader/DashboardHeader';
+import TopNav from '../../TopNav/TopNav';
+import DashboardHeader from './DashboardHeader/DashboardHeader';
+
 
 import './header.css';
 

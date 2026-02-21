@@ -1,6 +1,7 @@
-import Tabs from '../../Tabs/Tabs';
-import DashboardHistory from '../DashboardHistory/DashboardHistory';
-import DashboardTab from'../DashboardTab/DashboardTab'
+import Tabs from '../Tabs/Tabs';
+import DashboardHistory from './DashboardHistory/DashboardHistory';
+import ReadMorePanel from './DashboardHistory/ReadMorePanel/ReadMorePanel';
+import DashboardTab from './DashboardTab/DashboardTab';
 
 import './dashboardOverview.css';
 
@@ -16,6 +17,7 @@ function DashboardOverview({
   activeReadMore,
   onReadMore,
 }) {
+  // console.log(activeReadMore);
   return (
     <div className="dashboard-overview-container">
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -28,7 +30,7 @@ function DashboardOverview({
         />
       )}
 
-      {activeTab === 'history' && (
+      {activeTab === 'history' && !activeReadMore && (
         <DashboardHistory
           moodsArr={moodsArr}
           onSaveNote={onSaveNote}
@@ -39,7 +41,11 @@ function DashboardOverview({
         />
       )}
 
-      {/* {activeReadMore ? } */}
+      {activeTab === 'history' && activeReadMore ? (
+        <ReadMorePanel activeReadMore={activeReadMore} />
+      ) : (
+        ''
+      )}
     </div>
   );
 }
