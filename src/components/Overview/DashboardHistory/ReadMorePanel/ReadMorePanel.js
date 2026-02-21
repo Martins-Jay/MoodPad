@@ -5,7 +5,7 @@ function ReadMorePanel({ activeReadMore }) {
   return (
     <div className="read-more-container">
       <div className="read-more-header-content">
-        <div className="mood-name">{activeReadMore.name} mood</div>
+        <div className="mood-title">{activeReadMore.name} mood</div>
 
         <div className="date-created">
           Date created: {formatRelativeDate(activeReadMore.timestamp)}
@@ -15,7 +15,7 @@ function ReadMorePanel({ activeReadMore }) {
       <div className="mood-text">{activeReadMore.text}</div>
 
       <div className="read-more-footer-content">
-        <button className="close-read-more-btn">
+        <button className="close-read-more-btn" >
           <Cancel size={11} />
         </button>
       </div>
