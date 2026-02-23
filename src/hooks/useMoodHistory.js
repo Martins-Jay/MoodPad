@@ -48,6 +48,7 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     );
 
     setLastAction('removed');
+    setActiveReadMore(null);
   }
 
   function handleEditMood(moodObj) {

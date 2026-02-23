@@ -3,7 +3,12 @@ import Cancel from '../../../../assets/icons/Cancel';
 import EditIcon from '../../../../assets/icons/EditIcon';
 import formatRelativeDate from '../../../../utils/date';
 
-function ReadMorePanel({ activeReadMore, setActiveReadMore, onEditMood }) {
+function ReadMorePanel({
+  activeReadMore,
+  setActiveReadMore,
+  onEditMood,
+  onRemoveNote,
+}) {
   console.log(activeReadMore);
 
   function handleCloseReadMore() {
@@ -14,7 +19,9 @@ function ReadMorePanel({ activeReadMore, setActiveReadMore, onEditMood }) {
     onEditMood(activeReadMore);
   }
 
-  function handleRemove() {}
+  function handleRemove() {
+    onRemoveNote(activeReadMore.timestamp);
+  }
 
   return (
     <div className="read-more-container">
@@ -35,7 +42,7 @@ function ReadMorePanel({ activeReadMore, setActiveReadMore, onEditMood }) {
           </button>
 
           <button className="delete-text-btn" onClick={handleRemove}>
-            <DeleteIcon size={10} />
+            <DeleteIcon size={15} />
           </button>
         </div>
 

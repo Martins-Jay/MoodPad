@@ -41,10 +41,11 @@ function DashboardOverview({
 
       {activeTab === 'history' && activeReadMore ? (
         <ReadMorePanel
-        moodsArr={moodsArr}
+          moodsArr={moodsArr}
           activeReadMore={activeReadMore}
           setActiveReadMore={setActiveReadMore}
           onEditMood={onEditMood}
+          onRemoveNote={onRemoveNote}
         />
       ) : (
         ''
