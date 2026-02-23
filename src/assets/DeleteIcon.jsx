@@ -1,0 +1,21 @@
+function DeleteIcon({ size = 45 }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      width={size}
+      height={size}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1}
+        d="M3 6h18M8 6V4h8v2m-9 0l1 14h10l1-14"
+      />
+    </svg>
+  );
+}
+
+export default DeleteIcon;

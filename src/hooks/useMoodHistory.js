@@ -66,6 +66,10 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
       ),
     );
 
+    setActiveReadMore((activeReadMore) => {
+      return { ...activeReadMore, text: formattedText };
+    });
+
     setMoodBeingEditted(null);
   }
 
@@ -89,5 +93,6 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     handleCancelEdit,
     handleReadMore,
     activeReadMore,
+    setActiveReadMore,
   };
 }

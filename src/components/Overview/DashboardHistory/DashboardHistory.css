@@ -38,13 +38,30 @@
   width: 100%;
   font-size: 0.9rem;
   font-weight: 300;
+    margin-bottom: 3rem;
 }
 
-.close-read-more-btn {
+.read-more-footer-content {
   position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0.8rem;
+}
+
+.left-footer-btns {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.close-read-more-btn,
+.edit-text-btn,
+.delete-text-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 1.8rem;
 
   background: #ddc3a476;
   color: #000000d7;
@@ -53,7 +70,10 @@
   padding: 0.01rem;
   width: 1.9rem;
   height: 1.9rem;
+}
 
-  bottom: 0.8rem;
-  right: 0.8rem;
+.edit-text-btn,
+.delete-text-btn {
+  margin-right: 0;
+  font-weight: 100;
 }

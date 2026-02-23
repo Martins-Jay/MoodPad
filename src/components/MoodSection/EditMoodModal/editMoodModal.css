@@ -18,8 +18,8 @@
 
 .edit-modal {
   position: relative;
-  top: 22%;
-  width: 75%;
+  top: 50%;
+  width: 70%;
   max-width: 420px;
   background: var(--bg-card);
   display: flex;

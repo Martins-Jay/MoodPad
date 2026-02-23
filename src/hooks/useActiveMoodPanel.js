@@ -15,7 +15,7 @@ export function useActiveMoodPanel(
     const scrollY = window.scrollY;
     const body = document.body;
 
-    // lock body position to fixed and
+    // lock body position to fixed 
     body.style.position = 'fixed';
     body.style.inset = '0';
 

@@ -22,7 +22,6 @@ function Home() {
     moodsArr,
     lastAction,
     moodBeingEditted,
-    handleSaveNote,
     handleAddMood,
     handleRemoveNote,
     handleEditMood,
@@ -30,6 +29,7 @@ function Home() {
     handleCancelEdit,
     handleReadMore,
     activeReadMore,
+    setActiveReadMore,
   } = useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen);
 
   const { handleMoodSelect } = useActiveMoodPanel(
@@ -69,13 +69,13 @@ function Home() {
         moodsArr={moodsArr}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        onSaveNote={handleSaveNote}
         onRemoveNote={handleRemoveNote}
         onEditMood={handleEditMood}
         setIsRecommendationPanelOpen={setIsRecommendationPanelOpen}
         isRecommendationPanelOpen={isRecommendationPanelOpen}
         activeReadMore={activeReadMore}
         onReadMore={handleReadMore}
+        setActiveReadMore={setActiveReadMore}
       />
 
       {moodBeingEditted && (

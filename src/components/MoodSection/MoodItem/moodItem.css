@@ -8,18 +8,7 @@
   margin: var(--container-margin);
   padding: 0.25rem;
   box-shadow: var(--shadow-md);
-  animation: dropIn 0.5s ease-out;
-}
-
-@keyframes dropIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+  /* animation: dropIn 0.5s ease-in-out; */
 }
 
 .item-content-wrapper {
@@ -61,12 +50,6 @@
   justify-content: center;
 }
 
-/* .svg-icon {
-  display: flex;
-  width: 1.5rem;
-  height: 1.5rem;
-} */
-
 .item-content .date {
   font-size: 0.65rem;
   color: var(--text-secondary);
@@ -77,32 +60,19 @@
   gap: 0.7rem;
 }
 
-.right-content .edit-btn {
-  width: 1rem;
-  height: 1rem;
-  border: none;
-  border-radius: 100px;
-  background: #ddb40f;
-  color: #fff;
+.remove-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-text: center;
-  font-size: 0.5rem;
-}
 
-.right-content .remove-btn {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border: none;
   border-radius: 100px;
-  background: #ea30138a;
+  background: #ea3216a6;
+  padding: .2rem;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-text: center;
-  font-size: 0.5rem;
 }
 
 .reflection-container {

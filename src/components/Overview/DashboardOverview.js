@@ -9,15 +9,14 @@ function DashboardOverview({
   moodsArr,
   activeTab,
   setActiveTab,
-  onSaveNote,
   onRemoveNote,
   onEditMood,
   isRecommendationPanelOpen,
   setIsRecommendationPanelOpen,
   activeReadMore,
   onReadMore,
+  setActiveReadMore,
 }) {
-  console.log(activeReadMore);
   return (
     <div className="dashboard-overview-container">
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -33,7 +32,6 @@ function DashboardOverview({
       {activeTab === 'history' && !activeReadMore && (
         <DashboardHistory
           moodsArr={moodsArr}
-          onSaveNote={onSaveNote}
           onRemoveNote={onRemoveNote}
           onEditMood={onEditMood}
           activeReadMore={activeReadMore}
@@ -42,7 +40,12 @@ function DashboardOverview({
       )}
 
       {activeTab === 'history' && activeReadMore ? (
-        <ReadMorePanel activeReadMore={activeReadMore} />
+        <ReadMorePanel
+        moodsArr={moodsArr}
+          activeReadMore={activeReadMore}
+          setActiveReadMore={setActiveReadMore}
+          onEditMood={onEditMood}
+        />
       ) : (
         ''
       )}

@@ -8,6 +8,7 @@ import AngryIcon from '../../../assets/icons/Angry';
 
 import getFormattedTime from '../../../utils/time';
 import formatRelativeDate from '../../../utils/date';
+import DeleteIcon from '../../../assets/DeleteIcon';
 
 const icons = {
   smile: <SmileIcon size={25} />,
@@ -18,16 +19,7 @@ const icons = {
   angry: <AngryIcon size={25} />,
 };
 
-function MoodItem({
-  moodObj,
-  handleMoodIconSelect,
-  onSaveNote,
-  onRemoveNote,
-  onEditMood,
-  activeReadMore,
-  onReadMore,
-}) {
-  // id: selectedMoodId,
+function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
   const {
     timestamp: selectedMoodId,
     name,
@@ -37,43 +29,8 @@ function MoodItem({
     text,
   } = moodObj;
 
-  // const [text, setText] = useState('');
-  // const [isEditing, setIsEditing] = useState(false);
-
-  // function formatAndSaveNote() {
-  //   if (!text.trim()) return;
-
-  //   const formattedText =
-  //     text.trim().charAt(0).toUpperCase() + text.trim().slice(1);
-
-  //   onSaveNote(selectedMoodId, formattedText);
-  // }
-
-  // function saveNoteOnBlur() {
-  //   formatAndSaveNote();
-
-  //   setIsEditing(false); // stop editing → cursor disappears
-  // }
-
-  // function handleKeyDown(e) {
-  //   if (e.key === 'Enter' && !e.shiftKey) {
-  //     e.preventDefault();
-
-  //     formatAndSaveNote();
-  //     setIsEditing(!isEditing);
-  //   }
-  // }
-
-  // function handleEdit() {
-  //   setIsEditing(!isEditing);
-  // }
-
   function handleRemove() {
     onRemoveNote(selectedMoodId);
-  }
-
-  function handleEdit() {
-    onEditMood(moodObj);
   }
 
   function handleReadMore() {
@@ -105,14 +62,9 @@ function MoodItem({
             </div>
           </div>
 
-          <div className="right-content">
-            <button className="edit-btn" onClick={handleEdit}>
-              E
-            </button>
-            <button className="remove-btn" onClick={handleRemove}>
-              X
-            </button>
-          </div>
+          <button className="remove-btn" onClick={handleRemove}>
+            <DeleteIcon size={20} />
+          </button>
         </div>
 
         <div className="reflection-container">

@@ -1,15 +1,7 @@
 import './moodList.css';
 import MoodItem from '../MoodItem/MoodItem';
 
-function MoodList({
-  moodsArr,
-  handleMoodIconSelect,
-  onSaveNote,
-  onRemoveNote,
-  onEditMood,
-  activeReadMore,
-  onReadMore,
-}) {
+function MoodList({ moodsArr, onRemoveNote, onReadMore }) {
   return (
     <div className="mood-list-container">
       <ul className="mood-list">
@@ -17,10 +9,7 @@ function MoodList({
           <MoodItem
             key={moodObj.timestamp}
             moodObj={moodObj}
-            onSaveNote={onSaveNote}
             onRemoveNote={onRemoveNote}
-            onEditMood={onEditMood}
-            activeReadMore={activeReadMore}
             onReadMore={onReadMore}
           />
         ))}
