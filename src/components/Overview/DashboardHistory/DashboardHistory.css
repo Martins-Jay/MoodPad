@@ -14,7 +14,8 @@
   background-repeat: no-repeat;
   box-shadow: var(--shadow-md);
   border-radius: 12px 12px;
-  overflow: hidden;
+  overflow: vissible;
+  text-overflow: unset;
   gap: 0.6rem;
 }
 
@@ -35,10 +36,14 @@
 }
 
 .mood-text {
+  display: flex;
   width: 100%;
+  max-height: 100%;
   font-size: 0.9rem;
   font-weight: 300;
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  padding-right: 0.7rem;
+  overflow-y: auto;
 }
 
 .read-more-footer-content {

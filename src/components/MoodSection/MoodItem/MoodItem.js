@@ -1,4 +1,5 @@
-import './moodItem.css';
+import { useEffect, useRef, useState } from 'react';
+
 import SmileIcon from '../../../assets/icons/SmileIcon';
 import LeafIcon from '../../../assets/icons/LeafIcon';
 import SadIcon from '../../../assets/icons/SadIcon';
@@ -10,6 +11,8 @@ import getFormattedTime from '../../../utils/time';
 import formatRelativeDate from '../../../utils/date';
 import DeleteIcon from '../../../assets/DeleteIcon';
 
+import './moodItem.css';
+
 const icons = {
   smile: <SmileIcon size={25} />,
   leaf: <LeafIcon size={25} />,
@@ -20,6 +23,9 @@ const icons = {
 };
 
 function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
+  const textRef = useRef(null);
+  const [isShortened, setIsShortened] = useState(false);
+
   const {
     timestamp: selectedMoodId,
     name,
@@ -29,6 +35,24 @@ function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
     text,
   } = moodObj;
 
+  useEffect(
+    function () {
+      const reflectionTextEl = textRef.current;
+      console.log(
+        reflectionTextEl,
+        reflectionTextEl.scrollHeight,
+        reflectionTextEl.clientHeight,
+      );
+
+      if (reflectionTextEl) {
+        setIsShortened(
+          reflectionTextEl.scrollWidth > reflectionTextEl.clientWidth,
+        );
+      }
+    },
+    [text],
+  );
+
   function handleRemove() {
     onRemoveNote(selectedMoodId);
   }
@@ -36,6 +60,8 @@ function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
   function handleReadMore() {
     onReadMore(moodObj);
   }
+
+  function handleEdit() {}
 
   return (
     <li className="mood-item-container">
@@ -68,11 +94,21 @@ function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
         </div>
 
         <div className="reflection-container">
-          {text?.trim() && <p className="reflection-text">{text}</p>}
+          {text?.trim() && (
+            <p className="reflection-text" ref={textRef}>
+              {text}
+            </p>
+          )}
 
-          <button className="read-more-btn" onClick={handleReadMore}>
-            Read more
-          </button>
+          {isShortened === true ? (
+            <button className="read-more-btn" onClick={handleReadMore}>
+              Read more
+            </button>
+          ) : (
+            <button className="edit--btn" onClick={handleEdit}>
+              Edit
+            </button>
+          )}
         </div>
       </div>
     </li>
