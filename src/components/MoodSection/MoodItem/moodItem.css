@@ -66,13 +66,13 @@
   justify-content: center;
   justify-text: center;
 
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border: none;
   border-radius: 100px;
-  background: #ea3216a6;
+  background: #f1ecec;
   padding: 0.2rem;
-  color: #fff;
+  color: #877979;
 }
 
 .reflection-container {

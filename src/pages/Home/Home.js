@@ -12,7 +12,7 @@ import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus
 import DashboardOverview from '../../components/Overview/DashboardOverview.js';
 
 function Home() {
-  const [activeTab, setActiveTab] = useState('history');
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [isRecommendationPanelOpen, setIsRecommendationPanelOpen] =
     useState(false);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
@@ -30,7 +30,12 @@ function Home() {
     handleReadMore,
     activeReadMore,
     setActiveReadMore,
+    isCardEdit,
+    setIsCardEdit,
+    handleCardEdit,
   } = useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen);
+
+  console.log(isCardEdit);
 
   const { handleMoodSelect } = useActiveMoodPanel(
     moodBeingEditted,
@@ -76,6 +81,9 @@ function Home() {
         activeReadMore={activeReadMore}
         onReadMore={handleReadMore}
         setActiveReadMore={setActiveReadMore}
+        isCardEdit={isCardEdit}
+        setIsCardEdit={setIsCardEdit}
+        onHandleCardEdit={handleCardEdit}
       />
 
       {moodBeingEditted && (
@@ -83,6 +91,9 @@ function Home() {
           moodObj={moodBeingEditted}
           onUpdateText={handleUpdateText}
           onCancelEdit={handleCancelEdit}
+          activeReadMore={activeReadMore}
+          setIsCardEdit={setIsCardEdit}
+          setActiveReadMore={setActiveReadMore}
         />
       )}
     </PageWrapper>

@@ -4,8 +4,9 @@ import './DashboardHistory.css';
 function DashboardHistory({
   moodsArr,
   onRemoveNote,
-  activeReadMore,
+  setIsCardEdit,
   onReadMore,
+  onHandleCardEdit,
 }) {
   return (
     <div className="history-container">
@@ -13,7 +14,9 @@ function DashboardHistory({
         <MoodList
           moodsArr={moodsArr}
           onRemoveNote={onRemoveNote}
+          setIsCardEdit={setIsCardEdit}
           onReadMore={onReadMore}
+          onHandleCardEdit={onHandleCardEdit}
         />
       </div>
     </div>

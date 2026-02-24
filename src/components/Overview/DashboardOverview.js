@@ -15,7 +15,9 @@ function DashboardOverview({
   setIsRecommendationPanelOpen,
   activeReadMore,
   onReadMore,
+  setIsCardEdit,
   setActiveReadMore,
+  onHandleCardEdit,
 }) {
   return (
     <div className="dashboard-overview-container">
@@ -33,9 +35,10 @@ function DashboardOverview({
         <DashboardHistory
           moodsArr={moodsArr}
           onRemoveNote={onRemoveNote}
-          onEditMood={onEditMood}
           activeReadMore={activeReadMore}
+          setIsCardEdit={setIsCardEdit}
           onReadMore={onReadMore}
+          onHandleCardEdit={onHandleCardEdit}
         />
       )}
 

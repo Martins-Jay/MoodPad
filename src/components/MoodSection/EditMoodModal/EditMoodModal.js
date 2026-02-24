@@ -17,8 +17,12 @@ const icons = {
   angry: <AngryIcon size={35} />,
 };
 
-function EditMoodModal({ moodObj, onUpdateText, onCancelEdit }) {
-  console.log(moodObj);
+function EditMoodModal({
+  moodObj,
+  onUpdateText,
+  onCancelEdit,
+  setIsCardEdit,
+}) {
   const [newText, setNewText] = useState('');
 
   useEffect(
@@ -34,6 +38,8 @@ function EditMoodModal({ moodObj, onUpdateText, onCancelEdit }) {
       newText.trim().charAt(0).toUpperCase() + newText.trim().slice(1);
 
     onUpdateText(moodObj.timestamp, formattedText);
+
+    setIsCardEdit(false);
   }
 
   function handleCancel() {
@@ -81,7 +87,7 @@ function EditMoodModal({ moodObj, onUpdateText, onCancelEdit }) {
             <button className="btn cancel" onClick={handleCancel}>
               Cancel
             </button>
-            
+
             <button
               className="btn save"
               style={{ background: `${moodObj.color}` }}

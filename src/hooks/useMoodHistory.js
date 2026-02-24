@@ -10,6 +10,8 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
 
   const [activeReadMore, setActiveReadMore] = useState(null);
 
+  const [isCardEdit, setIsCardEdit] = useState(false);
+
   // Save moods
   useEffect(
     function () {
@@ -53,10 +55,17 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
 
   function handleEditMood(moodObj) {
     setMoodBeingEditted(moodObj);
+
+    setActiveReadMore(moodObj);
+
+    if (isCardEdit) setActiveReadMore(null);
+  }
+
+  function handleCardEdit(moodObj) {
+    setMoodBeingEditted(moodObj);
   }
 
   function handleUpdateText(selectedMoodId, formattedText) {
-    console.log(selectedMoodId);
     if (!formattedText.trim()) return;
 
     setMoodsArr((prevMoods) =>
@@ -66,12 +75,12 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
           : moodObj,
       ),
     );
+    setMoodBeingEditted(null);
+    if (isCardEdit) return;
 
     setActiveReadMore((activeReadMore) => {
       return { ...activeReadMore, text: formattedText };
     });
-
-    setMoodBeingEditted(null);
   }
 
   function handleCancelEdit() {
@@ -95,5 +104,8 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     handleReadMore,
     activeReadMore,
     setActiveReadMore,
+    setIsCardEdit,
+    isCardEdit,
+    handleCardEdit,
   };
 }

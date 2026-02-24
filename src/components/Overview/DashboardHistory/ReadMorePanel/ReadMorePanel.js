@@ -1,4 +1,4 @@
-import DeleteIcon from '../../../../assets/DeleteIcon';
+import DeleteIcon from '../../../../assets/icons/DeleteIcon';
 import Cancel from '../../../../assets/icons/Cancel';
 import EditIcon from '../../../../assets/icons/EditIcon';
 import formatRelativeDate from '../../../../utils/date';
@@ -9,7 +9,6 @@ function ReadMorePanel({
   onEditMood,
   onRemoveNote,
 }) {
-  console.log(activeReadMore);
 
   function handleCloseReadMore() {
     setActiveReadMore(null);
@@ -17,6 +16,8 @@ function ReadMorePanel({
 
   function handleEdit() {
     onEditMood(activeReadMore);
+
+    
   }
 
   function handleRemove() {

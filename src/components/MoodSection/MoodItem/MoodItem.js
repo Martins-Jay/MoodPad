@@ -9,7 +9,7 @@ import AngryIcon from '../../../assets/icons/Angry';
 
 import getFormattedTime from '../../../utils/time';
 import formatRelativeDate from '../../../utils/date';
-import DeleteIcon from '../../../assets/DeleteIcon';
+import DeleteIcon from '../../../assets/icons/DeleteIcon';
 
 import './moodItem.css';
 
@@ -22,7 +22,13 @@ const icons = {
   angry: <AngryIcon size={25} />,
 };
 
-function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
+function MoodItem({
+  moodObj,
+  onRemoveNote,
+  onReadMore,
+  setIsCardEdit,
+  onHandleCardEdit,
+}) {
   const textRef = useRef(null);
   const [isShortened, setIsShortened] = useState(false);
 
@@ -38,11 +44,6 @@ function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
   useEffect(
     function () {
       const reflectionTextEl = textRef.current;
-      console.log(
-        reflectionTextEl,
-        reflectionTextEl.scrollHeight,
-        reflectionTextEl.clientHeight,
-      );
 
       if (reflectionTextEl) {
         setIsShortened(
@@ -61,7 +62,11 @@ function MoodItem({ moodObj, onRemoveNote, onReadMore }) {
     onReadMore(moodObj);
   }
 
-  function handleEdit() {}
+  function handleEdit() {
+    onHandleCardEdit(moodObj);
+
+    setIsCardEdit(true)
+  }
 
   return (
     <li className="mood-item-container">
