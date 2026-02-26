@@ -18,6 +18,33 @@ function DashboardHistory({
   activefilter,
   setActiveFilter,
 }) {
+  function shouldIncludeMood(timestamp, activefilter) {
+    const today = new Date();
+    const moodDate = new Date(timestamp);
+
+    const weekAgo = new Date();
+    weekAgo.setDate(today.getDate() - 6);
+
+    if (activefilter === 'today') {
+      return (
+        moodDate.getDate() === today.getDate() &&
+        moodDate.getMonth() === today.getMonth() &&
+        moodDate.getFullYear() === today.getFullYear()
+      );
+    }
+
+    if (activefilter === 'week') {
+      return moodDate >= weekAgo;
+    }
+
+    return true;
+  }
+
+  const filteredMoods = moodsArr.filter((moodObj) =>
+    shouldIncludeMood(moodObj.timestamp, activefilter),
+  );
+
+
   return moodsArr && moodsArr.length > 0 ? (
     <div className="history-container">
       <ul className="history-filter-container">
@@ -34,6 +61,7 @@ function DashboardHistory({
       <div className="history-content">
         <MoodList
           moodsArr={moodsArr}
+          filteredMoods={filteredMoods}
           onRemoveNote={onRemoveNote}
           setIsCardEdit={setIsCardEdit}
           onReadMore={onReadMore}

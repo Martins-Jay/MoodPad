@@ -3,6 +3,7 @@ import MoodItem from '../MoodItem/MoodItem';
 
 function MoodList({
   moodsArr,
+  filteredMoods,
   onRemoveNote,
   onEditMood,
   onReadMore,
@@ -12,7 +13,7 @@ function MoodList({
   return (
     <div className="mood-list-container">
       <ul className="mood-list">
-        {moodsArr.map((moodObj) => (
+        {filteredMoods.map((moodObj) => (
           <MoodItem
             key={moodObj.timestamp}
             moodObj={moodObj}
