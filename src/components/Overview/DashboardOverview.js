@@ -18,6 +18,8 @@ function DashboardOverview({
   setIsCardEdit,
   setActiveReadMore,
   onHandleCardEdit,
+  activefilter,
+  setActiveFilter,
 }) {
   return (
     <div className="dashboard-overview-container">
@@ -35,10 +37,11 @@ function DashboardOverview({
         <DashboardHistory
           moodsArr={moodsArr}
           onRemoveNote={onRemoveNote}
-          activeReadMore={activeReadMore}
           setIsCardEdit={setIsCardEdit}
           onReadMore={onReadMore}
           onHandleCardEdit={onHandleCardEdit}
+          activefilter={activefilter}
+          setActiveFilter={setActiveFilter}
         />
       )}
 

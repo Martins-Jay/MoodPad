@@ -24,7 +24,7 @@ export function useActiveMoodPanel(
 
     // block wheel and touch scroll
     window.addEventListener('wheel', lockScroll, { passive: false });
-    window.addEventListener('touchmove', lockScroll, { passive: false });
+    // window.addEventListener('touchmove', lockScroll, { passive: false });
 
     // Runs whenever the component unmounts and before the effect is executed again
     return () => {

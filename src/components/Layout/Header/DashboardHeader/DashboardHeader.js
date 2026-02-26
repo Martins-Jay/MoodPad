@@ -18,7 +18,7 @@ function DashboardHeader({ moodsArr }) {
 
   return (
     <div className="dashboard-content-wrapper">
-      <h1 className="greetings">{getGreeting(timestamp)}, Martins</h1>
+      <h1 className="greetings">{getGreeting(timestamp)}, User</h1>
 
       <div className="description-wrapper">
         <p className='bridge-text'>Take a moment to check in with yourself</p>

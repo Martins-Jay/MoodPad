@@ -1,5 +1,5 @@
 .history-container {
-  min-height: 23rem;
+  height: 22rem;
 }
 
 /* Read more */
@@ -81,4 +81,72 @@
 .delete-text-btn {
   margin-right: 0;
   font-weight: 100;
+}
+
+.no-history-container {
+  height: 16rem;
+}
+
+.headline p {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.no-history-content {
+  position: relative;
+  border-radius: 0.8rem;
+  padding: 14px;
+  margin-top: 0.6rem;
+  width: 100%;
+  height: 6rem;
+
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.no-history-content p {
+  font-size: 0.8rem;
+}
+
+.lock-icon {
+  position: absolute;
+  bottom: -0.8rem;
+  right: -0.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+
+  display: grid;
+  place-content: center;
+  background: var(--grad-tab);
+  border: 1px solid #7165652f;
+  border-radius: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Dashboard History */
+.history-filter-container {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.nav-history-btn {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent; /* remove mobile tap flash */
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap; /* prevent text from breaking to next line */
+  transition: font-weight.2s ease; /* smooth active change */
+}
+
+.nav-history-btn.active {
+  font-weight: 600;
+}
+
+.nav-history-btn.inactive {
+  font-weight: 200;
 }
