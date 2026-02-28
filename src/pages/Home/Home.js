@@ -13,7 +13,7 @@ import DashboardOverview from '../../components/Overview/DashboardOverview.js';
 
 function Home() {
   const [activeTab, setActiveTab] = useState('dashboard');
-  const [activefilter, setActiveFilter] = useState('today')
+  const [activefilter, setActiveFilter] = useState('today');
   const [isRecommendationPanelOpen, setIsRecommendationPanelOpen] =
     useState(false);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
@@ -34,7 +34,8 @@ function Home() {
     isCardEdit,
     setIsCardEdit,
     handleCardEdit,
-  } = useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen);
+    handleReset,
+  } = useMoods(setIsActiveMoodPanelOpen);
 
   const { handleMoodSelect } = useActiveMoodPanel(
     moodBeingEditted,
@@ -48,6 +49,8 @@ function Home() {
   return (
     <PageWrapper>
       <Header moodsArr={moodsArr} />
+
+      <button onClick={handleReset}>Reset</button>
 
       <MoodPicker onPickMood={handleAddMood} onMoodSelect={handleMoodSelect} />
 

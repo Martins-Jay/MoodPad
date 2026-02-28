@@ -1,4 +1,4 @@
-function NavFilterItem({ filterType, activefilter, setActiveFilter }) {
+function NavFilterButton({ filterType, activefilter, setActiveFilter }) {
   function handleTabSwitch() {
     setActiveFilter(filterType.id);
   }
@@ -13,4 +13,4 @@ function NavFilterItem({ filterType, activefilter, setActiveFilter }) {
   );
 }
 
-export default NavFilterItem;
+export default NavFilterButton;

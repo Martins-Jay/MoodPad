@@ -13,3 +13,7 @@ export function loadMoods() {
     return [];
   }
 }
+
+export function resetMoods() {
+  localStorage.clear();
+}

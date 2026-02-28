@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { loadMoods, saveMoods } from '../utils/storage';
+import { loadMoods, saveMoods, resetMoods } from '../utils/storage';
 
-export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
+export function useMoods(setIsActiveMoodPanelOpen) {
   const [moodsArr, setMoodsArr] = useState(() => loadMoods());
 
   const [lastAction, setLastAction] = useState(null); // 'added' | 'removed' | null --> used for conditional rendering in ActiveMoodPanel
@@ -28,6 +28,12 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
           : moodObj,
       ),
     );
+  }
+
+  function handleReset() {
+    resetMoods();
+
+    setMoodsArr([]);
   }
 
   function handleAddMood(iconObj, formattedText) {
@@ -107,5 +113,6 @@ export function useMoods(isActiveMoodPanelOpen, setIsActiveMoodPanelOpen) {
     setIsCardEdit,
     isCardEdit,
     handleCardEdit,
+    handleReset,
   };
 }

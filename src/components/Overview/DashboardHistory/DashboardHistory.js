@@ -1,7 +1,7 @@
 import MoodList from '../../MoodSection/MoodList/MoodList';
 import './DashboardHistory.css';
 import Lock from '../../../assets/icons/lock';
-import NavFilterItem from './NavFilterItem/NavFilterItem';
+import NavFilterButton from './NavFilterButton/NavFilterButton.js';
 
 const historyFilters = [
   { id: 'today', label: 'Today' },
@@ -49,7 +49,7 @@ function DashboardHistory({
     <div className="history-container">
       <ul className="history-filter-container">
         {historyFilters.map((filterType) => (
-          <NavFilterItem
+          <NavFilterButton
             key={filterType.id}
             filterType={filterType}
             activefilter={activefilter}
@@ -59,14 +59,29 @@ function DashboardHistory({
       </ul>
 
       <div className="history-content">
-        <MoodList
-          moodsArr={moodsArr}
-          filteredMoods={filteredMoods}
-          onRemoveNote={onRemoveNote}
-          setIsCardEdit={setIsCardEdit}
-          onReadMore={onReadMore}
-          onHandleCardEdit={onHandleCardEdit}
-        />
+        {filteredMoods.length > 0 ? (
+          <MoodList
+            moodsArr={moodsArr}
+            filteredMoods={filteredMoods}
+            onRemoveNote={onRemoveNote}
+            setIsCardEdit={setIsCardEdit}
+            onReadMore={onReadMore}
+            onHandleCardEdit={onHandleCardEdit}
+          />
+        ) : (
+          <div className="no-mood-filtered-container">
+            <div className="no-mood-filtered">
+              <p>
+                Your day is unfolding gently. Take a moment to pause and capture
+                how you’re feeling.
+              </p>
+
+              <div className="lock-icon">
+                <Lock />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   ) : (

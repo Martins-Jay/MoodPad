@@ -92,7 +92,8 @@
   font-weight: 400;
 }
 
-.no-history-content {
+.no-history-content,
+.no-mood-filtered-container {
   position: relative;
   border-radius: 0.8rem;
   padding: 14px;
@@ -105,7 +106,13 @@
   box-shadow: var(--shadow-md);
 }
 
-.no-history-content p {
+.no-mood-filtered-container {
+  margin-top: 1rem;
+  height: 5rem;
+}
+
+.no-history-content p,
+.no-mood-filtered p {
   font-size: 0.8rem;
 }
 
