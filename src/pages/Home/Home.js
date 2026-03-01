@@ -45,6 +45,7 @@ function Home() {
     setActiveMood,
     isRecommendationPanelOpen,
     activeReadMore,
+    isFullHistoryModalOpen,
   );
 
   return (

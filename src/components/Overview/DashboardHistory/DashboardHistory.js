@@ -46,7 +46,6 @@ function DashboardHistory({
     shouldIncludeMood(moodObj.timestamp, activefilter),
   );
 
-  console.log(isFullHistoryModalOpen);
 
   return moodsArr && moodsArr.length > 0 ? (
     <div className="history-container">

@@ -13,7 +13,6 @@ function MoodList({
   isFullHistoryModalOpen,
   setIsFullHistoryModalOpen,
 }) {
-  console.log(isFullHistoryModalOpen);
   const moodToDisplay = filteredMoods.slice(0, previewCount);
   return (
     <div className="mood-list-container">

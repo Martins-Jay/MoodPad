@@ -68,7 +68,6 @@ function MoodItem({
 
     setIsCardEdit(true);
   }
-  console.log(isFullHistoryModalOpen);
   return (
     <li
       className={`${isFullHistoryModalOpen ? 'mood-item-margin-reduce' : 'mood-item-container '}`}

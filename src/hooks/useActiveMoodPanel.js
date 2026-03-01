@@ -7,6 +7,7 @@ export function useActiveMoodPanel(
   setActiveMood,
   isRecommendationPanelOpen,
   activeReadMore,
+  isFullHistoryModalOpen,
 ) {
   useEffect(() => {
     if (!(isActiveMoodPanelOpen || moodBeingEditted)) return;
@@ -15,7 +16,7 @@ export function useActiveMoodPanel(
     const scrollY = window.scrollY;
     const body = document.body;
 
-    // lock body position to fixed 
+    // lock body position to fixed
     body.style.position = 'fixed';
     body.style.inset = '0';
 
@@ -24,7 +25,6 @@ export function useActiveMoodPanel(
 
     // block wheel and touch scroll
     window.addEventListener('wheel', lockScroll, { passive: false });
-    // window.addEventListener('touchmove', lockScroll, { passive: false });
 
     // Runs whenever the component unmounts and before the effect is executed again
     return () => {
@@ -32,11 +32,25 @@ export function useActiveMoodPanel(
       body.style.inset = '';
 
       window.removeEventListener('wheel', lockScroll);
-      window.removeEventListener('touchmove', lockScroll);
 
       window.scrollTo(0, scrollY);
     };
   }, [isActiveMoodPanelOpen, moodBeingEditted]);
+
+  useEffect(
+    function () {
+      if (isFullHistoryModalOpen) {
+        document.body.style.overflow = 'hidden'; // prevent page scroll
+      } else {
+        document.body.style.overflow = '';
+      }
+
+      return () => {
+        document.body.style.overflow = '';
+      }
+    },
+    [isFullHistoryModalOpen],
+  );
 
   function handleMoodSelect(moodObj) {
     if (isRecommendationPanelOpen || activeReadMore) return;
