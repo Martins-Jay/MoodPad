@@ -1,7 +1,8 @@
 .dashboard-overview-container {
+  max-height: 40rem;
   margin: var(--container-margin);
-  padding: 0.7rem 0.9rem;
-  shadow: var(--shadow-md);
+  padding: 0.5rem 0.9rem;
   background: var(--grad-tab);
   border-radius: 20px;
+  shadow: var(--shadow-md)
 }

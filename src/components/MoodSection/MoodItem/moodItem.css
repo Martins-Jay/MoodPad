@@ -11,6 +11,18 @@
   /* animation: dropIn 0.5s ease-in-out; */
 }
 
+.mood-item-margin-reduce {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background: var(--bg-card);
+  border-radius: 20px;
+  margin: .5rem 0;
+  padding: 0.25rem;
+  box-shadow: var(--shadow-md);
+}
+
 .item-content-wrapper {
   padding: 0.3rem 0.8rem 0.1rem 0;
 }

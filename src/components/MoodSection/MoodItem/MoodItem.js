@@ -27,6 +27,7 @@ function MoodItem({
   onRemoveNote,
   onReadMore,
   setIsCardEdit,
+  isFullHistoryModalOpen,
   onHandleCardEdit,
 }) {
   const textRef = useRef(null);
@@ -65,11 +66,13 @@ function MoodItem({
   function handleEdit() {
     onHandleCardEdit(moodObj);
 
-    setIsCardEdit(true)
+    setIsCardEdit(true);
   }
-
+  console.log(isFullHistoryModalOpen);
   return (
-    <li className="mood-item-container">
+    <li
+      className={`${isFullHistoryModalOpen ? 'mood-item-margin-reduce' : 'mood-item-container '}`}
+    >
       <div
         className="item-content-wrapper"
         style={{

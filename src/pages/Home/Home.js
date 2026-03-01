@@ -12,12 +12,13 @@ import ActiveMoodStatus from '../../components/ActiveMoodStatus/ActiveMoodStatus
 import DashboardOverview from '../../components/Overview/DashboardOverview.js';
 
 function Home() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('history');
   const [activefilter, setActiveFilter] = useState('today');
   const [isRecommendationPanelOpen, setIsRecommendationPanelOpen] =
     useState(false);
   const [activeMood, setActiveMood] = useState({}); // currently open panel
   const [isActiveMoodPanelOpen, setIsActiveMoodPanelOpen] = useState(false);
+  const [isFullHistoryModalOpen, setIsFullHistoryModalOpen] = useState(false);
 
   const {
     moodsArr,
@@ -88,6 +89,8 @@ function Home() {
         onHandleCardEdit={handleCardEdit}
         activefilter={activefilter}
         setActiveFilter={setActiveFilter}
+        isFullHistoryModalOpen={isFullHistoryModalOpen}
+        setIsFullHistoryModalOpen={setIsFullHistoryModalOpen}
       />
 
       {moodBeingEditted && (

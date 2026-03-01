@@ -17,6 +17,8 @@ function DashboardHistory({
   onHandleCardEdit,
   activefilter,
   setActiveFilter,
+  isFullHistoryModalOpen,
+  setIsFullHistoryModalOpen,
 }) {
   function shouldIncludeMood(timestamp, activefilter) {
     const today = new Date();
@@ -44,6 +46,7 @@ function DashboardHistory({
     shouldIncludeMood(moodObj.timestamp, activefilter),
   );
 
+  console.log(isFullHistoryModalOpen);
 
   return moodsArr && moodsArr.length > 0 ? (
     <div className="history-container">
@@ -59,7 +62,7 @@ function DashboardHistory({
       </ul>
 
       <div className="history-content">
-        {filteredMoods.length > 0 ? (
+        {filteredMoods.length > 0 && !isFullHistoryModalOpen ? (
           <MoodList
             moodsArr={moodsArr}
             filteredMoods={filteredMoods}
@@ -67,8 +70,9 @@ function DashboardHistory({
             setIsCardEdit={setIsCardEdit}
             onReadMore={onReadMore}
             onHandleCardEdit={onHandleCardEdit}
+            setIsFullHistoryModalOpen={setIsFullHistoryModalOpen}
           />
-        ) : (
+        ) : filteredMoods.length === 0 && !isFullHistoryModalOpen ? (
           <div className="no-mood-filtered-container">
             <div className="no-mood-filtered">
               <p>
@@ -81,6 +85,38 @@ function DashboardHistory({
               </div>
             </div>
           </div>
+        ) : filteredMoods.length > 0 && isFullHistoryModalOpen ? (
+          <div className="full-history-modal-container">
+            <div className="history-list-content">
+              <div className="modal-header">
+                <h2>Mood History</h2>
+
+                <button
+                  className="modal-close-btn"
+                  onClick={() => setIsFullHistoryModalOpen(false)}
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="modal-cards">
+                {filteredMoods.map((moodObj, index) => (
+                  <MoodList
+                    key={index}
+                    moodsArr={[moodObj]}
+                    filteredMoods={[moodObj]}
+                    onRemoveNote={onRemoveNote}
+                    setIsCardEdit={setIsCardEdit}
+                    onReadMore={onReadMore}
+                    isFullHistoryModalOpen={isFullHistoryModalOpen}
+                    onHandleCardEdit={onHandleCardEdit}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          ''
         )}
       </div>
     </div>

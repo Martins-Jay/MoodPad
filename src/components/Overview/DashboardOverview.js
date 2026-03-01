@@ -20,6 +20,8 @@ function DashboardOverview({
   onHandleCardEdit,
   activefilter,
   setActiveFilter,
+  isFullHistoryModalOpen,
+  setIsFullHistoryModalOpen,
 }) {
   return (
     <div className="dashboard-overview-container">
@@ -42,6 +44,8 @@ function DashboardOverview({
           onHandleCardEdit={onHandleCardEdit}
           activefilter={activefilter}
           setActiveFilter={setActiveFilter}
+          isFullHistoryModalOpen={isFullHistoryModalOpen}
+          setIsFullHistoryModalOpen={setIsFullHistoryModalOpen}
         />
       )}
 

@@ -1,4 +1,23 @@
+.mood-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
 .mood-list {
   margin: 0;
   padding: 0;
+}
+
+.view-more-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-more-btn {
+  color: #000000;
+  background: #ddc3a476;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.3rem 0.8rem;
 }
