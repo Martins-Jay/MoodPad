@@ -5,3 +5,29 @@
   min-height: 100vh;
   padding: 1.5rem 1rem;
 }
+
+/* tablet */
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 6rem;
+  }
+}
+
+/* large desktop */
+@media (min-width: 1280px) {
+  .page-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 6rem;
+  }
+}
+

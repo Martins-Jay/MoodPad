@@ -96,7 +96,7 @@ function MoodItem({
           </div>
 
           <button className="remove-btn" onClick={handleRemove}>
-            <DeleteIcon size={20} />
+            <DeleteIcon size={12} />
           </button>
         </div>
 

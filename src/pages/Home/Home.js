@@ -35,7 +35,7 @@ function Home() {
     isCardEdit,
     setIsCardEdit,
     handleCardEdit,
-    handleReset,
+    // handleReset,
   } = useMoods(setIsActiveMoodPanelOpen);
 
   const { handleMoodSelect } = useActiveMoodPanel(
@@ -52,7 +52,7 @@ function Home() {
     <PageWrapper>
       <Header moodsArr={moodsArr} />
 
-      <button onClick={handleReset}>Reset</button>
+      {/* <button onClick={handleReset}>Reset</button> */}
 
       <MoodPicker onPickMood={handleAddMood} onMoodSelect={handleMoodSelect} />
 
