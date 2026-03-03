@@ -1,5 +1,6 @@
 .status-message {
   text-align: center;
   font-size: .75rem;
-  color: var(--text-secondary)
+  color: var(--text-secondary);
+ 
 }

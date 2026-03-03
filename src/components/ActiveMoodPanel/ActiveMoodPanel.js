@@ -68,7 +68,7 @@ function ActiveMoodPanel({
           <div
             className="active-mood-container"
             style={{
-              borderLeft: `6px solid ${color}`,
+              borderLeft: `10px solid ${color}`,
               borderRadius: '16px',
               background: `${cardColorGradient}`,
             }}

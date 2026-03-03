@@ -141,3 +141,12 @@
   height: 100%;
   transform: translateZ(0);
 }
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-content: center;
+    gap: 1.8rem;
+  }
+}

@@ -1,8 +1,129 @@
+.overview-left-container {
+  display: none;
+}
+
+.left-container-text {
+  display: none;
+}
+
+.overview-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.happy-man-img {
+  width: 20rem;
+  height: 20rem;
+}
+
 .dashboard-overview-container {
-  max-height: 40rem;
+  min-width: 20rem;
+  min-height: 20rem;
   margin: var(--container-margin);
   padding: 0.5rem 0.9rem;
   background: var(--grad-tab);
   border-radius: 20px;
-  shadow: var(--shadow-md)
+  shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .dashboard-overview-container {
+    margin: var(--container-margin-sm-tab);
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 1020px) {
+  .overview-section {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .left-container-text {
+    display: flex;
+    position: absolute;
+    color: #0e0c046f;
+    background: #ffffff8f;
+    padding: 2rem;
+    border-radius: 30rem;
+
+    top: 40%;
+    left: 15%;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 4.5rem;
+  }
+
+  .overview-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .overview-left-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .happy-man-img {
+    width: 20rem;
+    height: 29rem;
+  }
+
+  .dashboard-overview-container {
+    min-width: 0rem;
+    margin: var(--container-margin-lg-tab);
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .overview-section {
+    position: relative;
+  }
+
+  .left-container-text {
+    display: flex;
+    position: absolute;
+    color: #0e0c046f;
+    background: #ffffff8f;
+    padding: 2.5rem;
+    border-radius: 30rem;
+
+    top: 21%;
+    left: 15%;
+    font-size: 3.9rem;
+    font-weight: 800;
+    line-height: 6.5rem;
+  }
+
+  .happy-man-img {
+    width: 21rem;
+    height: 30rem;
+  }
+
+  .dashboard-overview-container {
+    min-width: 30rem;
+    width: 20rem;
+    margin: var(--container-margin-desktop);
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .happy-man-img {
+    width: 20rem;
+    height: 30rem;
+  }
+
+  .dashboard-overview-container {
+    min-width: 40rem;
+    margin: var(--container-margin-lg-desktop);
+    padding: 1rem 2rem;
+  }
 }

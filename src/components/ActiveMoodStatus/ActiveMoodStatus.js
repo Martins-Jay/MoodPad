@@ -8,8 +8,7 @@ function ActiveMoodStatus({ isPanelOpen, activeMood, lastAction, moodsArr }) {
   if (Object.keys(activeMood).length > 0 && lastAction === 'added') {
     return (
       <div className="status-message">
-        Awesome! You’ve logged {moodsArr.length}{' '}
-        {moodsArr.length === 1 ? 'mood' : 'moods'} today!
+        Awesome! You’ve successfully logged a mood today!
       </div>
     );
   }

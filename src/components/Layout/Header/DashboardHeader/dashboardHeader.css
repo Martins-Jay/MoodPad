@@ -99,4 +99,9 @@
   .dashboard-content-wrapper .date-container {
     font-size: 1.1rem;
   }
+
+  .clock-icon svg {
+    display: inline-block;
+    vertical-align: -12%;
+  }
 }

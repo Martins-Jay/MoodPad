@@ -153,3 +153,12 @@
 .success-notice {
   font-size: 0.7rem;
 }
+
+/* Responsive */
+@media (min-width: 768px) {
+
+
+  /* .streak-active-container {
+    max-width: 20px;
+  } */
+}
