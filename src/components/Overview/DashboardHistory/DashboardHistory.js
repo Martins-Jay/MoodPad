@@ -88,7 +88,7 @@ function DashboardHistory({
           <div className="full-history-modal-container">
             <div className="history-list-content">
               <div className="modal-header">
-                <h2>Mood History</h2>
+                <h2 className='modal-header-h2'>Mood History</h2>
 
                 <button
                   className="modal-close-btn"

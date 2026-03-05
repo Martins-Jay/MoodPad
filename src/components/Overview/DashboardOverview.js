@@ -29,7 +29,7 @@ function DashboardOverview({
     <div className="overview-section">
       <div className="overview-left-container">
         <div className="img-container">
-          <img src={HappyManImg} alt="" className="happy-man-img" />
+          <img src={HappyManImg} alt="" className="happy-man-img" fetchPriority='high' />
         </div>
       </div>
 

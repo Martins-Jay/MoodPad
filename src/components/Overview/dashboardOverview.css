@@ -17,7 +17,7 @@
 }
 
 .dashboard-overview-container {
-  min-width: 20rem;
+  min-width: 24rem;
   min-height: 20rem;
   margin: var(--container-margin);
   padding: 0.5rem 0.9rem;
@@ -76,7 +76,9 @@
   }
 
   .dashboard-overview-container {
-    min-width: 0rem;
+    min-width: 30rem;
+    min-height: 28rem;
+    max-height: 40rem;
     margin: var(--container-margin-lg-tab);
     padding: 1rem 2rem;
   }
@@ -116,6 +118,24 @@
 }
 
 @media (min-width: 1440px) {
+  .overview-section {
+    position: relative;
+  }
+
+  .left-container-text {
+    display: flex;
+    position: absolute;
+    color: #0e0c046f;
+    background: #ffffff8f;
+    padding: 2.5rem;
+    border-radius: 30rem;
+
+    top: 30%;
+    left: 13%;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 6.5rem;
+  }
   .happy-man-img {
     width: 20rem;
     height: 30rem;
@@ -123,6 +143,8 @@
 
   .dashboard-overview-container {
     min-width: 40rem;
+    min-height: 28rem;
+    max-height: 40rem;
     margin: var(--container-margin-lg-desktop);
     padding: 1rem 2rem;
   }

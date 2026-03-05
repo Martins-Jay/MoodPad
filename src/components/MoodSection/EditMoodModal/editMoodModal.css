@@ -18,10 +18,11 @@
 
 .edit-modal {
   position: relative;
-  top: 50%;
-  width: 70%;
-  max-width: 420px;
-  background: var(--bg-card);
+  top: 30%;
+  min-width: 90%;
+  max-width: 22%;
+  height: 18rem;
+  background: #ffffffe7;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,9 +31,18 @@
   border-radius: 22px;
 }
 
+.modal-header {
+  position: absolute;
+  top: 3%;
+  min-width: 95%;
+}
+
 .modal-title {
+  position: absolute;
   display: flex;
   align-items: center;
+
+  top: 0;
   width: 100%;
   color: #494747;
   border-radius: 16px;
@@ -50,21 +60,29 @@
   text-align: center;
 }
 
+.header-edit-title {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
 .modal-body {
   position: relative;
-  top: -12px;
+  top: 0px;
 }
 
 .textarea-container .edit-textarea {
   border: none;
+  border-radius: .8rem;
   width: 100%;
   max-width: 100%;
-  height: 65px;
+  height: 9rem;
   font-size: 16px;
   outline: none;
   color: var(--text-secondary);
   overflow-x: auto;
   padding: 0.5rem 0.9rem;
+  z-index: 50;
+  shadow: var(--shadow-md)
 }
 
 .edit-textarea::placeholder {
@@ -72,8 +90,11 @@
 }
 
 .modal-footer {
+  position: absolute;
+  bottom: 1rem;
+  width: 95%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -85,7 +106,7 @@
 }
 
 .btn.cancel {
-  border: 1px solid #ccc;
+  border: 0px solid #ccc;
   width: 120px;
   color: var(--text-secondary);
   background: #fff;
@@ -93,7 +114,7 @@
 
 .btn.save {
   border: none;
-  color: #fff;
+  color: #000000;
   width: 120px;
   box-shadow: var(--shadow-sm);
 }

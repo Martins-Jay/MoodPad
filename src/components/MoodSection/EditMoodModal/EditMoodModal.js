@@ -17,12 +17,7 @@ const icons = {
   angry: <AngryIcon size={35} />,
 };
 
-function EditMoodModal({
-  moodObj,
-  onUpdateText,
-  onCancelEdit,
-  setIsCardEdit,
-}) {
+function EditMoodModal({ moodObj, onUpdateText, onCancelEdit, setIsCardEdit }) {
   const [newText, setNewText] = useState('');
 
   useEffect(
@@ -46,24 +41,27 @@ function EditMoodModal({
     onCancelEdit();
   }
 
+  console.log(moodObj);
+
   return (
     <div className="modal-overlay">
       <div className="modal-backdrop">
         <div className="edit-modal">
           {/* Header */}
-          <div className="modal-header">
-            <div
-              className="modal-title"
-              style={{
-                borderLeft: `6px solid ${moodObj.color}`,
-                borderRadius: '16px',
-                background: `${moodObj.cardColorGradient}`,
-              }}
-            >
+          <div
+            className="modal-header"
+            style={{
+              borderLeft: `10px solid ${moodObj.color}`,
+              borderRadius: '16px',
+              background: `${moodObj.cardColorGradient}`,
+              height: '10rem',
+            }}
+          >
+            <div className="modal-title">
               <div className="mood-icon">{icons[moodObj.iconName]}</div>
 
               <div className="edit-reflection-wrapper">
-                <h2>Edit Reflection</h2>
+                <h2 className='header-edit-title'>{moodObj.name} reflection</h2>
               </div>
             </div>
           </div>
