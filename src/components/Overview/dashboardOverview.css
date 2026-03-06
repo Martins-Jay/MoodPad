@@ -1,3 +1,10 @@
+.overview-section {
+  display: flex;
+  flex-direction: row;
+
+  min-width: 100%;
+}
+
 .overview-left-container {
   display: none;
 }
@@ -6,18 +13,13 @@
   display: none;
 }
 
-.overview-section {
-  display: flex;
-  flex-direction: row;
-}
-
-.happy-man-img {
+/* .happy-man-img {
   width: 20rem;
   height: 20rem;
-}
+} */
 
 .dashboard-overview-container {
-  min-width: 24rem;
+  min-width: 100%;
   min-height: 20rem;
   margin: var(--container-margin);
   padding: 0.5rem 0.9rem;
@@ -27,14 +29,7 @@
 }
 
 @media (min-width: 768px) {
-  .dashboard-overview-container {
-    margin: var(--container-margin-sm-tab);
-    padding: 1rem 2rem;
-  }
-}
-
-@media (min-width: 1020px) {
-  .overview-section {
+    .overview-section {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -71,6 +66,57 @@
   }
 
   .happy-man-img {
+    width: 18rem;
+    height: 25rem;
+  }
+
+  .dashboard-overview-container {
+    min-width: 23rem;
+    min-height: 28rem;
+    max-height: 40rem;
+    margin: var(--container-margin-lg-tab);
+    padding:1rem;
+  }
+}
+
+@media (min-width: 1020px) {
+  .overview-section {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .left-container-text {
+    display: flex;
+    position: absolute;
+    color: #0e0c046f;
+    background: #ffffff8f;
+    padding: 2rem;
+    border-radius: 30rem;
+
+    top: 45%;
+    left: 15%;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 4.5rem;
+  }
+
+  .overview-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .overview-left-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .happy-man-img {
     width: 20rem;
     height: 29rem;
   }
@@ -80,7 +126,7 @@
     min-height: 28rem;
     max-height: 40rem;
     margin: var(--container-margin-lg-tab);
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
   }
 }
 
@@ -97,7 +143,7 @@
     padding: 2.5rem;
     border-radius: 30rem;
 
-    top: 21%;
+    top: 27%;
     left: 15%;
     font-size: 3.9rem;
     font-weight: 800;
@@ -130,7 +176,7 @@
     padding: 2.5rem;
     border-radius: 30rem;
 
-    top: 30%;
+    top: 33%;
     left: 13%;
     font-size: 3.5rem;
     font-weight: 800;
@@ -142,7 +188,7 @@
   }
 
   .dashboard-overview-container {
-    min-width: 40rem;
+    min-width: 30rem;
     min-height: 28rem;
     max-height: 40rem;
     margin: var(--container-margin-lg-desktop);

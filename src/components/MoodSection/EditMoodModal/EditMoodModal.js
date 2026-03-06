@@ -61,7 +61,7 @@ function EditMoodModal({ moodObj, onUpdateText, onCancelEdit, setIsCardEdit }) {
               <div className="mood-icon">{icons[moodObj.iconName]}</div>
 
               <div className="edit-reflection-wrapper">
-                <h2 className='header-edit-title'>{moodObj.name} reflection</h2>
+                <h2 className="header-edit-title">{moodObj.name} reflection</h2>
               </div>
             </div>
           </div>
