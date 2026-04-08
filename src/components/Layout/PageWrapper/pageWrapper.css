@@ -8,14 +8,16 @@
 
 /* tablet */
 @media (min-width: 768px) {
-  .page-wrapper {
+  .page-wrapper,
+  .history-list-content-container {
     padding: 2.5rem 2rem;
   }
 }
 
 /* desktop */
 @media (min-width: 1024px) {
-  .page-wrapper {
+  .page-wrapper,
+  .history-list-content-container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem 2rem;
@@ -24,10 +26,10 @@
 
 /* large desktop */
 @media (min-width: 1280px) {
-  .page-wrapper {
+  .page-wrapper,
+  .history-list-content-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem 4rem;
   }
 }
-

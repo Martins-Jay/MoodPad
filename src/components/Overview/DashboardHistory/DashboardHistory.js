@@ -46,7 +46,6 @@ function DashboardHistory({
     shouldIncludeMood(moodObj.timestamp, activefilter),
   );
 
-
   return moodsArr && moodsArr.length > 0 ? (
     <div className="history-container">
       <ul className="history-filter-container">
@@ -86,17 +85,13 @@ function DashboardHistory({
           </div>
         ) : filteredMoods.length > 0 && isFullHistoryModalOpen ? (
           <div className="full-history-modal-container">
-            <div className="history-list-content">
-              <div className="modal-header">
-                <h2 className='modal-header-h2'>Mood History</h2>
-
-                <button
-                  className="modal-close-btn"
-                  onClick={() => setIsFullHistoryModalOpen(false)}
-                >
-                  ✕
-                </button>
-              </div>
+            <div className="history-list-content-container">
+              <button
+                className="modal-close-btn"
+                onClick={() => setIsFullHistoryModalOpen(false)}
+              >
+                ✕
+              </button>
 
               <div className="modal-cards">
                 {filteredMoods.map((moodObj, index) => (
